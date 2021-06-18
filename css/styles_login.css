@@ -1,0 +1,119 @@
+/* general styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 16px;
+}
+
+/* applies styles to the main container */
+.contenedor{
+    background-image: url('../img/bg-01.jpg');
+    width: 100%;  
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+/* General styles for 'a' tags */
+a{
+    line-height: 1.7;
+	color: #666666;
+	margin: 0px;
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    text-decoration: none;
+}
+
+a:focus {
+	outline: none !important;
+}
+
+a:hover {
+    color: #a64bf4;
+}
+
+/* title-section: Login text */
+.title-section{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 2.5em;           /* 40px */
+    margin-bottom: 1.3em;       /* 20.8px */
+}
+
+/* deletes the outline border of input tags */
+input {
+	outline: none;
+	border: none;
+}
+
+/* applies styles to the login container */
+.login-container{
+    background: #fff;
+    border-radius: 10px;
+    width: 100%;
+    min-height: 100vh;
+    padding: 3.75em 3.125em;    /* 60px top-bottom, 50px left-right */
+    overflow: hidden;
+}
+
+.single-field-container{
+    width: 100%;
+    position: relative;
+    border-bottom: 2px solid #d9d9d9;
+}
+
+.label-input{
+    color: #333333;
+    line-height: 1.5;
+    padding-left: 7px;
+}
+
+.input-field{
+    color: #333333;
+    line-height: 1.2;
+    display: block;
+    width: 100%;
+    height: 3.4375em;       /* 55px */
+    background: transparent;
+    padding: 0 7px 0 43px;
+}
+
+/* Apply styles to all the icons that are inside input fields; they're being aligned to the left */
+.single-field-container .icon{
+    position: absolute;
+    top: 60%;
+    left: 15px;
+}
+
+.submit-btn{
+    padding: 1em 3em;           /* 16px top-down, 48px left-right */
+    width: 100%;
+    border-radius: 2em;         /* 32px in each corner */
+    outline: none;              /* removes the border */
+    border: none;
+    background: #a64bf4;
+    background: -webkit-linear-gradient(90deg, #00dbde, #fc00ff, #00dbde, #fc00ff) var(--x, 0) / 200%;
+    background: -o-linear-gradient(90deg, #00dbde, #fc00ff, #00dbde, #fc00ff) var(--x, 0) / 200%;
+    background: -moz-linear-gradient(90deg, #00dbde, #fc00ff, #00dbde, #fc00ff) var(--x, 0) / 200%;
+    background: linear-gradient(90deg, #00dbde, #fc00ff, #00dbde, #fc00ff) var(--x, 0) / 200%;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1em;           /* 16px */
+    color: #fff;
+    text-transform: uppercase;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+/* By doing this, it will create a cool hover effect where the gradient transition occurs */
+.submit-btn:hover{
+    --x: 100%;  
+}
