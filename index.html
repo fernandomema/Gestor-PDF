@@ -11,11 +11,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
     <!-- Google fonts file: Dancing Script -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <!-- Google fonts file: Open Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet"> 
     <!-- CSS custom file -->
     <link rel="stylesheet" href="css/styles_landing_page.css">
     <title>Insta PDF</title>
 </head>
 <body>
+    <!-- Header of the document -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top animate-upwards mostrar ocultar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">InstaPDF</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/create_document.html">Create a document</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/upload_pdf_landing.html">Upload a PDF</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pages/login.html">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="btn-about" href="#">About us</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
     <!-- Landing page section -->
     <section class="home">
         <div class="container">
@@ -53,7 +86,7 @@
                     <div class="text-center">
                         <h4 class="mt-5 service-description">Edit PDF's</h4>
                         <p class="mt-3 description">Upload your custom PDF's and edit them with our powerful PDF editor.</p>
-                        <a href="#" class="btn-link mt-3">Upload a PDF</a>
+                        <a href="pages/upload_pdf_landing.html" class="btn-link mt-3">Upload a PDF</a>
                     </div>
                 </div>
             </div>
@@ -83,6 +116,40 @@
                             </p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About us section -->
+    <section class="about" id="about-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="title text-center">About us</h2>
+                </div>
+                <div class="col-12 col-lg-6 d-flex justify-content-center order-1">
+                    <div class="imagen-about" id="fotoFernando"></div>
+                </div>
+                <div class="col-12 col-lg-6 d-flex justify-content-center mt-3 mt-lg-0 order-3 order-lg-2">
+                    <div class="imagen-about" id="fotoJesus"></div>
+                </div>
+                <div class="col-12 col-lg-6 order-2 order-lg-3">
+                    <h3 class="titulo text-center my-3">Sara Sosa</h3>
+                    <span class="profesion d-flex justify-content-center">Programmer</span>
+                    <p class="descripcion my-2 px-5 px-lg-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                    Repellendus consectetur, reprehenderit quam tenetur quos totam! Qui reprehenderit 
+                    corporis cupiditate nulla provident quam, reiciendis fugiat totam debitis ratione 
+                    doloremque culpa beatae minus, ea natus veniam quibusdam aut eius nemo, consectetur 
+                    modi.</p>
+                </div>
+                <div class="col-12 col-lg-6 order-4">
+                    <h3 class="titulo text-center my-3">Ayrton Hernández</h3>
+                    <span class="profesion d-flex justify-content-center">Programmer</span>
+                    <p class="descripcion my-2 px-5 px-lg-4">I am an electronic engineer with a passion for web development 
+                    and programming. This is the reason why I personally decided to learn everything related to this great 
+                    world consisting of creating websites and webapps. I'm quite confident, naturally curious, self-taught, 
+                    and perpertually learning and working on what I love to do: web development.</p>
                 </div>
             </div>
         </div>
