@@ -16,6 +16,36 @@
     <title>Create a document</title>
 </head>
 <body>
+
+    <!-- Header of the document -->
+    <header>
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">InstaPDF</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="create_document.html">Create a document</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="upload_pdf_landing.html">Upload a PDF</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="login.html">Login</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
     
     <!-- In this section, we show the main title and a little description of one service -->
     <section class="cover-section">
@@ -33,6 +63,7 @@
         </div>
     </section>
 
+    <!-- Description section -->
     <section class="description">
         <div class="container">
             <div class="row">
@@ -48,22 +79,22 @@
                     </p>
                 </div>
             </div>
-            <div class="row text-center">
+            <div class="row-iconos row text-center">
                 <div class="col-12 col-md-4">
-                    <div class="icon-container">
+                    <div class="icon-container icon-font">
                         <i class="fas fa-file-download"></i>
                     </div>
                     <span class="icon-description">Download instantly.</span>
                 </div>
                 <div class="col-12 col-md-4">
-                    <div class="icon-container">
+                    <div class="icon-container icon-font">
                         <i class="far fa-edit"></i>
                     </div>
                     <span class="icon-description">Add text and official signatures.</span>
                 </div>
                 <div class="col-12 col-md-4">
-                    <div class="d-flex justify-content-center mt-3 mt-md-4 mt-lg-3 mt-xl-0">
-                        <div class="free-container">
+                    <div class="d-flex justify-content-center mt-4 mt-md-4 mt-lg-3 mt-xl-4">
+                        <div class="free-container icon-image">
                             <img src="../img/free-tag-line.png" alt="">
                         </div>
                     </div>
@@ -73,8 +104,8 @@
             <div class="row mt-5">
                 <div class="col-12">
                     <p class="text-explanation">In order to use our services, signup is required.</p>
-                    <p class="text-explanation">Don't have an account yet? <a href="../pages/register.html">Sign up</a></p>
-                    <p class="text-explanation">Already have an account? <a href="../pages/login.html">Sign in</a></p>
+                    <p class="text-explanation">Don't have an account yet? <a href="register.html">Sign up</a></p>
+                    <p class="text-explanation">Already have an account? <a href="login.html">Sign in</a></p>
                 </div>
             </div>
         </div>
@@ -85,6 +116,6 @@
     <!-- Jquery CDN link -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- Jquery custom file -->
-    
+    <script src="../js/effects_create_document.js"></script>
 </body>
 </html> 
