@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\DocumentController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\WorkspaceController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -22,6 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/documents', [DocumentController::class, 'index'])->middleware('auth:api');
+Route::get('/workspaces', [WorkspaceController::class, 'index'])->middleware('auth:api');
 Route::get('/documents/{document}', [DocumentController::class, 'show']);
 
 Route::post('login', [userController::class, 'login']);
