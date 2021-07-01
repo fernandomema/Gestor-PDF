@@ -14,9 +14,7 @@ class WorkspaceController extends Controller
      */
     public function index()
     {
-        $workspaces = Workspace::all();
-
-        return view('workspaces.index', compact('workspaces'));
+        return Workspace::all();
     }
 
     /**
