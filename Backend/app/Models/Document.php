@@ -34,6 +34,6 @@ class Document extends Model
      */
     public function workspace()
     {
-        return $this->belongsTo('App\Workspace');
+        return $this->belongsTo('App\Models\Workspace');
     }
 }
