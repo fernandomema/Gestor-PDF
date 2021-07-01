@@ -1,0 +1,106 @@
+/* General styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 16px;
+}
+
+/* ---------------- Menu styles ---------------- */
+
+/* Modify the backgorund color */
+.navbar-custom {
+    background-color: rgba(166, 75, 244, 0.8);
+}
+
+/* Modifies the size and right margin of menu items */
+.nav-item{
+    font-size: 1.25em;                  /* 20px */
+    margin-right: 10px;
+}
+
+/* General styles for 'a' tags */
+a{
+    line-height: 1.7;
+	color: #666666;
+	margin: 0px;
+	transition: all 0.4s;
+	-webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    text-decoration: none;
+}
+
+/* Styling the cover pic */
+.cover-section img{
+    width: 100%;
+    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+}
+
+/* Styling the cover pic title */
+.cover-section .title{
+    font-size: 3em;         /* 48px */
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Styling the description section */
+.description{
+    margin-top: 5em;       /* 128px */
+}
+
+/* Styling the description section title */
+.description .title{
+    font-family: 'Roboto', sans-serif;
+    font-style: italic;
+}
+
+.row-iconos{
+    height: 10.3125em;
+}
+
+/* Styling the explanation */
+.description .text-explanation{
+    font-size: 1.2em;       /* 19.2px */
+    font-family: 'Roboto', sans-serif;
+    line-height: 2em;       /* 32px */
+    text-align: center;
+}
+
+.description .icon-container{
+    font-size: 4em;         /* 64px */
+}
+
+.description .icon-container .fa-file-download{
+    color: #e42fec;
+}
+
+.description .icon-container .fa-edit{
+    color: #2f52ec;
+}
+
+.description .free-container{
+    width: 28%;
+}
+
+.description .free-container img{
+    width: 100%;
+}
+
+.description .icon-description{
+    font-size: 1.2em;               /* 19.2px */
+}
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+    .description .free-container{
+        width: 15%;
+    }
+
+    .row-iconos{
+        height: initial !important;
+    }
+}
+

@@ -1,0 +1,265 @@
+/* general styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-size: 16px;
+}
+
+/* ---------------- Menu styles ---------------- */
+
+/* Modify the backgorund color */
+.navbar-custom {
+    background-color: rgba(166, 75, 244, 0.8);
+}
+
+/* Modifies the size and right margin of menu items */
+.nav-item{
+    font-size: 1.25em;                  /* 20px */
+    margin-right: 10px;
+}
+
+/* Preparamos al elemento (en este caso al menú), para poder animarlo */
+.animate-upwards{
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+/* Clase a añadir desde jQuery para la animación */
+.showUpwards {
+    animation: ir_arriba 2s; 
+}
+/* -------------------------------------------------- */
+@keyframes ir_arriba {
+    /* Cuando apenas empiece la animación,
+    le estamos diciendo que se desplace 
+    hacia abajo (que comience desde abajo
+    60 px). */
+    0% {
+        transform: translateY(60px); 
+    }
+    /* Cuando finalice la animación, el 
+    elemento de desplazará hacia arriba
+    (se desplazará 60px hacia arriba en 
+    este caso). */
+    100% {
+        transform: translateY(0); 
+    } 
+}
+
+/* -------------------------------------------- */
+
+.title{
+    font-size: 3em;                     /* 48px */
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 1.5em;               /* 24px */
+    color: #5c28d4;
+    font-weight: bold;
+}
+
+.home{
+    background-image: url('../img/jess-bailey-q10VITrVYUM-unsplash.jpg');
+    width: 100%;  
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.home .main-title{
+    font-family: 'Roboto', sans-serif;
+    padding-top: 2em;       /* 32px */
+    font-size: 3.3em;       /* 52.8px */
+}
+
+.btn-container{
+    margin-top: 10em;       /* 160px */
+}
+
+.btn-customized{
+    background: #5c28d4;
+    padding: 1em 2em;       /* 16px 32 px */
+    font-size: 1.5em;       /* 24px */
+    color: white;
+    border-radius: 3.125em 3.125em 3.125em 3.125em;         /* 50px en cada esquina */
+    text-shadow: 1px 1px #000;
+
+    outline: none;              /* removes the border */
+    border: none;
+    background: #996a54;
+    background: -webkit-linear-gradient(90deg, #996a54, #a69686, #200000, #fbd9d0) var(--x, 0) / 200%;
+    background: -o-linear-gradient(90deg, #996a54, #a69686, #200000, #fbd9d0) var(--x, 0) / 200%;
+    background: -moz-linear-gradient(90deg, #996a54, #a69686, #200000, #fbd9d0) var(--x, 0) / 200%;
+    background: linear-gradient(90deg, #996a54, #a69686, #200000, #fbd9d0) var(--x, 0) / 200%;
+
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+
+/* By doing this, it will create a cool hover effect where the gradient transition occurs */
+.btn-customized:hover{
+    --x: 100%;  
+    color: white;
+}
+
+/* Styles for a new section inside the landing page */
+.info{
+    margin-top: 9.375em;        /* 150px */
+}
+
+/* By changing the value of icon width, we can vary the icon size */
+.icon{
+    width: 50%;
+}
+
+.info .service-description{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8em;           /* 28.8px */
+}
+
+
+/* Styles to the little description of each kind of service */
+.info .description{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2em;           /* 19.2px */
+}
+
+/* styles the bottons links */
+.info .btn-link{
+    display: inline-block;
+    padding: 1em 2em;           /* 16px top-bottom, 32px left-right */
+    background: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 1.5em;       /* 24px */
+}
+
+.info .btn-link:hover{
+    background: #5c28d4;
+}
+
+/* ------------------------- Sección Descripción ------------------------ */
+.description{
+    margin-top: 9.375em;        /* 150px */
+}
+
+/* styling the image container */
+.description .imagen{
+    width: 100%;
+}
+
+/* styling the image itself */
+.description .imagen img{
+    width: 100%;
+}
+
+/* styling paper (why us section) */
+.description .paper{
+    width: 90%;
+    height: 16.875em;                         /* 270px */
+    position: relative;
+    margin: 0px auto;
+    padding-top: 2.5em;                       /* 40px */
+    padding-bottom: 2.5em;                    /* 40px */
+    background-color: white;
+    box-shadow: 0px 0px 5px 0px #888;
+}
+
+/* styling red vertical line (why us section) */
+.description .paper::before{
+    content: '';
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 2.5em;                    /* 40px */
+    background-color: rgba(255,0,0,0.6);
+}
+
+/* styling blue horizontal lines (why us section) */
+.description .pattern{
+    height: 100%;
+    background-image: repeating-linear-gradient(white 0px, white 24px, teal 25px);
+}
+
+/* styling text content and displays it inside the document */
+.description .content{
+    padding-top: 2px;
+    padding-left: 3.5em;            /* 56px */
+    padding-right: 1em;             /* 16px */
+    line-height: 1.5em;             /* 24px */
+    font-family: 'Roboto', sans-serif;
+    word-spacing: 2px;
+}
+
+/* styling the notebook document title  */
+.description .content .title-descripcion{
+    font-size: 2em;                 /* 32px */
+    font-family: 'Dancing Script', cursive;
+}
+
+/* ------------------------- Sección About us ------------------------ */
+.about{
+    margin-top: 9.375em;        /* 150px */
+}
+
+.about .imagen-about{
+    width: 90%;
+    height: 80vh;
+    border-radius: 1em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#fotoFernando{
+    background-image: url('../img/model1.jpg');
+}
+
+#fotoJesus{
+    background-image: url('../img/model2.jpg');
+}
+
+.about .titulo{
+    font-size: 2em;                 /* 32px */
+    font-family: 'Open Sans', sans-serif;
+    color: black;
+}
+
+.about .profesion{
+    font-size: 1.5em;               /* 24px */
+    font-family: 'Roboto', sans-serif;
+}
+
+.about .descripcion{
+    font-family: 'Roboto', sans-serif;
+    line-height: 2em;              /* 32px */ 
+    text-align: justify;
+}
+
+@media screen and (max-width: 600px) {
+    .btn-customized{
+        font-size: 1em;             /* 16px */
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .home .main-title{
+        font-size: 2.8em;           /* 44.8px */
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .description .content .title-descripcion{
+        font-size: 1.4em;
+    }
+
+    .description .content{
+        font-size: 16px;
+    } 
+}
