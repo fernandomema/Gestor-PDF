@@ -39,7 +39,7 @@ class userController extends Controller
         if($message != ''){
             return ['status' => 'failed', 'msg' => $message];
         } else {    // Si no hay errores, procedemos a guardar el nuevo usuario
-            $usuario->name = $request->input('username');
+            $usuario->username = $request->input('username');
             $usuario->email = $request->input('email');
             $usuario->password = Hash::make($request->input('password'));
             $usuario->remember_token = Str::random(60);
@@ -58,10 +58,19 @@ class userController extends Controller
         if(!$user)          return ['status' => 'failed', 'msg' => 'The email does not exist.'];
 
         // Si la contraseña introducida no coincide con la contraseña del correo asociado, retornamos error
-        if(!Hash::check($request->input('password'), $user->password))  return ['status' => 'failed', 'msg' => 'The password is incorrect.'];
+        //if(!Hash::check($request->input('password'), $user->password))  return ['status' => 'failed', 'msg' => 'The password is incorrect.'];
+
+        if (!auth()->attempt([
+            'email' => $request->email,
+            'password' => $request->input('password'),
+        ])) {
+            return ['status' => 'failed', 'msg' => 'The password is incorrect.'];
+        }
+
+        $accessToken = auth()->user()->createToken('authToken')->accessToken;
 
         // Si no ha habido ningún error, redigirimos al usuario a página de ADMIN
-        return ['status' => 'success', 'msg' => 'logged in successfully'];    
+        return ['status' => 'success', 'msg' => 'logged in successfully', 'token' => $accessToken];    
     }
 
     // Método que se encargará de recoger el email (vista ForgotPassword) que se ha enviado con AJAX
