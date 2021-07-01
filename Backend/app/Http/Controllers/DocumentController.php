@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Document;
+use App\Models\Workspace;
 use Illuminate\Http\Request;
 
 class DocumentController extends Controller
@@ -15,6 +16,9 @@ class DocumentController extends Controller
     public function index()
     {
         $documents = Document::all();
+        foreach ($documents as $document) {
+            $document->workspace = Workspace::find($document->workspace_id);
+        }
 
         return $documents;
     }
