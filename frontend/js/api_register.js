@@ -47,6 +47,7 @@ $(document).ready(function () {
                             msg_error.hide();
                             setTimeout(function() {
                                 msg_success.fadeOut("slow");
+                                window.location.href = 'https://localhost/Gestor_PDF_Frontend/frontend/pages/login.html';
                             }, 2000 );
                             /* Limpiamos los campos del formulario */
                             $('#username-field').val('');
