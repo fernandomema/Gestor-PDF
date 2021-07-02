@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Workspace;
 use Illuminate\Http\Request;
+use Auth;
 
 class WorkspaceController extends Controller
 {
@@ -14,7 +15,8 @@ class WorkspaceController extends Controller
      */
     public function index()
     {
-        return Workspace::all();
+        //return Workspace::all();
+        return Auth::user()->workspaces()->get();
     }
 
     /**
