@@ -60,7 +60,7 @@ class userController extends Controller
         // Si la contraseña introducida no coincide con la contraseña del correo asociado, retornamos error
         //if(!Hash::check($request->input('password'), $user->password))  return ['status' => 'failed', 'msg' => 'The password is incorrect.'];
 
-        if (!auth()->attempt([
+        if (auth()->attempt([
             'email' => $request->email,
             'password' => $request->input('password'),
         ])) {
