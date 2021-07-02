@@ -46,7 +46,7 @@ class User extends Authenticatable
 
     public function workspaces()
     {
-        return $this->belongsToMany(Workspace::class);
+        return $this->belongsToMany(Workspace::class, 'user_workspace', 'user_id', 'workspace_id');
     }
 
     // Método que enviará el link del reset de contraseña al correo del usuario que lo solicitó
