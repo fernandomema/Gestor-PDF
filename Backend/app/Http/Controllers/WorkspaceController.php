@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Workspace;
 use App\Models\Document;
 use Illuminate\Http\Request;
+use Auth;
 
 class WorkspaceController extends Controller
 {
@@ -15,7 +16,8 @@ class WorkspaceController extends Controller
      */
     public function index()
     {
-        $workspaces = Workspace::all();
+
+        return Auth::user()->workspaces()->get();
         foreach ($workspaces as $workspace) {
             $workspace->documents = $this->documents($workspace->id);
         }
