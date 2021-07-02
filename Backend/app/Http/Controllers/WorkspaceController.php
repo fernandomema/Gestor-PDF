@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Workspace;
+use App\Models\Document;
 use Illuminate\Http\Request;
 
 class WorkspaceController extends Controller
@@ -14,7 +15,11 @@ class WorkspaceController extends Controller
      */
     public function index()
     {
-        return Workspace::all();
+        $workspaces = Workspace::all();
+        foreach ($workspaces as $workspace) {
+            $workspace->documents = $this->documents($workspace->id);
+        }
+        return $workspaces;
     }
 
     /**
@@ -87,5 +92,9 @@ class WorkspaceController extends Controller
         $workspace->delete();
 
         return back()->with('message', 'item deleted successfully');
+    }
+
+    public function documents($id) {
+        return Document::where('workspace_id', $id)->get();
     }
 }
