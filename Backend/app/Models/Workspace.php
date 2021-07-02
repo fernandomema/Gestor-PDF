@@ -3,6 +3,7 @@
 namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use App\Models\Document;
 
 /**
  * @property integer $id
@@ -31,7 +32,7 @@ class Workspace extends Model
      */
     public function documents()
     {
-        return $this->hasMany('App\Document');
+        return $this->hasMany(Document::class);
     }
 
     /**
