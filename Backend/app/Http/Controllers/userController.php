@@ -62,7 +62,7 @@ class userController extends Controller
 
         if (!auth()->attempt([
             'email' => $request->email,
-            'password' => $request->input('password'),
+            'password' => $request->password,
         ])) {
             return ['status' => 'failed', 'msg' => 'The password is incorrect.'];
         }
