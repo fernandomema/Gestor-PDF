@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- CSS Bootstrap 5 file -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <!-- CSS Fontawesome file -->
     <link rel="stylesheet" href="../css/all.min.css">
     <!-- Google fonts: NotoSans -->
@@ -13,66 +11,220 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
     <!-- Google fonts: Inter -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <!-- CSS Bootstrap Tabler -->
+    <link rel="stylesheet" href="https://unpkg.com/@tabler/core@latest/dist/css/tabler.min.css">
     <!-- CSS custom file -->
     <link rel="stylesheet" href="../css/styles_settings_user_panel.css">
-    <title>Settings</title>
+    <title>Profile & Account settings</title>
 </head>
 <body>
 
     <!-- Cabecera -->
-    <header class="navbar navbar-expand-md navbar-light d-print-none">
-        <div class="container-xl">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-                <a href=".">
-                    <img src="./static/logo.svg" width="110" height="32" alt="InstaPDF" class="navbar-brand-image">
-                </a>
-            </h1>
-            <div class="navbar-nav flex-row order-md-last">
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
-                        aria-label="Open user menu">
-                        <span class="avatar avatar-sm"
-                            style="background-image: url(./static/avatars/000m.jpg)"></span>
-                        <div class="d-none d-xl-block ps-2">
-                            <div>Username</div>
-                            <div class="mt-1 small text-muted">Role</div>
-                        </div>
+    <div class="wrapper">
+        <header class="navbar navbar-expand-md navbar-light d-print-none">
+            <div class="container-xl">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+                    <a href=".">
+                        <img src="./static/logo.svg" width="110" height="32" alt="AppName" class="navbar-brand-image">
                     </a>
-                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                        <a href="#" class="dropdown-item">Profile & account</a>
-                        <div class="dropdown-divider"></div>
-                        <a href="#" class="dropdown-item">Logout</a>
+                </h1>
+                <div class="navbar-nav flex-row order-md-last">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
+                            aria-label="Open user menu">
+                            <span class="avatar avatar-sm"
+                                style="background-image: url(./static/avatars/000m.jpg)"></span>
+                            <div class="d-none d-xl-block ps-2">
+                                <div>Username</div>
+                                <div class="mt-1 small text-muted">Role</div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            <a href="#" class="dropdown-item">Profile & account</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" class="dropdown-item">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="navbar-expand-md">
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <div class="navbar navbar-light">
+                    <div class="container-xl">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./index.html">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                                            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                                            <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        Home
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
+                            <form action="." method="get">
+                                <div class="input-icon">
+                                    <span class="input-icon-addon">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/search -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <circle cx="10" cy="10" r="7" />
+                                            <line x1="21" y1="21" x2="15" y2="15" /></svg>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="Search…"
+                                        aria-label="Search in website">
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
-
-    <div class="divider"></div>
-
-    <section class="settings">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <h3 class="title">Settings</h3>
+        <div class="page-wrapper">
+            <div class="container-xl">
+                <!-- Page title -->
+                <div class="page-header d-print-none">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h2 class="page-title">
+                                Settings
+                            </h2>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
-
+            <div class="page-body">
+                <div class="container-xl">
+                    <section class="settings">   
+                        <div class="card mt-3">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h4 class="title ps-3 pt-4 text-md-center">Profile & Account</h4>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="col-12">
+                                    <div class="text-center">
+                                        <div class="avatar my-3">
+                                            <img src="../img/jess-bailey-q10VITrVYUM-unsplash.jpg" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row row-buttons">
+                                <div class="col-12">
+                                    <div class="text-center">
+                                        <div class="btn-group">
+                                            <button type="button" class="btn">Update</button>
+                                            <button type="button" class="btn">Remove</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="divider my-3"></div>
+                            <div class="row text-center mb-4">
+                                <div class="col-12">
+                                    <h4 class="title">Change those fields you desire</h4>
+                                </div>
+                            </div>
+                            <div class="row text-center">
+                                <div class="col-12 col-lg-6">
+                                    <div class="mb-3 single-field-container">
+                                        <label for="username-field" class="form-label label-input">Username</label>
+                                        <input type="text" class="input-field" id="username-field" name="username">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <div class="mb-3 single-field-container">
+                                        <label for="email-field" class="form-label label-input">Email</label>
+                                        <input type="email" class="input-field" id="email-field" name="email">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row text-center mt-0 mt-lg-3">
+                                <div class="col-12 col-lg-6">
+                                    <div class="mb-3 single-field-container">
+                                        <label for="password-current-field" class="form-label label-input">Current Password (Enter your current password)</label>
+                                        <input type="password" class="input-field" id="password-current-field" name="pass">
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <div class="mb-3 single-field-container">
+                                        <label for="password-new-field" class="form-label label-input">Enter new password</label>
+                                        <input type="password" class="input-field" id="password-new-field" name="pass-repeat">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row text-center mt-0 mt-lg-3">
+                                <div class="col-md-6 offset-md-3">
+                                    <div class="mb-3 single-field-container">
+                                        <label for="password-repeat-field" class="form-label label-input">Repeat new password</label>
+                                        <input type="password" class="input-field" id="password-repeat-field" name="pass">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="btn-container text-center mt-5">
+                                <button type="submit" id="submit" class="btn submit-btn">Submit</button>
+                            </div>
+                            
+                            <!-- Aquí mostraremos el spinner de cargando -->
+                            <div class="mt-5" id="spinner-circulando"></div>    
+            
+                            <!-- Aquí mostraremos los mensajes de error o de éxito. Usando AJAX -->
+                            <div id="error_message" class="ajax_response"></div>
+                            <div id="success_message" class="ajax_response"></div> 
+                        </div>
+                    </section>
                 </div>
             </div>
+            <footer class="footer footer-transparent d-print-none">
+                <div class="container">
+                    <div class="row text-center align-items-center flex-row-reverse">
+                        <div class="col-lg-auto ms-lg-auto">
+                            <ul class="list-inline list-inline-dots mb-0">
+                                <li class="list-inline-item">
+                                    <a href="index.html" class="link-secondary">Inicio</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                            <ul class="list-inline list-inline-dots mb-0">
+                                <li class="list-inline-item">
+                                    Copyright &copy; 2021
+                                    <a href="." class="link-secondary">InstaPDF</a>.
+                                    All rights reserved.
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="./changelog.html" class="link-secondary" rel="noopener">v1.0.0-beta3</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
-    </section>
-
-    <!-- JavaScript Bootstrap 5 file -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    </div>
+    
+    <!-- JavaScript Bootstrap 5 Tabler -->
+    <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
     <!-- Jquery CDN link -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <!-- Jquery custom file -->
-    <!-- <script src="../js/api_login.js"></script> -->
+    <script src="../js/api_show_user_info.js"></script>
 </body>
 </html>

@@ -7,8 +7,6 @@
 
 body{
     font-size: 16px;
-    color:#232e3c;
-    background-color:#f4f6fa;
 }
 
 a {
@@ -20,6 +18,9 @@ a:hover{
     color: #565a55;
 }
 
+
+/* ----------------------------------------- */
+
 .divider{
     height:0;
     margin: 0.5em 0;
@@ -28,11 +29,39 @@ a:hover{
 }
 
 /* Estilos de la sección settings */
-
 .settings{
-    margin-top: 3em;
+    margin-top: 1em;        /* 48px */
 }
 
 .settings .title{
     font-family: "Inter", serif;
+    font-size: 1.4em;       /* 22.4px */
 }
+
+/* Estilo css del avatar */
+.avatar{
+    width: 100%;
+    background: #ffffff;
+}
+
+.avatar img{
+    width:12.5em;           /* 200px */
+    height:12.5em;          /* 200px */
+    border-radius:50%;
+}
+
+/* Estilos de los botones de update y remove avatar */
+.row-buttons{
+    margin-top: 5em;        /* 80px */
+}
+
+.btn{
+    border: 1px solid #ccc;
+}
+
+/* Estilos de los labels de los formularios */
+
+
+
+/* ----------------- Media queries ------------------- */
+
