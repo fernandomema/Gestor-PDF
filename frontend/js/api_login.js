@@ -18,7 +18,7 @@ $(document).ready(function () {
             boton_container.hide();
 
             // URL de la API a utilizar para conectarnos con el Backend
-            const URL_API = 'http://127.0.0.1:8000/api/login';
+            const URL_API = 'https://insta-pdf.herokuapp.com/api/login';
 
             // Creamos el arreglo data (los datos a enviar)
             var Data = {
@@ -45,7 +45,7 @@ $(document).ready(function () {
                             sessionStorage.setItem('token', response.token);
                             setTimeout(function() {
                                 msg_success.fadeOut("slow");
-                                window.location.href = 'https://localhost/Gestor_PDF_Frontend/frontend/pages/home.html';
+                                window.location.href = 'home.html';
                             }, 2000 );
                             $('#email-field').val('');
                             $('#password-field').val('');
