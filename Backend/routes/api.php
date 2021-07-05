@@ -34,3 +34,9 @@ Route::post('register', [userController::class, 'register']);
 Route::post('forgot-password', [userController::class, 'forgot']);
 
 Route::post('reset-password', [userController::class, 'reset']);
+
+Route::get('get-data', [userController::class, 'show_info'])->middleware('auth:api');
+
+Route::post('edit', [userController::class, 'edit'])->middleware('auth:api');
+
+Route::get('logout', [userController::class, 'logout'])->middleware('auth:api');

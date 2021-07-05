@@ -126,4 +126,93 @@ class userController extends Controller
             
         }
     }
+
+    // Método para mostrar la información del usuario en la página de Profile & Account settings
+    public function show_info(Request $request)
+    {
+        /* Guardando los datos en un array para mostrarlos en el Front */
+        $user_info = array(
+            'username' => $request->user()->name,
+            'email' => $request->user()->email
+        );
+
+        if($user_info['username'] == NULL || $user_info['email'] == NULL)    return ['status' => 'failed', 'msg' => 'An error has occurred. Try again later'];
+        else return ['status' => 'success', 'msg' => $user_info];
+    }
+
+    // Método para editar los cambios hechos en la página de Profile & Account settings
+    public function edit(Request $request)
+    {
+        $message = '';              // variable donde almacenaremos los errores de validación
+
+        /* -------------------- Validaciones ---------------- */
+        
+        // Si el usuario introducido tiene espacios en blanco, entonces retornamos mensaje de error
+        if(strpos($request->input('name'), ' ') !== false)      $message .= 'The user field has blank spaces.\n';
+
+        // Si el nombre de usuario ya existe, entonces retornamos mensaje de error
+        if($request->input('name_changed') == 'true'){
+            $user_exists = User::where('name', $request->input('name'))->first();
+            if($user_exists != NULL)   $message .= 'The username already exists.\n';
+        }
+        
+        // Si el email introducido no es válido, entonces retornamos mensaje de error
+        if(!filter_var($request->input('email'), FILTER_VALIDATE_EMAIL))    $message .= 'The email format is not valid.\n';
+
+        // Si el correo ya existe, entonces retornamos mensaje de error
+        if($request->input('email_changed') == 'true'){
+            $email_exists = User::where('email', $request->input('email'))->first();
+            if($email_exists != NULL)   $message .= 'The email already exists.\n';
+        }
+
+        // Si el usuario quiere cambiar su contraseña, hacemos primero algunas validaciones
+        if($request->input('update_pass') == 'true'){
+            // Si el usuario ha dejado en blanco el campo para escribir su contraseña actual, mostramos error
+            if($request->input('current_password') == NULL){
+                $message .= 'You must enter your current password to change it.\n';
+            }
+
+            // Si el usuario ha dejado en blanco el campo para escribir una nueva contraseña, mostramos error
+            if($request->input('new_password') == NULL){
+                $message .= 'You must enter a new password.\n';
+            }
+
+            // Si el usuario no ha vuelto a confirmar la nueva contraseña, mostramos error
+            if($request->input('confirm_new_password') == NULL){
+                $message .= 'You must enter again the new password.\n';
+            }
+
+            // Si la contraseña introducida no coincide con la contraseña del usuario actual, retornamos error
+            if(!Hash::check($request->input('current_password'), Auth::user()->password)){
+                $message .= 'The password is not correct.\n';
+            }
+
+            // Si las contraseñas no coinciden, entonces retornamos mensaje de error
+            if(strcmp($request->input('new_password'), $request->input('confirm_new_password')) !== 0) {
+                $message .= 'The passwords did not match.\n';
+            }    
+        }
+
+        // Si la variable $message NO está vacía, entonces hay errores, y retornamos el JSON con status failed
+        if($message != ''){
+            return ['status' => 'failed', 'msg' => $message];
+        } else {
+            $user = Auth::user();    
+            $user->name = $request->input('name');
+            $user->email = $request->input('email');
+            if($request->input('update_pass') == 'true'){
+                $user->password = Hash::make($request->input('new_password'));
+            }
+            $user->save();
+            return ['status' => 'success', 'msg' => 'saves changed successfully'];
+        }
+    }
+
+    // Método para cerrar sesión
+    public function logout(Request $request)
+    {
+        $request->user()->token()->revoke();
+
+        return ['status' => 'success', 'msg' => 'logged out successfully'];
+    } 
 }
