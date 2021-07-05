@@ -43,6 +43,7 @@ $(document).ready(function () {
                             msg_error.hide();
                             // Guardamos en session storage el token para poder usarlo posteriormente
                             sessionStorage.setItem('token', response.token);
+                            sessionStorage.setItem('avatar', response.avatar);
                             setTimeout(function() {
                                 msg_success.fadeOut("slow");
                                 window.location.href = 'home.html';
