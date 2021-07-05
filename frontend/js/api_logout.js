@@ -5,7 +5,6 @@ $(document).ready(function () {
 
         // Obtenemos de session storage el token guardado
         var token = sessionStorage.getItem('token');
-        console.log(token);
 
         // URL de la API a utilizar para conectarnos con el Backend
         const URL_API = 'http://127.0.0.1:8000/api/logout';
@@ -25,9 +24,12 @@ $(document).ready(function () {
             success: function (response) {
                 switch(response.status){
                     case 'success':
-                        /* Mostramos la información del usuario en sus respectivos campos del formulario */
-                        console.log(response.msg);
+                        /* Eliminamos el token del session storage y redirigimos al usuario a la página de Login */
                         sessionStorage.removeItem('token');
+                        // Eliminamos del session storage el usuario y el correo
+                        sessionStorage.removeItem('usuario');
+                        sessionStorage.removeItem('correo');
+                        window.location.href = 'https://localhost/Gestor_PDF_Frontend/frontend/pages/login.html';
                         break;
                     case 'failed':
                         console.log(response.msg);
