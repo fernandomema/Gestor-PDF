@@ -17,7 +17,7 @@ class WorkspaceController extends Controller
     public function index()
     {
 
-        return Auth::user()->workspaces()->get();
+        $workspaces = Auth::user()->workspaces()->get();
         foreach ($workspaces as $workspace) {
             $workspace->documents = $this->documents($workspace->id);
         }

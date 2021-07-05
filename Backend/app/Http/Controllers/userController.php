@@ -70,7 +70,12 @@ class userController extends Controller
         $accessToken = auth()->user()->createToken('authToken')->accessToken;
 
         // Si no ha habido ningún error, redigirimos al usuario a página de ADMIN
-        return ['status' => 'success', 'msg' => 'logged in successfully', 'token' => $accessToken];    
+        return [
+            'status' => 'success', 
+            'msg' => 'logged in successfully', 
+            'token' => $accessToken,
+            'avatar' => "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $request->email ) ) );
+        ];    
     }
 
     // Método que se encargará de recoger el email (vista ForgotPassword) que se ha enviado con AJAX
