@@ -29,6 +29,12 @@ $(document).ready(function () {
                     /* Mostramos la información del usuario en sus respectivos campos del formulario */
                     username.val(response.msg['username']);
                     email.val(response.msg['email']);
+                    /* Guardamos en Session Storage los respectivos valores de username y correo para poder
+                    usarlos en el archivo api_edit_user_info.js, y hacer una comparación con los valores que teclea
+                    el usuario. De esta manera podremos saber si realmente ha habido un cambio de datos y 
+                    hacérselo saber al Laravel. */
+                    sessionStorage.setItem('usuario', response.msg['username']);
+                    sessionStorage.setItem('correo', response.msg['email']);
                     break;
                 case 'failed':
                     console.log(response.msg);
@@ -36,6 +42,6 @@ $(document).ready(function () {
                 default:
                     break;
             }
-        },
+        }
     });    
 });
