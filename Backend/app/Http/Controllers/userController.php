@@ -74,7 +74,7 @@ class userController extends Controller
             'status' => 'success', 
             'msg' => 'logged in successfully', 
             'token' => $accessToken,
-            'avatar' => "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $request->email ) ) );
+            'avatar' => "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $request->email ) ) )
         ];    
     }
 
