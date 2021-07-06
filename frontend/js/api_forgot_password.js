@@ -17,7 +17,7 @@ $(document).ready(function () {
             boton_container.hide();
 
             // URL de la API a utilizar para conectarnos con el Backend
-            const URL_API = 'http://127.0.0.1:8000/api/forgot-password';
+            const URL_API = 'https://insta-pdf.herokuapp.com/api/forgot-password';
 
             // Creamos el arreglo data (los datos a enviar)
             var Data = {

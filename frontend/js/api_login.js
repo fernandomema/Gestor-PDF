@@ -46,6 +46,7 @@ $(document).ready(function () {
                             setTimeout(function() {
                                 msg_success.fadeOut("slow");
                                 window.location.href = 'home.html';
+                                // window.location.href = 'https://localhost/Gestor_PDF_Frontend/frontend/pages/home.html';
                             }, 2000 );
                             $('#email-field').val('');
                             $('#password-field').val('');

@@ -39,7 +39,7 @@ $(document).ready(function () {
             var token = sessionStorage.getItem('token');
             
             // URL de la API a utilizar para conectarnos con el Backend
-            const URL_API = 'http://127.0.0.1:8000/api/edit';
+            const URL_API = 'https://insta-pdf.herokuapp.com/api/edit';
             
             // Creamos el headers
             var Headers = {

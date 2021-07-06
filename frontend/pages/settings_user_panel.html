@@ -181,7 +181,30 @@
                             <div class="btn-container text-center mt-5">
                                 <button type="submit" id="submit" class="btn submit-btn">Save changes</button>
                             </div>
-                            
+                            <div class="btn-container text-center mt-5">
+                                <button type="button" id="delete-account-btn" class="btn delete-btn">Delete account</button>
+                            </div>
+
+                            <!-- Aquí yace el modal para preguntar al usuario si realmente quiere eliminar su cuenta -->
+                            <div id="modal-delete-container" class="modal">
+                                <form class="modal-content">
+                                    <div class="container">
+                                        <div class="d-flex justify-content-center">
+                                            <div class="icon-container d-flex justify-content-center align-items-center">
+                                                <i class="far fa-trash-alt icon"></i>  
+                                            </div>
+                                        </div>
+                                        <h1>Delete Account</h1>
+                                        <p>Are you sure you want to delete your account?</p>
+                                        
+                                        <div class="clearfix">
+                                            <button type="button" id="cancelbtn" class="modal-btn cancelbtn">Cancel</button>
+                                            <button type="button" id="deletebtn" class="modal-btn deletebtn">Delete</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
                             <!-- Aquí mostraremos el spinner de cargando -->
                             <div class="mt-5" id="spinner-circulando"></div>    
             
@@ -228,5 +251,6 @@
     <script src="../js/api_show_user_info.js"></script>
     <script src="../js/api_edit_user_info.js"></script>
     <script src="../js/api_logout.js"></script>
+    <script src="../js/efectos_modal.js"></script>
 </body>
 </html>
