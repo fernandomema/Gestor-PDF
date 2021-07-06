@@ -20,11 +20,11 @@ $(document).ready(function () {
             boton_container.hide();
 
             // URL de la API a utilizar para conectarnos con el Backend
-            const URL_API = 'http://127.0.0.1:8000/api/register';
+            const URL_API = 'https://insta-pdf.herokuapp.com/api/register';
 
             // Creamos el arreglo data (los datos a enviar)
             var Data = {
-                "name": usuario,
+                "username": usuario,
                 "email": correo,
                 "password": pass,
                 "password_confirmation": pass_repeat
@@ -47,7 +47,7 @@ $(document).ready(function () {
                             msg_error.hide();
                             setTimeout(function() {
                                 msg_success.fadeOut("slow");
-                                window.location.href = 'https://localhost/Gestor_PDF_Frontend/frontend/pages/login.html';
+                                window.location.href = 'login.html';
                             }, 2000 );
                             /* Limpiamos los campos del formulario */
                             $('#username-field').val('');
