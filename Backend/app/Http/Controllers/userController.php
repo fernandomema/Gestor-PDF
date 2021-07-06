@@ -99,7 +99,7 @@ class userController extends Controller
         /* Después de intentar enviar el link de resetear la contraseña, debemos evaluar la respuesta
         para poder mostrar un mensaje en el frontal */
         if($response == Password::RESET_LINK_SENT)      return ['status' => 'success', 'msg' => 'Reset password link sent on your email id.'];
-        else                                            return ['status' => 'failed', 'msg' => 'An error has occurred. Please, try later'];
+        else                                            return ['status' => 'failed', 'msg' => $response];
     }
 
     // Método que se encargará de validar los campos del formulario de reset contraseña tras haber recibido el email
