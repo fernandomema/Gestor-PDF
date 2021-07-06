@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Support\Str;
 use Auth;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
+use Illuminate\Validation\Rules\Password as RulesPassword;
 
 class userController extends Controller
 {
