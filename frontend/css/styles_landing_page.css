@@ -69,14 +69,23 @@ body{
     background-size: cover;
 }
 
+/* Estilos del logo principal */
+.home .logo-principal{
+    padding-top: 2em;        /* 16px */
+}
+
+.home .logo-principal img{
+    width: 25%;
+}
+
 .home .main-title{
     font-family: 'Roboto', sans-serif;
-    padding-top: 2em;       /* 32px */
+    padding-top: 1em;       /* 16px */
     font-size: 3.3em;       /* 52.8px */
 }
 
 .btn-container{
-    margin-top: 10em;       /* 160px */
+    margin-top: 8em;       /* 128px */
 }
 
 .btn-customized{
@@ -240,6 +249,19 @@ body{
     font-family: 'Roboto', sans-serif;
     line-height: 2em;              /* 32px */ 
     text-align: justify;
+}
+
+
+@media screen and (max-width: 991px) {
+    .home .logo-principal img{
+        width: 35%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .home .logo-principal img{
+        width: 40%;
+    }
 }
 
 @media screen and (max-width: 600px) {

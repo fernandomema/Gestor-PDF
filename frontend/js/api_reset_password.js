@@ -54,6 +54,7 @@ $(document).ready(function () {
                             msg_error.hide();
                             setTimeout(function() {
                                 msg_success.fadeOut("slow");
+                                window.location.href = 'login.html';
                             }, 2000 );
                             /* Limpiamos los campos del formulario */
                             $('#email-field').val('');

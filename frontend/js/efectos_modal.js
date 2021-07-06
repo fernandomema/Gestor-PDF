@@ -16,14 +16,4 @@ $(document).ready(function () {
             'display': 'none'
         })
     })
-
-    // When the user clicks anywhere outside of the modal, close it
-    $(window).click(function (e) {
-        e.preventDefault(); 
-        if (e.target == modal) {
-            modal.css({
-                'display': 'none'
-            })
-        }
-    });
 });
