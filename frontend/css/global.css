@@ -1,0 +1,4 @@
+.navbar-expand-md .navbar-light .nav-item.active:after, .navbar-expand-md.navbar-light .nav-item.active:after {
+    border-color: #ae3ec9;
+    
+}
