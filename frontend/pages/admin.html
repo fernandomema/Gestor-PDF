@@ -61,24 +61,24 @@
                                             <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
                                     </span>
                                     <span class="nav-link-title">
-                                        Home
+                                        Back
                                     </span>
                                 </a>
                             </li>
                             <li class="nav-item active">
-                                <a class="nav-link" href="./workspaces.html">
+                                <a class="nav-link" href="./admin.html">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <!-- Download SVG icon from http://tabler-icons.io/i/home -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-briefcase" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                            <rect x="3" y="7" width="18" height="13" rx="2"></rect>
-                                            <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path>
-                                            <line x1="12" y1="12" x2="12" y2="12.01"></line>
-                                            <path d="M3 13a20 20 0 0 0 18 0"></path>
-                                         </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                                            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                                            <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
                                     </span>
                                     <span class="nav-link-title">
-                                        Workspaces
+                                        Home
                                     </span>
                                 </a>
                             </li>
@@ -107,32 +107,127 @@
         <div class="page-wrapper">
             <div class="container-xl">
                 <!-- Page title -->
-                <div class="page-header d-print-none">
+                <div class="page-header">
                     <div class="row align-items-center">
                         <div class="col">
+                            <div class="page-pretitle">
+                                Admin
+                            </div>
                             <h2 class="page-title">
-                                Create Workspace
+                                Home
                             </h2>
+                        </div>
+                        <div class="col-auto ms-auto">
+                            <div class="btn-list">
+                                <div class="dropdown">
+                                    <button type="button" class="btn btn-purple dropdown-toggle" data-bs-toggle="dropdown">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/calendar -->
+                                        <!-- SVG icon code -->
+                                        Create
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <a class="dropdown-item" href="#">
+                                            User
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            Document template
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="page-body">
                 <div class="container-xl">
-                    <form action="https://httpbin.org/post" method="post" class="card">
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <label class="form-label required">Workspace name</label>
-                                <input type="text" class="form-control" name="example-text-input" placeholder="Name">
+                    <div class="row row-cards">
+                        
+                        <div class="col-md-6 col-xl-4">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-red text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/user -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                                                    stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <circle cx="12" cy="7" r="4" />
+                                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                2 Members
+                                            </div>
+                                            <div class="text-muted">
+                                                0 registered today
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>  
-                        <div class="card-footer text-end">
-                            <div class="d-flex">
-                                <a href="workspaces.html" class="btn btn-link">Cancel</a>
-                                <button type="submit" class="btn btn-purple ms-auto">Create</button>
+                        </div>
+
+                        <div class="col-md-6 col-xl-4">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-red text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/user -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                                                    stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <circle cx="12" cy="7" r="4" />
+                                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                1 Document
+                                            </div>
+                                            <div class="text-muted">
+                                                0 registered today
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>      
-                    </form>
+                        </div>
+
+                        <div class="col-md-6 col-xl-4">
+                            <div class="card card-sm">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-red text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/user -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                                                    stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <circle cx="12" cy="7" r="4" />
+                                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                1 Templates
+                                            </div>
+                                            <div class="text-muted">
+                                                0 registered today
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
             <footer class="footer footer-transparent d-print-none">
