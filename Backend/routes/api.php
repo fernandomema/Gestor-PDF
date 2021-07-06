@@ -31,7 +31,7 @@ Route::post('login', [userController::class, 'login']);
 Route::post('register', [userController::class, 'register']);
 
 // ->name('password.reset');
-Route::post('forgot-password', [userController::class, 'forgot'])->name('password.reset');
+Route::post('forgot-password', [userController::class, 'forgot']);
 
 Route::post('reset-password', [userController::class, 'reset']);
 
