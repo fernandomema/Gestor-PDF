@@ -227,5 +227,16 @@ class userController extends Controller
         $request->user()->token()->revoke();
 
         return ['status' => 'success', 'msg' => 'logged out successfully'];
-    } 
+    }
+    
+    // Método para eliminar una cuenta
+    public function delete(Request $request)
+    {
+        $user = Auth::user();
+
+        $request->user()->token()->revoke();
+
+        if($user->delete())     return ['status' => 'success', 'msg' => 'Your account has been deleted!'];
+        else                    return ['status' => 'failed', 'msg' => 'An error has occurred. Try again later'];
+    }
 }
