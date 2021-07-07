@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://unpkg.com/@tabler/core@latest/dist/css/tabler.min.css">
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/global.css">
 </head>
 
@@ -65,7 +66,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 <a class="nav-link" href="./workspaces.html">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <!-- Download SVG icon from http://tabler-icons.io/i/home -->
@@ -111,7 +112,7 @@
                     <div class="row align-items-center">
                         <div class="col">
                             <h2 class="page-title">
-                                Edit Workspace
+                                Upload documents
                             </h2>
                         </div>
                     </div>
@@ -119,67 +120,8 @@
             </div>
             <div class="page-body">
                 <div class="container-xl">
-                    <form action="https://httpbin.org/post" method="post" class="card">
-                        <div class="card-body">
-                            <div class="mb-3">
-                                <label class="form-label required">Workspace name</label>
-                                <input type="text" class="form-control" name="example-text-input" placeholder="Name">
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label">Workspace Managers </label>
-                                <div class="form-selectgroup form-selectgroup-boxes d-flex flex-column">
-                                    <label class="form-selectgroup-item flex-fill">
-                                        <input type="checkbox" name="form-project-manager[]" value="1" class="form-selectgroup-input" checked disabled>
-                                        <div class="form-selectgroup-label d-flex align-items-center p-3">
-                                            <div class="me-3">
-                                                <span class="form-selectgroup-check"></span>
-                                            </div>
-                                            <div class="form-selectgroup-label-content d-flex align-items-center">
-                                                <span class="avatar me-3" style="background-image: url(...)">
-                                                    <div class="skeleton-image w-100 h-100"></div>
-                                                </span>
-                                                <div>
-                                                    <div class="font-weight-medium" style="width: 20vw;">
-                                                        <div class="skeleton-line"></div>
-                                                    </div>
-                                                    <div class="text-muted" style="width: 25vw;">
-                                                        <div class="skeleton-line"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </label>
-                                    <label class="form-selectgroup-item flex-fill">
-                                        <input type="checkbox" name="form-project-manager[]" value="1" class="form-selectgroup-input" disabled>
-                                        <div class="form-selectgroup-label d-flex align-items-center p-3">
-                                            <div class="me-3">
-                                                <span class="form-selectgroup-check"></span>
-                                            </div>
-                                            <div class="form-selectgroup-label-content d-flex align-items-center">
-                                                <span class="avatar me-3" style="background-image: url(...)">
-                                                    <div class="skeleton-image w-100 h-100"></div>
-                                                </span>
-                                                <div>
-                                                    <div class="font-weight-medium" style="width: 20vw;">
-                                                        <div class="skeleton-line"></div>
-                                                    </div>
-                                                    <div class="text-muted" style="width: 25vw;">
-                                                        <div class="skeleton-line"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-footer text-end">
-                            <div class="d-flex">
-                                <a href="workspaces.html" class="btn btn-link">Cancel</a>
-                                <button type="submit" class="btn btn-purple ms-auto">Create</button>
-                            </div>
-                        </div>      
-                    </form>
+                    <!-- We'll transform this input into a pond -->
+                    <input type="file" class="filepond">
                 </div>
             </div>
             <footer class="footer footer-transparent d-print-none">
@@ -209,9 +151,28 @@
             </footer>
         </div>
     </div>
+    <style>
+        .filepond--drop-label {
+            background-color:white;
+        }
+    </style>
     <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+    <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
     <script src="../js/global.js"></script>
+    <script>
+        FilePond.registerPlugin(FilePondPluginFileValidateType);
+        FilePond.create(document.querySelector('.filepond'), {
+            acceptedFileTypes: ['application/pdf'],
+            // fileValidateTypeDetectType: (source, type) =>
+            //     new Promise((resolve, reject) => {
+            //         // Do custom type detection here and return with promise
+
+            //         resolve(type);
+            //     }),
+        });
+    </script>
 </body>
 
 </html>
