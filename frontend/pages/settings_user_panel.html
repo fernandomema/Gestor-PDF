@@ -74,6 +74,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
+
                                 <a class="nav-link" href="./workspaces.html">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <!-- Download SVG icon from http://tabler-icons.io/i/home -->
@@ -84,6 +85,7 @@
                                             <line x1="12" y1="12" x2="12" y2="12.01"></line>
                                             <path d="M3 13a20 20 0 0 0 18 0"></path>
                                          </svg>
+                                      
                                     </span>
                                     <span class="nav-link-title">
                                         Workspaces
@@ -199,29 +201,9 @@
                                 <button type="submit" id="submit" class="btn submit-btn">Save changes</button>
                             </div>
                             <div class="btn-container text-center mt-5">
-                                <button type="button" id="delete-account-btn" class="btn delete-btn">Delete account</button>
+                                <button type="button" id="delete-account-btn" class="btn delete-btn" data-bs-toggle="modal" data-bs-target="#modal-report">Delete account</button>
                             </div>
-
-                            <!-- Aquí yace el modal para preguntar al usuario si realmente quiere eliminar su cuenta -->
-                            <div id="modal-delete-container" class="modal">
-                                <form class="modal-content">
-                                    <div class="container">
-                                        <div class="d-flex justify-content-center">
-                                            <div class="icon-container d-flex justify-content-center align-items-center">
-                                                <i class="far fa-trash-alt icon"></i>  
-                                            </div>
-                                        </div>
-                                        <h1>Delete Account</h1>
-                                        <p>Are you sure you want to delete your account?</p>
-                                        
-                                        <div class="clearfix">
-                                            <button type="button" id="cancelbtn" class="modal-btn cancelbtn">Cancel</button>
-                                            <button type="button" id="deletebtn" class="modal-btn deletebtn">Delete</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-
+      
                             <!-- Aquí mostraremos el spinner de cargando -->
                             <div class="mt-5" id="spinner-circulando"></div>    
             
@@ -260,6 +242,34 @@
         </div>
     </div>
     
+    <!-- Modal de tabler -->
+    <div class="modal modal-blur fade" id="modal-report" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-status bg-danger"></div>
+                <div class="modal-body text-center py-4">
+                <!-- Download SVG icon from http://tabler-icons.io/i/alert-triangle -->
+                <!-- SVG icon code with class="mb-2 text-danger icon-lg" -->
+                <h3>Are you sure?</h3>
+                <div class="text-muted">Do you really want to delete your account? What you've done cannot be undone.</div>
+            </div>
+                <div class="modal-footer">
+                    <div class="w-100">
+                        <div class="row">
+                            <div class="col"><a href="#" class="btn btn-white w-100" data-bs-dismiss="modal">
+                                Cancel
+                            </a></div>
+                            <div class="col"><a href="#" class="btn btn-danger w-100" data-bs-dismiss="modal">
+                                Delete Account
+                            </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- JavaScript Bootstrap 5 Tabler -->
     <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
     <!-- Jquery CDN link -->
@@ -268,6 +278,6 @@
     <script src="../js/api_show_user_info.js"></script>
     <script src="../js/api_edit_user_info.js"></script>
     <script src="../js/api_logout.js"></script>
-    <script src="../js/efectos_modal.js"></script>
+    <script src="../js/global.js"></script>
 </body>
 </html>
