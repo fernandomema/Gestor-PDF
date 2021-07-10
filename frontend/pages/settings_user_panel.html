@@ -259,6 +259,35 @@
         </div>
     </div>
 
+    <!-- Modal para advertir al usuario sobre cómo proceder al cambio de contraseñas -->
+    <div class="modal modal-blur fade" id="modal-password" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Password change warning <i class="fas fa-exclamation-triangle ms-2 triangle-alert"></i></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        <li>
+                            If you desire to change your password, you must enter your current password and then 
+                            type the new one.
+                        </li>
+                        <li class="mt-3">
+                            Otherwise, if you don't want to change it, there's no need to type anything in the password
+                            fields. 
+                        </li>
+                    </ul>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <button type="button" class="btn btn-purple" data-bs-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+      
+
     <!-- JavaScript Bootstrap 5 Tabler -->
     <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
     <!-- Jquery CDN link -->
@@ -269,6 +298,7 @@
     <script src="../js/api_logout.js"></script>
     <script src="../js/api_delete_account.js"></script>
     <script src="../js/load_avatar_name_user.js"></script>
+    <script src="../js/show_modal_user_settings.js"></script>
     <script src="../js/global.js"></script>
 </body>
 </html>
