@@ -52,6 +52,11 @@ a:hover{
     color: white;
 }
 
+/* Estilo del modal del cambio de contraseña */
+.triangle-alert{
+    color: #dadf1e;
+}
+
 /* Clases del tipo ajax_response */
 #error_message{
     background: #F3A6A6;
