@@ -42,3 +42,7 @@ Route::post('edit', [userController::class, 'edit'])->middleware('auth:api');
 Route::get('logout', [userController::class, 'logout'])->middleware('auth:api');
 
 Route::post('delete-account', [userController::class, 'delete'])->middleware('auth:api');
+
+// endpoints workspace
+
+Route::post('create-workspace', [WorkspaceController::class, 'store']);
