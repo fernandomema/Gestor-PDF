@@ -25,16 +25,6 @@ class WorkspaceController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('workspaces.create');
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
@@ -42,9 +32,8 @@ class WorkspaceController extends Controller
      */
     public function store(Request $request)
     {
-        Workspace::create($request->all());
-
-        return back()->with('message', 'item stored successfully');
+        return ['status' => 'success', 'msg' => 'A new worskpace has been created.'];
+        // Workspace::create($request->all());
     }
 
     /**
