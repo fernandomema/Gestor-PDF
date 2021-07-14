@@ -32,7 +32,15 @@ class WorkspaceController extends Controller
      */
     public function store(Request $request)
     {
-        return ['status' => 'success', 'msg' => 'A new worskpace has been created.'];
+        $validatedData = $request->validate([
+            'name' => ['required', 'max:191']
+        ]);
+
+        if($validatedData)      return ['status' => 'success', 'msg' => 'A new worskpace has been created.'];
+        else {
+            $errors = $validator->errors();
+            return ['status' => 'failed', 'msg' => $errors];
+        }
         // Workspace::create($request->all());
     }
 
