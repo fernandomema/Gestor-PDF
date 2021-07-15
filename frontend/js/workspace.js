@@ -19,7 +19,7 @@ $(document).ready(function () {
                 } else {
                     $("#"+workspace.name.replace(/\s+/g, '-')).loadTemplate($("#empty-template"));
                 }
-            });          
+            });           
         },
         error: function(response){
             console.log(response);
