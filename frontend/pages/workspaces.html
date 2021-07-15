@@ -138,7 +138,7 @@
             <div class="page-body">
                 <div class="container-xl">
                     <div class="card">
-                        <div class="list-group list-group-flush overflow-auto" style="max-height: 35rem">
+                        <div class="list-group list-group-flush overflow-auto" id="workspace" style="max-height: 35rem">
                             <div class="list-group-header sticky-top">
                                 <div class="skeleton-line" style="width: 10px;"></div>
                             </div>
@@ -146,7 +146,9 @@
                                 <div class="row">
                                     <div class="col-auto">
                                         <a href="#">
-                                            <span class="avatar" style="background-image: url(./static/avatars/023f.jpg)"></span>
+                                            <span class="avatar">
+                                                
+                                            </span>
                                         </a>
                                     </div>
                                     <div class="col text-truncate">
@@ -190,9 +192,53 @@
             </footer>
         </div>
     </div>
+
+    <script type="text/html" id="workspace-template">
+        <div class="list-group-item">
+            <div class="row">
+                <div class="col-auto">
+                    <a data-template-bind='[ {"attribute": "href", "value": "url"}]'>
+                        <span class="avatar">
+                            <img data-src="avatar" alt="">
+                        </span>
+                    </a>
+                </div>
+                <div class="col text-truncate">
+                    <a data-template-bind='[ {"attribute": "href", "value": "url"}]' class="text-body d-block" style="line-height: 40px;" data-content="name"></a>
+                    <div class="text-muted text-truncate mt-n1">
+                        <div class="skeleton-line d-none"></div>
+                    </div>
+                </div>
+                <div class="col-auto lh-1 m-auto">
+                    <div class="menu-item">
+                        <a data-template-bind='[ {"attribute": "href", "value": "editUrl"}]' class="link-secondary" aria-expanded="false" title="Edit">
+                            <!-- Download SVG icon from http://tabler-icons.io/i/dots -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit text-yellow" style="height: 30px; width: 30px;" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"></path>
+                                <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"></path>
+                                <line x1="16" y1="5" x2="19" y2="8"></line>
+                            </svg>
+                        </a>
+                        <a data-template-bind='[ {"attribute": "href", "value": "url"}]' class="link-secondary" aria-expanded="false" title="View documents">
+                            <!-- Download SVG icon from http://tabler-icons.io/i/dots -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login text-blue" style="height: 30px; width: 30px;" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
+                                <path d="M20 12h-13l3 -3m0 6l-3 -3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    
     <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.loadtemplate/1.2.2/jquery.loadTemplate.min.js" integrity="sha512-4TNloTjrSDYjXOIkusiCx1L1n7KrBLENxj/zsM5a1XeA9KT3Chb+7mPHFzopYxf7IeEpP8ReekhSUHWO99vuYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../js/global.js"></script>
+    <script src="../js/workspaces.js"></script>
 </body>
 
 </html>
