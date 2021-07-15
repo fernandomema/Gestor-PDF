@@ -475,7 +475,7 @@
                 <div class="card-header">
                     <h3 class="card-title" data-content="name">Personal Documents</h3>
                 </div>
-                <div class="list-group list-group-flush" data-template-bind='[{"attribute": "id", "value": "name"}]'>
+                <div class="list-group list-group-flush" data-template-bind='[{"attribute": "id", "value": "elemID"}]'>
         
                     <div class="list-group-item">
                         <div class="row align-items-center">
@@ -645,6 +645,30 @@
                         <button type="button" class="btn">Print</button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="empty-template">
+        <div class="empty">
+            <div class="empty-img">
+                <img src="../img/undraw_add_document_0hek.svg" height="128" alt="">
+            </div>
+            <p class="empty-title">You don't have any document yet.</p>
+            <p class="empty-subtitle text-muted">
+                Why you don't try to create a new one?
+            </p>
+            <div class="empty-action">
+                <a href="#" class="btn btn-purple">
+                    <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    New document
+                </a>
             </div>
         </div>
     </script>
