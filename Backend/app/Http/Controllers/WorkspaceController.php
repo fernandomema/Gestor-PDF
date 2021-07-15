@@ -37,7 +37,7 @@ class WorkspaceController extends Controller
             'name' => ['required', 'max:191']
         ]);
 
-        if($validatedData->validated()){
+        if(count($validatedData->errors()) > 0){
             /* ---------------- Inserción de registro en tabla workspaces --------------- */
             // Creamos un nuevo registro en el modelo Workspace...
             $workspace = new Workspace();
