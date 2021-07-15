@@ -32,34 +32,42 @@ class WorkspaceController extends Controller
      */
     public function store(Request $request)
     {
-        /* Validación del nombre de workspace */
-        $validatedData = $request->validate([
-            'name' => ['required', 'max:191']
-        ]);
+        $message = '';              // variable donde almacenaremos los errores de validación
+        
+        /* -------------------- Validaciones ---------------- */
+        
+        // Si el nombre del workspace está vacío, retornamos error
+        if($request->name == NULL)      $message .= 'You must enter a workspace name.\n';
 
-        if($validatedData->errors()){
+        // Si el nombre de workspace ya existe, entonces retornamos mensaje de error
+        $workspace_exists = Workspace::where('name', $request->input('name'))->first();
+        if($workspace_exists != NULL)   $message .= 'A workspace with this name already exists.\n';
+
+        // Si la longitud de caracteres del nombre del workspace supera los 191 caracteres, retornamos error
+        if(strlen($request->name) >= 191)   $message .= 'The name of the workspace is too long.\n';
+
+        // Si la variable $message NO está vacía, entonces hay errores, y retornamos el JSON con status failed
+        if($message != ''){
+            return ['status' => 'failed', 'msg' => $message];
+        } else {
             /* ---------------- Inserción de registro en tabla workspaces --------------- */
             // Creamos un nuevo registro en el modelo Workspace...
             $workspace = new Workspace();
-
+    
             // y asignamos en el campo 'name' el nombre
             $workspace->name = $request->name;
-
+    
             // Guardamos el nuevo registro Workspace
             $workspace->save();
-
+    
             /* ---------------- Inserción de registro en tabla PIVOTE user_workspace --------------- */
             // Obtenemos el usuario actual autenticado
             $user = Auth::user();
-
+    
             // Insertamos un nuevo registro en la tabla pivote
             $user->workspaces()->attach($workspace->id);
-
+    
             return ['status' => 'success', 'msg' => 'A new worskpace has been created.'];
-        }      
-        else {
-            $errors = $validator->errors();
-            return ['status' => 'failed', 'msg' => $errors];
         }
     }
 
