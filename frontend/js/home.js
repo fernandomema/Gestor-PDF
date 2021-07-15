@@ -19,7 +19,10 @@ $(document).ready(function () {
                 } else {
                     $("#"+workspace.name.replace(/\s+/g, '-')).loadTemplate($("#empty-template"));
                 }
-            });          
+            });
+            if (workspaces.length % 2 == 1) {
+                $("#workgroups > div").last().removeClass("col-lg-6");
+            }
         },
         error: function(response){
             console.log(response);

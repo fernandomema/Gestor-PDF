@@ -1,4 +1,6 @@
 .navbar-expand-md .navbar-light .nav-item.active:after, .navbar-expand-md.navbar-light .nav-item.active:after {
     border-color: #ae3ec9;
-    
+}
+* {
+    transition: all 0.5s ease;
 }
