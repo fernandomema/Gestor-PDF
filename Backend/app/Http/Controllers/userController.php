@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Workspace;
 use Illuminate\Support\Str;
 use Auth;
 use Illuminate\Support\Facades\Password;
