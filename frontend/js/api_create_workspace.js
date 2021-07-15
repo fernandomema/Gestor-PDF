@@ -39,17 +39,17 @@ $(document).ready(function () {
                     case 'success':
                         msg_success.fadeIn().html(structured_message);
                         msg_error.hide();
-                        console.log('ha entrado aqui');
 
                         setTimeout(function() {
                             msg_success.fadeOut("slow");
                         }, 2000 );
+                        $('#workspace-field').val('');
                         break;
                     case 'failed':
-                        // console.log(response.msg);
-                        $.each(response.msg, function (key, element){
-                            console.log(element)
-                        });
+                        msg_error.fadeIn().html(structured_message); 
+                        setTimeout(function() {
+                            msg_error.fadeOut("slow");
+                        }, 5000 );
                         break;
                     default:
                         break;
