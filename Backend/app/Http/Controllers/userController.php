@@ -52,6 +52,21 @@ class userController extends Controller
             $usuario->password = Hash::make($request->input('password'));
             $usuario->remember_token = Str::random(60);
             $usuario->save();       // guardamos en la base de datos
+            /* -------- Creando un nuevo workspace al usuario por defecto --------- */
+            /* ---------------- Inserción de registro en tabla workspaces --------------- */
+            // Creamos un nuevo registro en el modelo Workspace...
+            $workspace = new Workspace();
+
+            // y asignamos en el campo 'name' el nombre
+            $workspace->name = 'Personal Workspace';
+
+            // Guardamos el nuevo registro Workspace
+            $workspace->save();
+
+            /* ---------------- Inserción de registro en tabla PIVOTE user_workspace --------------- */
+            // Insertamos un nuevo registro en la tabla pivote
+            $usuario->workspaces()->attach($workspace->id);
+
             return ['status' => 'success', 'msg' => 'New user registered successfully'];
         } 
     }
