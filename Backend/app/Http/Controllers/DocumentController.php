@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Document;
 use App\Models\Workspace;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use File;
 
 class DocumentController extends Controller
 {
@@ -87,5 +89,22 @@ class DocumentController extends Controller
     public function destroy(Document $document)
     {
         $document->delete();
+    }
+
+    public function upload(Request $request) {
+        $documents = [];
+        foreach($request->file('pdf') as $file) {
+            $filename = uniqid().File::extension($file->getClientOriginalName());
+            Storage::disk('sftp')->put('pdf/'.$filename.'.pdf', $request->file);
+            $document = new Document;
+            $document->name = $file->getClientOriginalName();
+            $document->type = "template";
+            $document->document = 'pdf/'.$filename.'.pdf'; 
+            $document->data = "{}";
+            $document->workspace_id = $request->input('workspace');
+            $document->save();
+            array_push($documents, $document);
+        }
+        return ['status' => 'ok', 'documents' => $documents];
     }
 }
