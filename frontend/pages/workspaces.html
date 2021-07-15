@@ -136,7 +136,7 @@
             <div class="page-body">
                 <div class="container-xl">
                     <div class="card">
-                        <div class="list-group list-group-flush overflow-auto" style="max-height: 35rem">
+                        <div class="list-group list-group-flush overflow-auto" id="workspace" style="max-height: 35rem">
                             <div class="list-group-header sticky-top">
                                 <div class="skeleton-line" style="width: 10px;"></div>
                             </div>
@@ -144,7 +144,9 @@
                                 <div class="row">
                                     <div class="col-auto">
                                         <a href="#">
-                                            <span class="avatar" style="background-image: url(./static/avatars/023f.jpg)"></span>
+                                            <span class="avatar">
+                                                
+                                            </span>
                                         </a>
                                     </div>
                                     <div class="col text-truncate">
@@ -188,9 +190,32 @@
             </footer>
         </div>
     </div>
+
+    <script type="text/html" id="workspace-template">
+        <div class="list-group-item">
+            <div class="row">
+                <div class="col-auto">
+                    <a href="#">
+                        <span class="avatar">
+                            <img data-src="avatar" alt="">
+                        </span>
+                    </a>
+                </div>
+                <div class="col text-truncate">
+                    <a data-href="url" class="text-body d-block" style="line-height: 40px;" data-content="name"></a>
+                    <div class="text-muted text-truncate mt-n1">
+                        <div class="skeleton-line d-none"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    
     <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.loadtemplate/1.2.2/jquery.loadTemplate.min.js" integrity="sha512-4TNloTjrSDYjXOIkusiCx1L1n7KrBLENxj/zsM5a1XeA9KT3Chb+7mPHFzopYxf7IeEpP8ReekhSUHWO99vuYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../js/global.js"></script>
+    <script src="../js/workspaces.js"></script>
 </body>
 
 </html>
