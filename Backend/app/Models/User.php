@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\ResetPasswordNotification;
 use Laravel\Passport\HasApiTokens;
 
 use App\Models\Workspace;
@@ -46,6 +47,8 @@ class User extends Authenticatable
 
     public function workspaces()
     {
+        /* Devuelve los espacios de trabajo a los que pertenece el usuario. (relación N:M) entre los 
+        modelos User y Workspace. Un usuario puede estar en varios workspaces */
         return $this->belongsToMany(Workspace::class, 'user_workspace', 'user_id', 'workspace_id');
     }
 

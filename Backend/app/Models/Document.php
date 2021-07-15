@@ -34,6 +34,8 @@ class Document extends Model
      */
     public function workspace()
     {
+        /* Devuelve los espacios de trabajo al que pertenece el documento (relación 1:N). 
+        Un documento en particular solo puede pertenecer a un workspace */
         return $this->belongsTo('App\Models\Workspace');
     }
 }
