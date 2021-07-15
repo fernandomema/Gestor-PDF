@@ -53,6 +53,14 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
+        'sftp' => [
+            'driver' => 'sftp',
+            'host' => '82.223.75.23',
+            'username' => 'root',
+            'password' => 'pbspqpSN2D1n',
+            'root' => '/var/storage/',
+        ],
+
     ],
 
     /*
