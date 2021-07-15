@@ -12,6 +12,8 @@ $(document).ready(function () {
             console.log(workspaces);
             workspaces.forEach(function (workspace) {
                 workspace.avatar = "https://eu.ui-avatars.com/api/?name="+workspace.name+"?background=random";
+                workspace.url = 'workspace.html?id='+workspace.id;
+                workspace.editUrl = 'edit_workspace.html?id='+workspace.id;
                 //$("#"+workspace.name).loadTemplate($("#document-template"), workspace.documents);
             });
             $("#workspace").loadTemplate($("#workspace-template"), workspaces);
