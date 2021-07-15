@@ -120,8 +120,19 @@
             </div>
             <div class="page-body">
                 <div class="container-xl">
-                    <!-- We'll transform this input into a pond -->
-                    <input type="file" class="filepond">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Workspace</label>
+                            <select class="form-select" name="workspace"></select>
+                        </div>
+                        <!-- We'll transform this input into a pond -->
+                        <div id="upload-image" class="w-100 text-center bg-white rounded-top cursor-pointer">
+                            <img src="../img/undraw_Upload_re_pasx.svg" height="254" alt="">
+                        </div>
+                        <input type="file" class="filepond cursor-pointer">
+    
+                        <input type="submit" class="btn btn-purple w-100" value="Upload">
+                    </form>
                 </div>
             </div>
             <footer class="footer footer-transparent d-print-none">
@@ -152,7 +163,7 @@
         </div>
     </div>
     <style>
-        .filepond--drop-label {
+        .filepond--drop-label, .filepond--panel-root {
             background-color:white;
         }
     </style>
@@ -161,18 +172,7 @@
     <script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
     <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
     <script src="../js/global.js"></script>
-    <script>
-        FilePond.registerPlugin(FilePondPluginFileValidateType);
-        FilePond.create(document.querySelector('.filepond'), {
-            acceptedFileTypes: ['application/pdf'],
-            // fileValidateTypeDetectType: (source, type) =>
-            //     new Promise((resolve, reject) => {
-            //         // Do custom type detection here and return with promise
-
-            //         resolve(type);
-            //     }),
-        });
-    </script>
+    <script src="../js/upload.js"></script>
 </body>
 
 </html>
