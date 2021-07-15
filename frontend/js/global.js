@@ -9,4 +9,9 @@ $( document ).ready(function() {
     // Load avatar
     $('.avatar.avatar-sm').css('background-image', 'url(' + sessionStorage.getItem('avatar') + ')');
 
+    // Load username
+    var name = sessionStorage.getItem('usuario');
+    var name_first_letter_capitalized = name.charAt(0).toUpperCase() + name.slice(1);
+    $('.username-menu').text(name_first_letter_capitalized);
+
 });

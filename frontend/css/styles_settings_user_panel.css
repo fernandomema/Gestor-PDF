@@ -38,18 +38,6 @@ a:hover{
     font-size: 1.4em;       /* 22.4px */
 }
 
-/* Estilo css del avatar */
-.avatar{
-    width: 100%;
-    background: #ffffff;
-}
-
-.avatar img{
-    width:12.5em;           /* 200px */
-    height:12.5em;          /* 200px */
-    border-radius:50%;
-}
-
 /* Estilos de los botones de update y remove avatar */
 .row-buttons{
     margin-top: 5em;        /* 80px */
@@ -62,6 +50,11 @@ a:hover{
 .delete-btn{
     background: red;
     color: white;
+}
+
+/* Estilo del modal del cambio de contraseña */
+.triangle-alert{
+    color: #dadf1e;
 }
 
 /* Clases del tipo ajax_response */

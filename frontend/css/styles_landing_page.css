@@ -98,11 +98,11 @@ body{
 
     outline: none;              /* removes the border */
     border: none;
-    background: #996a54;
-    background: -webkit-linear-gradient(90deg, #996a54, #a69686, #200000, #fbd9d0) var(--x, 0) / 200%;
-    background: -o-linear-gradient(90deg, #996a54, #a69686, #200000, #fbd9d0) var(--x, 0) / 200%;
-    background: -moz-linear-gradient(90deg, #996a54, #a69686, #200000, #fbd9d0) var(--x, 0) / 200%;
-    background: linear-gradient(90deg, #996a54, #a69686, #200000, #fbd9d0) var(--x, 0) / 200%;
+    background: #a64bf4;
+    background: -webkit-linear-gradient(90deg, #00dbde, #fc00ff, #00dbde, #fc00ff) var(--x, 0) / 200%;
+    background: -o-linear-gradient(90deg, #00dbde, #fc00ff, #00dbde, #fc00ff) var(--x, 0) / 200%;
+    background: -moz-linear-gradient(90deg, #00dbde, #fc00ff, #00dbde, #fc00ff) var(--x, 0) / 200%;
+    background: linear-gradient(90deg, #00dbde, #fc00ff, #00dbde, #fc00ff) var(--x, 0) / 200%;
 
     -webkit-transition: all 0.4s;
     -o-transition: all 0.4s;
@@ -142,14 +142,14 @@ body{
 .info .btn-link{
     display: inline-block;
     padding: 1em 2em;           /* 16px top-bottom, 32px left-right */
-    background: red;
     color: white;
+    background: #5c28d4;
     text-decoration: none;
     border-radius: 1.5em;       /* 24px */
 }
 
 .info .btn-link:hover{
-    background: #5c28d4;
+    background: red;
 }
 
 /* ------------------------- Sección Descripción ------------------------ */
