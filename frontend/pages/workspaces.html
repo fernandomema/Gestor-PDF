@@ -31,7 +31,8 @@
                             <span class="avatar avatar-sm"
                                 style="background-image: url(./static/avatars/000m.jpg)"></span>
                             <div class="d-none d-xl-block ps-2">
-                                <div>Username</div>
+                                <!-- Traemos el nombre de Usuario desde jQuery -->
+                                <div class="username-menu"></div>
                                 <div class="mt-1 small text-muted">Role</div>
                             </div>
                         </a>
@@ -179,7 +180,7 @@
                             <ul class="list-inline list-inline-dots mb-0">
                                 <li class="list-inline-item">
                                     Copyright &copy; 2021
-                                    <a href="." class="link-secondary">AppName</a>.
+                                    <a href="." class="link-secondary">InstaPDF</a>.
                                     All rights reserved.
                                 </li>
                                 <li class="list-inline-item">
@@ -236,6 +237,8 @@
     
     <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/api_logout.js"></script>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.loadtemplate/1.2.2/jquery.loadTemplate.min.js" integrity="sha512-4TNloTjrSDYjXOIkusiCx1L1n7KrBLENxj/zsM5a1XeA9KT3Chb+7mPHFzopYxf7IeEpP8ReekhSUHWO99vuYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../js/global.js"></script>
     <script src="../js/workspaces.js"></script>
