@@ -33,7 +33,7 @@ class WorkspaceController extends Controller
     public function store(Request $request)
     {
         /* Validación del nombre de workspace */
-        return ['test' => $request->name2];
+        return ['test' => $request->all()];
         $validatedData = $request->validate([
             'name2' => ['required', 'max:191']
         ]);
