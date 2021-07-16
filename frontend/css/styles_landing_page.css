@@ -126,6 +126,11 @@ body{
     width: 50%;
 }
 
+/* Change the size of the icon document */
+.icon.documento{
+    width: 73%;
+}
+
 .info .service-description{
     font-family: 'Roboto', sans-serif;
     font-size: 1.8em;           /* 28.8px */
