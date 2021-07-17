@@ -99,7 +99,10 @@ class WorkspaceController extends Controller
         // Obtenemos el usuario actual autenticado
         $user = Auth::user();
         $workspaces = $user->workspaces()->get();
-        return $workspaces;
+        foreach($workspaces as $workspace){
+            echo $workspace->id;
+        }
+        // return $workspaces;
 
         // return view('workspaces.edit', compact('workspace'));
     }
