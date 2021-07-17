@@ -30,6 +30,8 @@ class WorkspaceController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
+
+    //  Método para crear un nuevo workspace para el usuario
     public function store(Request $request)
     {
         $message = '';              // variable donde almacenaremos los errores de validación
@@ -84,13 +86,22 @@ class WorkspaceController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     *
+     * @param  \Illuminate\Http\Request $request
      * @param  \App\Models\Workspace $workspace
      * @return \Illuminate\Http\Response
      */
-    public function edit(Workspace $workspace)
+    
+    // Método para retornar el nombre del workspace al usuario para que pueda modificarlo
+    public function edit(Request $request, Workspace $workspace)
     {
-        return view('workspaces.edit', compact('workspace'));
+        /* Validación en caso de que el usuario modifique el id */
+        
+        // Obtenemos el usuario actual autenticado
+        $user = Auth::user();
+        $workspaces = $user->workspaces()->get();
+        return $workspaces;
+
+        // return view('workspaces.edit', compact('workspace'));
     }
 
     /**
