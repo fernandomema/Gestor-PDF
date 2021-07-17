@@ -1,18 +1,18 @@
 $(document).ready(function () {
-    /* API para crear un worskpace */
+    /* API para editar un worskpace */
     
-    $('#create-workspace').click(function (e) { 
+    $('#save-changes').click(function (e) { 
         e.preventDefault();
         // ---------------- Variables ----------------------
             var msg_error = $("#error_message"),
               msg_success = $('#success_message'),
-          workspace_input = $('#workspace-field').val();
+           workspace_name = $('#name-field').val();
 
         // Obtenemos de session storage el token guardado
         var token = sessionStorage.getItem('token');
 
         // URL de la API a utilizar para conectarnos con el Backend
-        const URL_API = 'https://insta-pdf.herokuapp.com/api/create-workspace';
+        const URL_API = 'https://insta-pdf.herokuapp.com/api/update-workspace';
 
         // Creamos el headers
         var Headers = {
@@ -22,7 +22,8 @@ $(document).ready(function () {
         
         // Preparamos el Data
         var datos = {
-            "name": workspace_input
+            "id": sessionStorage.getItem('id'),
+            "name": workspace_name
         };
 
         // AJAX para conectarnos con la API
@@ -44,7 +45,8 @@ $(document).ready(function () {
                             msg_success.fadeOut("slow");
                             window.location.href = 'workspaces.html';
                         }, 2000 );
-                        $('#workspace-field').val('');
+                        $('#name-field').val('');
+                        sessionStorage.removeItem('id');
                         break;
                     case 'failed':
                         msg_error.fadeIn().html(structured_message); 

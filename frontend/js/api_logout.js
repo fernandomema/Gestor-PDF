@@ -29,6 +29,7 @@ $(document).ready(function () {
                         // Eliminamos del session storage el usuario y el correo
                         sessionStorage.removeItem('usuario');
                         sessionStorage.removeItem('correo');
+                        sessionStorage.removeItem('id');
                         window.location.href = 'https://localhost/Gestor_PDF_Frontend/frontend/pages/login.html';
                         break;
                     case 'failed':
