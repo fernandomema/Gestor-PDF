@@ -94,13 +94,31 @@ class WorkspaceController extends Controller
     // Método para retornar el nombre del workspace al usuario para que pueda modificarlo
     public function edit(Request $request, Workspace $workspace)
     {
+        // Variable bandera que se usará para determinar si el id que enviamos le corresponde al usuario
+        $found = false; 
+
         /* Validación en caso de que el usuario modifique el id */
-        
+
         // Obtenemos el usuario actual autenticado
         $user = Auth::user();
         $workspaces = $user->workspaces()->get();
         foreach($workspaces as $workspace){
-            echo $workspace->id;
+            if($request->id === $workspace->id){
+                $found = true;
+                break;
+            }
+        }
+        /* Si no se encuentra un workspace, significa que el usuario maliciosamente ha modificado el valor del
+        id desde Session Storage y retornamos mensaje de error. De esta manera, evitamos que quiera acceder
+        a los workspaces de otros usuarios. */
+        if(!$found){
+            return ['status' => 'failed', 'msg' => 'This workspace does not exist.'];
+        }else{
+            /* Guardando los datos en un array para mostrarlos en el Front */
+            $workspace_name = array(
+                'workspace_name' => $workspaces->name
+            );
+            return $workspace_name;
         }
         // return $workspaces;
 
