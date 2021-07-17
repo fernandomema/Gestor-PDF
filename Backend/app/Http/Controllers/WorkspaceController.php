@@ -94,7 +94,7 @@ class WorkspaceController extends Controller
     // Método para retornar el nombre del workspace al usuario para que pueda modificarlo
     public function edit(Request $request, Workspace $workspace)
     {
-        // Variable bandera que se usará para determinar si el id que enviamos le corresponde al usuario
+        // Variable bandera que se usará para determinar si el id que enviamos le corresponde a algun workspace del usuario
         $found = false; 
 
         /* Validación en caso de que el usuario modifique el id */
@@ -119,7 +119,6 @@ class WorkspaceController extends Controller
             $workspace_name = array(
                 'workspace_name' => $nombre
             );
-
             return ['status' => 'success', 'msg' => $workspace_name];
         }
         // return view('workspaces.edit', compact('workspace'));
@@ -134,20 +133,35 @@ class WorkspaceController extends Controller
      */
     public function update(Request $request, Workspace $workspace)
     {
-        /* ------- Validación del nombre del Workspace ------- */
-        $validatedData = $request->validate([
-            'name' => ['required', 'max:191']
-        ]);
-        if($validatedData->validated()){
-            $workspace->name = $request->name;
-            return ['status' => 'success', 'msg' => 'The worskpace has been updated.'];
-        } else{
-            $errors = $validator->errors();
-            return ['status' => 'failed', 'msg' => $errors];
-        }
-        $workspace->update($request->all());
+        $message = '';              // variable donde almacenaremos los errores de validación
+        
+        /* ------- Validación del nuevo nombre del Workspace ------- */
+        
+        // Si el nombre del workspace está vacío, retornamos error
+        if($request->name == NULL)      $message .= 'You must enter a workspace name.\n';
 
-        // return back()->with('message', 'item updated successfully');
+        // Si el nombre de workspace ya existe, entonces retornamos mensaje de error
+        $workspace_exists = Workspace::where('name', $request->input('name'))->first();
+        if($workspace_exists != NULL)   $message .= 'A workspace with this name already exists.\n';
+
+        // Si la longitud de caracteres del nombre del workspace supera los 191 caracteres, retornamos error
+        if(strlen($request->name) >= 191)   $message .= 'The name of the workspace is too long.\n';
+
+        // Si la variable $message NO está vacía, entonces hay errores, y retornamos el JSON con status failed
+        if($message != ''){
+            return ['status' => 'failed', 'msg' => $message];
+        } else {
+            $user = Auth::user();
+            $workspaces = $user->workspaces()->get();
+            foreach($workspaces as $workspace){
+                if($request->id == $workspace->id){
+                    $workspace->name = $request->name;
+                    $workspace->save();
+                    break;
+                }
+            }
+            return ['status' => 'success', 'msg' => 'saves changed successfully'];
+        }
     }
 
     /**
