@@ -99,7 +99,7 @@ class WorkspaceController extends Controller
 
         /* Validación en caso de que el usuario modifique el id */
        
-        // Obtenemos el usuario actual autenticado
+        // Obtenemos el usuario actual autenticado y buscamos algún workspace con el id que le pasamos
         $user = Auth::user();
         $workspaces = $user->workspaces()->get();
         foreach($workspaces as $workspace){
@@ -119,10 +119,9 @@ class WorkspaceController extends Controller
             $workspace_name = array(
                 'workspace_name' => $nombre
             );
-            return $workspace_name;
-        }
-        // return $workspaces;
 
+            return ['status' => 'success', 'msg' => $workspace_name];
+        }
         // return view('workspaces.edit', compact('workspace'));
     }
 
