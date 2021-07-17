@@ -131,6 +131,8 @@ class WorkspaceController extends Controller
      * @param  \App\Models\Workspace $workspace
      * @return \Illuminate\Http\Response
      */
+
+    //  Método para actualizar información relacionada con el workspace
     public function update(Request $request, Workspace $workspace)
     {
         $message = '';              // variable donde almacenaremos los errores de validación
@@ -169,14 +171,29 @@ class WorkspaceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
+     * @param  \Illuminate\Http\Request $request
      * @param  \App\Models\Workspace $workspace
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Workspace $workspace)
-    {
-        $workspace->delete();
 
-        return back()->with('message', 'item deleted successfully');
+    //  Método para eliminar un workspace de manera permanente
+    public function destroy(Request $request, Workspace $workspace)
+    {
+        /* Procedemos a buscar el workspace correspondiente a eliminar */
+        $user = Auth::user();
+        $workspaces = $user->workspaces()->get();
+        foreach($workspaces as $workspace){
+            if($request->id == $workspace->id){
+                $deleted = Workspace::where('id', $request->input('id'))->delete();
+                break;
+            }
+        }
+
+        if($deleted)    return ['status' => 'success', 'msg' => 'workspace deleted successfully'];
+        else            return ['status' => 'failed', 'msg' => 'An error has occurred. Try again later'];
+
+        // $workspace->delete();
+        // return back()->with('message', 'item deleted successfully');
     }
 
     public function documents($id) {

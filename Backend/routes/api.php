@@ -22,11 +22,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 });
 
+// ----------------------- endpoints Document -------------------------
 Route::get('/documents', [DocumentController::class, 'index'])->middleware('auth:api');
-Route::get('/workspaces', [WorkspaceController::class, 'index'])->middleware('auth:api');
+
 Route::post('/documents/upload', [DocumentController::class, 'upload']); 
+
 Route::get('/documents/{document}', [DocumentController::class, 'show']);
 
+// ----------------------- endpoints User -------------------------
 Route::post('login', [userController::class, 'login']);
 
 Route::post('register', [userController::class, 'register']);
@@ -44,10 +47,13 @@ Route::get('logout', [userController::class, 'logout'])->middleware('auth:api');
 
 Route::post('delete-account', [userController::class, 'delete'])->middleware('auth:api');
 
-// ----------------------- endpoints workspace -------------------------
+// ----------------------- endpoints Workspace -------------------------
+Route::get('/workspaces', [WorkspaceController::class, 'index'])->middleware('auth:api');
 
 Route::post('create-workspace', [WorkspaceController::class, 'store'])->middleware('auth:api');
 
 Route::get('edit-workspace', [WorkspaceController::class, 'edit'])->middleware('auth:api');
 
 Route::post('update-workspace', [WorkspaceController::class, 'update'])->middleware('auth:api');
+
+Route::post('delete-workspace', [WorkspaceController::class, 'destroy'])->middleware('auth:api');
