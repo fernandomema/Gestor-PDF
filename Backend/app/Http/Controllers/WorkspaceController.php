@@ -104,6 +104,7 @@ class WorkspaceController extends Controller
         $workspaces = $user->workspaces()->get();
         foreach($workspaces as $workspace){
             if($request->id == $workspace->id){
+                $nombre = $workspace->name;
                 $found = true;
                 break;
             }
@@ -116,7 +117,7 @@ class WorkspaceController extends Controller
         }else{
             /* Guardando los datos en un array para mostrarlos en el Front */
             $workspace_name = array(
-                'workspace_name' => $workspaces->name
+                'workspace_name' => $nombre
             );
             return $workspace_name;
         }
