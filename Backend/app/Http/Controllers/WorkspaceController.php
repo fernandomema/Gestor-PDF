@@ -98,12 +98,12 @@ class WorkspaceController extends Controller
         $found = false; 
 
         /* Validación en caso de que el usuario modifique el id */
-        return $request->id;
+       
         // Obtenemos el usuario actual autenticado
         $user = Auth::user();
         $workspaces = $user->workspaces()->get();
         foreach($workspaces as $workspace){
-            if($request->id === $workspace->id){
+            if($request->id == $workspace->id){
                 $found = true;
                 break;
             }
