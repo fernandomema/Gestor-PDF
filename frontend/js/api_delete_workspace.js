@@ -1,26 +1,17 @@
 $(document).ready(function () {
-    /* API para editar un worskpace */
+    /* API para eliminar el worskpace seleccionado */
     
-    $('#save-changes').click(function (e) { 
+    $('#btn-delete-workspace').click(function (e) { 
         e.preventDefault();
         // ---------------- Variables ----------------------
             var msg_error = $("#error_message"),
-              msg_success = $('#success_message'),
-           workspace_name = $('#name-field').val(),
-            workspaceName_changed = false;
-
-        // Recuperamos del Session Storage el nombre del workspace para testear si ha habido algún cambio
-        workspace_name_initial_value = sessionStorage.getItem('workspace_name');
-
-        // Comparamos si el usuario realmente ha hecho alguna modificación en el nombre del workspace
-        if(workspace_name.localeCompare(workspace_name_initial_value) === 0)    workspaceName_changed = false;
-        else        workspaceName_changed = true;
+              msg_success = $('#success_message');
 
         // Obtenemos de session storage el token guardado
         var token = sessionStorage.getItem('token');
 
         // URL de la API a utilizar para conectarnos con el Backend
-        const URL_API = 'https://insta-pdf.herokuapp.com/api/update-workspace';
+        const URL_API = 'https://insta-pdf.herokuapp.com/api/delete-workspace';
 
         // Creamos el headers
         var Headers = {
@@ -30,9 +21,7 @@ $(document).ready(function () {
         
         // Preparamos el Data
         var datos = {
-            "id": sessionStorage.getItem('id'),
-            "name": workspace_name,
-            "name_changed": workspaceName_changed
+            "id": sessionStorage.getItem('id')
         };
 
         // AJAX para conectarnos con la API
@@ -54,8 +43,7 @@ $(document).ready(function () {
                             msg_success.fadeOut("slow");
                             window.location.href = 'workspaces.html';
                         }, 2000 );
-                        $('#name-field').val('');
-                        sessionStorage.removeItem('workspace_name')
+                        sessionStorage.removeItem('id');
                         break;
                     case 'failed':
                         msg_error.fadeIn().html(structured_message); 
