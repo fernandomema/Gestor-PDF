@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workspaces</title>
-    <!-- Favicon -->
-    <link rel="icon" href="../img/favicon.png" type="image/png" />
+    <title>Frequently Asked Questions</title>
     <link rel="stylesheet" href="https://unpkg.com/@tabler/core@latest/dist/css/tabler.min.css">
     <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/styles_faq_section.css">
 </head>
 
 <body>
@@ -68,7 +67,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item active">
+                            <li class="nav-item">
                                 <a class="nav-link" href="./workspaces.html">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <!-- Download SVG icon from http://tabler-icons.io/i/home -->
@@ -85,7 +84,7 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item active">
                                 <a class="nav-link" href="./faq_section.html">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
                                         <!-- Download SVG icon from http://tabler-icons.io/i/home -->
@@ -125,28 +124,19 @@
         <div class="page-wrapper">
             <div class="container-xl">
                 <!-- Page title -->
-                <div class="page-header">
+                <div class="page-header d-print-none">
                     <div class="row align-items-center">
                         <div class="col">
+                            <!-- Page pre-title -->
                             <div class="page-pretitle">
-                                Workspaces
+                                FAQ
                             </div>
                             <h2 class="page-title">
-                                Your workspaces
+                                Frequently Asked Questions! Need help?
                             </h2>
-                        </div>
-                        <div class="col-auto ms-auto">
-                            <div class="btn-list">
-                                <a href="create_workspace.html" class="btn btn-purple d-none d-sm-inline-block">
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
-                                    <!-- SVG icon code -->
-                                    Create new workspace
-                                </a>
-                                <a href="create_workspace.html" class="btn btn-purple d-sm-none btn-icon" aria-label="Create new workspace">
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
-                                    <!-- SVG icon code -->
-                                </a>
-                            </div>
+                            <h3 class="mt-2">
+                                We've got you covered!
+                            </h3>
                         </div>
                     </div>
                 </div>
@@ -154,29 +144,48 @@
             <div class="page-body">
                 <div class="container-xl">
                     <div class="card">
-                        <div class="list-group list-group-flush overflow-auto" id="workspace" style="max-height: 35rem">
-                            <div class="list-group-header sticky-top">
-                                <div class="skeleton-line" style="width: 10px;"></div>
-                            </div>
-                            <div class="list-group-item">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <a href="#">
-                                            <span class="avatar">
-                                                
-                                            </span>
-                                        </a>
-                                    </div>
-                                    <div class="col text-truncate">
-                                        <a href="#" class="text-body d-block">
-                                            <div class="skeleton-line"></div>
-                                        </a>
-                                        <div class="text-muted text-truncate mt-n1">
-                                            <div class="skeleton-line"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <!-- FAQ section -->
+                        <div class="faqs">
+                            <details>
+                                <summary>How to get started with InstaPDF?</summary>
+                                <p class="text mt-3">
+                                    We believe that a picture is worth a thousand words, but a video is
+                                    way more valuable. So here it is a get started video where you can learn
+                                    what the main features are and what you can do in InstaPDF :).
+                                </p>
+                            </details>
+                            <details>
+                                <summary>Do I first have to create a workspace?</summary>
+                                <p class="text mt-3">
+                                    No. When you create an account, a default workspace is created
+                                    with the name of "Personal Workspace". So you must have at least 
+                                    one workspace in order to start uploading your own documents.
+                                </p>
+                            </details>
+                            <details>
+                                <summary>How to sign a document?</summary>
+                                <p class="text mt-3">
+                                    [Video].
+                                </p>
+                            </details>
+                            <details>
+                                <summary>I deleted my account by mistake... Can I get back all my documents stored in my workspaces?</summary>
+                                <p class="text mt-3">
+                                    No. Unfortunately, once your account has been deleted, all the data stored
+                                    and linked to this account are removed from our servers.
+                                </p>
+                            </details>
+                            <details>
+                                <summary>How many roles are there and what is each one for?</summary>
+                                <p class="text mt-3">
+                                    There are (3) three: 
+                                    <ol>
+                                        <li>Superadmin</li>
+                                        <li class="my-3">User</li>
+                                        <li>Director</li>
+                                    </ol>
+                                </p>
+                            </details>
                         </div>
                     </div>
                 </div>
@@ -208,55 +217,9 @@
             </footer>
         </div>
     </div>
-
-    <script type="text/html" id="workspace-template">
-        <div class="list-group-item">
-            <div class="row">
-                <div class="col-auto">
-                    <a data-template-bind='[ {"attribute": "href", "value": "url"}]'>
-                        <span class="avatar">
-                            <img data-src="avatar" alt="">
-                        </span>
-                    </a>
-                </div>
-                <div class="col text-truncate">
-                    <a data-template-bind='[ {"attribute": "href", "value": "url"}]' class="text-body d-block" style="line-height: 40px;" data-content="name"></a>
-                    <div class="text-muted text-truncate mt-n1">
-                        <div class="skeleton-line d-none"></div>
-                    </div>
-                </div>
-                <div class="col-auto lh-1 m-auto">
-                    <div class="menu-item">
-                        <a data-template-bind='[ {"attribute": "href", "value": "editUrl"}]' class="link-secondary" aria-expanded="false" title="Edit">
-                            <!-- Download SVG icon from http://tabler-icons.io/i/dots -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit text-yellow" style="height: 30px; width: 30px;" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"></path>
-                                <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"></path>
-                                <line x1="16" y1="5" x2="19" y2="8"></line>
-                            </svg>
-                        </a>
-                        <a data-template-bind='[ {"attribute": "href", "value": "url"}]' class="link-secondary" aria-expanded="false" title="View documents">
-                            <!-- Download SVG icon from http://tabler-icons.io/i/dots -->
-                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login text-blue" style="height: 30px; width: 30px;" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
-                                <path d="M20 12h-13l3 -3m0 6l-3 -3"></path>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </script>
-    
     <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="../js/api_logout.js"></script>
-
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.loadtemplate/1.2.2/jquery.loadTemplate.min.js" integrity="sha512-4TNloTjrSDYjXOIkusiCx1L1n7KrBLENxj/zsM5a1XeA9KT3Chb+7mPHFzopYxf7IeEpP8ReekhSUHWO99vuYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="../js/global.js"></script>
-    <script src="../js/workspaces.js"></script>
 </body>
 
 </html>
