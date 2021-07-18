@@ -41,6 +41,10 @@ $(document).ready(function () {
                 case 'success':
                     /* Mostramos el nombre del workspace en su respectivo campo */
                     workspace_name.val(response.msg['workspace_name']);
+                    /* Guardamos en Session Storage el nombre del workspace en cuestión, y hacer una comparación con los 
+                    valores que teclea el usuario. De esta manera podremos saber si realmente ha habido un cambio de datos y 
+                    hacérselo saber al Laravel. */
+                    sessionStorage.setItem('workspace_name', response.msg['workspace_name']);
                     break;
                 case 'failed':
                     // Reemplazamos los \n por <br /> para mostrar el mensaje json de una mejor forma
