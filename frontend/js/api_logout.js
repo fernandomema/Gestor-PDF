@@ -31,7 +31,7 @@ $(document).ready(function () {
                         sessionStorage.removeItem('correo');
                         sessionStorage.removeItem('id');
                         sessionStorage.removeItem('workspace_name');
-                        window.location.href = 'https://localhost/Gestor_PDF_Frontend/frontend/pages/login.html';
+                        window.location.href = 'https://insta-pdf.netlify.app/pages/login.html';
                         break;
                     case 'failed':
                         console.log(response.msg);
