@@ -1,9 +1,9 @@
 $(document).ready(function () {
-    $(window).keyup(function (e) { 
+    $('#search-bar').keyup(function (e) { 
         // Declare variables
         var input, filter, ul, li, a, i, txtValue;
-        input = $('#search-bar');
-        filter = input.value.toUpperCase();
+        input = $('#search-bar').val();
+        filter = input.toUpperCase();
         ul = $('#workspace');
         li = $('.workspace-item');
 
