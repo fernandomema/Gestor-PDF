@@ -21,7 +21,7 @@ $("form").submit(function (e) {
     formdata.append('workspace', document.querySelector('[name="workspace"]').value);
 
     $.ajax({
-        url: "https://insta-pdf.herokuapp.com/api/api/documents/upload",
+        url: "https://insta-pdf.herokuapp.com/api/documents/upload",
         data: formdata,
         dataType: 'JSON',
         headers: {
