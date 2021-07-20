@@ -32,7 +32,7 @@
                             <div class="d-none d-xl-block ps-2">
                                 <!-- Traemos el nombre de Usuario desde jQuery -->
                                 <div class="username-menu"></div>
-                                <div class="mt-1 small text-muted">Role</div>
+                                <div class="mt-1 small text-muted">User</div>
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -113,7 +113,7 @@
                                             <line x1="21" y1="21" x2="15" y2="15" /></svg>
                                     </span>
                                     <input type="text" class="form-control" placeholder="Search…"
-                                        aria-label="Search in website">
+                                        aria-label="Search in website" id="search-bar">
                                 </div>
                             </form>
                         </div>
@@ -145,8 +145,8 @@
                 <div class="container-xl">
                     <div class="card">
                         <!-- FAQ section -->
-                        <div class="faqs">
-                            <details>
+                        <div class="faqs" id="questions-section">
+                            <details class="question">
                                 <summary>How to get started with InstaPDF?</summary>
                                 <p class="text mt-3">
                                     We believe that a picture is worth a thousand words, but a video is
@@ -154,36 +154,25 @@
                                     what the main features are and what you can do in InstaPDF :).
                                 </p>
                             </details>
-                            <details>
-                                <summary>Do I first have to create a workspace?</summary>
+                            <details class="question">
+                                <summary>Do I have to create a workspace before creating/uploading documents?</summary>
                                 <p class="text mt-3">
                                     No. When you create an account, a default workspace is created
                                     with the name of "Personal Workspace". So you must have at least 
                                     one workspace in order to start uploading your own documents.
                                 </p>
                             </details>
-                            <details>
+                            <details class="question">
                                 <summary>How to sign a document?</summary>
                                 <p class="text mt-3">
                                     [Video].
                                 </p>
                             </details>
-                            <details>
+                            <details class="question">
                                 <summary>I deleted my account by mistake... Can I get back all my documents stored in my workspaces?</summary>
                                 <p class="text mt-3">
                                     No. Unfortunately, once your account has been deleted, all the data stored
                                     and linked to this account are removed from our servers.
-                                </p>
-                            </details>
-                            <details>
-                                <summary>How many roles are there and what is each one for?</summary>
-                                <p class="text mt-3">
-                                    There are (3) three roles: 
-                                    <ol>
-                                        <li>Superadmin</li>
-                                        <li class="my-3">User</li>
-                                        <li>Director</li>
-                                    </ol>
                                 </p>
                             </details>
                         </div>
@@ -220,6 +209,7 @@
     <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="../js/api_logout.js"></script>
+    <script src="../js/search_questions.js"></script>
     <script src="../js/global.js"></script>
 </body>
 

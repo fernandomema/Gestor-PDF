@@ -92,6 +92,15 @@ $(document).ready(function () {
                             $('#password-current-field').val('');
                             $('#password-new-field').val('');
                             $('#password-repeat-field').val('');
+
+                            // Procedemos a modificar el nombre de usuario en session storage y en la página de settings
+                            if(usernamed_changed){
+                                var name = username;
+                                sessionStorage.setItem('usuario', name);
+                                var name_first_letter_capitalized = name.charAt(0).toUpperCase() + name.slice(1);
+                                $('.username').text('Welcome ' + name_first_letter_capitalized);
+                                $('.username-menu').text(name_first_letter_capitalized);
+                            }
                             break;
                         case 'failed':
                             msg_error.fadeIn().html(structured_message); 
