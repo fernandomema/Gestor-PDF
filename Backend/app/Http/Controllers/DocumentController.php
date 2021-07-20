@@ -148,7 +148,7 @@ class DocumentController extends Controller
         }
         
         $unique = uniqid();
-        Storage::disk('tmp')->delete($document->document)
+        Storage::disk('tmp')->delete($document->document);
         Storage::disk('sftp')->put('pdf/'.$unique.'.pdf', $resource);
         $document = new Document;
         $document->name = $filename.'-generated';
