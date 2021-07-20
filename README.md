@@ -24,8 +24,8 @@ Web app that let you upload documents for digitally sign or generate documents f
 
 # Deploy status
 - Frontend:
-  - ![status](https://img.shields.io/website-up-down-green-red/http/fernandomema.github.io/Gestor-PDF/frontend.svg)
-  - https://fernandomema.github.io/Gestor-PDF/frontend
+  - ![status](https://img.shields.io/website-up-down-green-red/https/insta-pdf.netlify.app.svg)
+  - https://insta-pdf.netlify.app
 - Backend: 
   - ![status](https://img.shields.io/website-up-down-green-red/http/insta-pdf.herokuapp.com.svg)
   - ![Heroku](https://heroku-badge.herokuapp.com/?app=insta-pdf)
