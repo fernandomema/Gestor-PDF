@@ -12,7 +12,10 @@
         "laravel/framework": "^8.40",
         "laravel/passport": "^10.1",
         "laravel/tinker": "^2.5",
-        "league/flysystem-sftp": "~1.0"
+        "league/flysystem-sftp": "~1.0",
+        "lsnepomuceno/laravel-a1-pdf-sign": "^0.05.0",
+        "setasign/fpdi": "^2.3",
+        "tecnickcom/tcpdf": "^6.4"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

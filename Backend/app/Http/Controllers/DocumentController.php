@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use File;
 
+use LSNepomuceno\LaravelA1PdfSign\{ManageCert, SignaturePdf};
+
 class DocumentController extends Controller
 {
     /**
@@ -98,7 +100,7 @@ class DocumentController extends Controller
             Storage::disk('sftp')->put('pdf/'.$filename.'.pdf', $request->file);
             $document = new Document;
             $document->name = $file->getClientOriginalName();
-            $document->type = "template";
+            $document->type = "document";
             $document->document = 'pdf/'.$filename.'.pdf'; 
             $document->data = "{}";
             $document->workspace_id = $request->input('workspace');
@@ -106,5 +108,56 @@ class DocumentController extends Controller
             array_push($documents, $document);
         }
         return ['status' => 'ok', 'documents' => $documents];
+    }
+
+    public function sign(Request $request) {
+        $certificate;
+        $pdf;
+        $resource;
+
+        $document = Document::find($request->document);
+        $filename = $document->name;
+        $timestamp = time();
+
+
+        // Get certificate from file
+        try {
+            global $certificate;
+            $certificate = new ManageCert;
+            $certificate->fromUpload($request->pfx, $request->password);
+            //dd($certificate->getCert());
+        } catch (\Throwable $th) {
+            return ['status' => 'failed', 'msg' => 'certificate file cound not been processed', 'data' => $th];
+        }
+
+        // Returning signed resource string
+        try {
+            global $certificate;
+            global $pdf;
+            global $resource;
+            // Copy file from sftp disk to tmp disk
+            Storage::disk('tmp')->put($document->document, Storage::disk('sftp')->get($document->document));
+            $pdf = new SignaturePdf(Storage::disk('tmp')->path($document->document), $certificate, SignaturePdf::MODE_RESOURCE); // Resource mode is default
+            $resource = $pdf->signature();
+            // TODO necessary
+        } catch (\Throwable $th) {
+            if (Storage::disk('tmp')->exists($document->document)) {
+                Storage::disk('tmp')->delete($document->document)
+            }
+            return ['status' => 'failed', 'msg' => 'Error signing pdf', 'data' => $th];
+        }
+        
+        $unique = uniqid();
+        Storage::disk('tmp')->delete($document->document)
+        Storage::disk('sftp')->put('pdf/'.$unique.'.pdf', $resource);
+        $document = new Document;
+        $document->name = $filename.'-generated';
+        $document->type = "document";
+        $document->document = 'pdf/'.$unique.'.pdf'; 
+        $document->data = "{}";
+        $document->workspace_id = $request->input('workspace');
+        $document->save();
+        
+        return ['status' => 'success', 'document' => $document->id];
     }
 }
