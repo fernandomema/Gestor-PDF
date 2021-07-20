@@ -24,8 +24,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/documents', [DocumentController::class, 'index'])->middleware('auth:api');
 Route::get('/workspaces', [WorkspaceController::class, 'index'])->middleware('auth:api');
-Route::post('/documents/upload', [DocumentController::class, 'upload']); 
+Route::post('/documents/upload', [DocumentController::class, 'upload'])->middleware('auth:api');; 
 Route::get('/documents/{document}', [DocumentController::class, 'show']);
+Route::post('/documents/sign', [DocumentController::class, 'sign']); 
 
 Route::post('login', [userController::class, 'login']);
 

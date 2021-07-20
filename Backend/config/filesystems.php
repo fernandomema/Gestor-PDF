@@ -61,6 +61,11 @@ return [
             'root' => '/var/storage/',
         ],
 
+        'tmp' => [
+            'driver' => 'local',
+            'root' => storage_path('tmp'),
+        ],
+
     ],
 
     /*
