@@ -47,7 +47,6 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                             <a href="#" class="dropdown-item">Profile & account</a>
-                            <a href="admin.html" class="dropdown-item">Admin</a>
                             <div class="dropdown-divider"></div>
                             <a href="#" id="logout-btn" class="dropdown-item">Logout</a>
                         </div>
@@ -167,12 +166,6 @@
                                             <input type="text" class="form-control" id="username-field" name="username">
                                         </div>
                                     </div>
-                                    <div class="col-12 col-sm-6 order-3">
-                                        <div class="form-floating mb-3">
-                                            <input type="password" class="form-control" id="password-current-field" name="pass">
-                                            <label for="password-current-field">Current password</label>
-                                        </div>
-                                    </div>
                                     <div class="col-12 col-sm-6 order-2">
                                         <div class="input-icon mb-3">
                                             <span class="input-icon-addon">
@@ -185,34 +178,46 @@
                                             <input type="email" class="form-control" id="email-field" name="email">
                                         </div>
                                     </div>
-                                    <div class="col-12 col-sm-6 order-4">
-                                        <div class="form-floating mb-3">
-                                            <input type="password" class="form-control" id="password-new-field" name="pass-repeat">
-                                            <label for="password-new-field">New password</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 offset-md-3 order-5">
-                                        <div class="form-floating mb-3">
-                                            <input type="password" class="form-control" id="password-repeat-field" name="pass-new-repeat">
-                                            <label for="password-repeat-field">Repeat new password</label>
-                                        </div>
-                                    </div>
                                 </div>
-                                <div class="btn-container text-center mt-5">
-                                    <button type="submit" id="submit" class="btn btn-purple">Save changes</button>
+                                <div class="btn-container text-center mt-4">
+                                    <button type="button" class="btn" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Change Password</button>
+                                </div>
+                                    
+                                <div class="collapse mt-4" id="collapseExample">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6 order-3">
+                                            <div class="form-floating mb-3">
+                                                <input type="password" class="form-control" id="password-current-field" name="pass">
+                                                <label for="password-current-field">Current password</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 order-4">
+                                            <div class="form-floating mb-3">
+                                                <input type="password" class="form-control" id="password-new-field" name="pass-repeat">
+                                                <label for="password-new-field">New password</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 offset-md-3 order-5">
+                                            <div class="form-floating mb-3">
+                                                <input type="password" class="form-control" id="password-repeat-field" name="pass-new-repeat">
+                                                <label for="password-repeat-field">Repeat new password</label>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="btn-container text-center mt-5">
+                            
+                            <div class="btn-container text-center mt-4">
+                                <button type="submit" id="submit" class="btn btn-purple">Save changes</button>
                                 <button type="button" id="delete-account-btn" class="btn delete-btn" data-bs-toggle="modal" data-bs-target="#modal-report">Delete account</button>
                             </div>
       
                             <!-- Aquí mostraremos el spinner de cargando -->
-                            <div class="mt-5" id="spinner-circulando"></div>    
+                            <div class="mt-3" id="spinner-circulando"></div>    
             
                             <!-- Aquí mostraremos los mensajes de error o de éxito. Usando AJAX -->
-                            <div id="error_message" class="ajax_response text-center"></div>
                             <div id="success_message" class="ajax_response text-center"></div> 
+                            <div id="error_message" class="ajax_response text-center"></div> 
                         </div>
                     </section>
                 </div>
@@ -273,35 +278,6 @@
         </div>
     </div>
 
-    <!-- Modal para advertir al usuario sobre cómo proceder al cambio de contraseñas -->
-    <div class="modal modal-blur fade" id="modal-password" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog" role="document" >
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Password change warning <i class="fas fa-exclamation-triangle ms-2 triangle-alert"></i></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <ul>
-                        <li>
-                            If you desire to change your password, you must enter your current password and then 
-                            type the new one.
-                        </li>
-                        <li class="mt-3">
-                            Otherwise, if you don't want to change it, there's no need to type anything in the password
-                            fields. 
-                        </li>
-                    </ul>
-                </div>
-                <div class="modal-footer d-flex justify-content-center">
-                    <button type="button" class="btn btn-purple" data-bs-dismiss="modal">OK</button>
-                </div>
-            </div>
-        </div>
-    </div>
-      
-      
-
     <!-- JavaScript Bootstrap 5 Tabler -->
     <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
     <!-- Jquery CDN link -->
@@ -312,7 +288,6 @@
     <script src="../js/api_logout.js"></script>
     <script src="../js/api_delete_account.js"></script>
     <script src="../js/load_avatar_name_user.js"></script>
-    <script src="../js/show_modal_user_settings.js"></script>
     <script src="../js/global.js"></script>
 </body>
 </html>
