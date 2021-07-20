@@ -97,7 +97,7 @@ class DocumentController extends Controller
         $documents = [];
         foreach($request->file('pdf') as $file) {
             $filename = uniqid().File::extension($file->getClientOriginalName());
-            Storage::disk('sftp')->put('pdf/'.$filename.'.pdf', $request->file);
+            Storage::disk('sftp')->put('pdf/'.$filename.'.pdf', $request->file->get());
             $document = new Document;
             $document->name = $file->getClientOriginalName();
             $document->type = "document";
@@ -119,15 +119,19 @@ class DocumentController extends Controller
         $filename = $document->name;
         $timestamp = time();
 
+        if ($request->input('workspace') == null) {
+            return ['status' => 'failed', 'msg' => 'Invalid workspace_id.'];
+        }
+
 
         // Get certificate from file
         try {
             global $certificate;
             $certificate = new ManageCert;
-            $certificate->fromUpload($request->pfx, $request->password);
+            $certificate->fromUpload($request->pfx, ($request->password ?: ''));
             //dd($certificate->getCert());
         } catch (\Throwable $th) {
-            return ['status' => 'failed', 'msg' => 'certificate file cound not been processed', 'data' => $th];
+            return ['status' => 'failed', 'msg' => 'certificate file cound not been processed', 'data' => $th->getMessage()];
         }
 
         // Returning signed resource string
@@ -144,7 +148,7 @@ class DocumentController extends Controller
             if (Storage::disk('tmp')->exists($document->document)) {
                 Storage::disk('tmp')->delete($document->document);
             }
-            return ['status' => 'failed', 'msg' => 'Error signing pdf', 'data' => $th];
+            return ['status' => 'failed', 'msg' => 'Error signing pdf', 'data' => $th->getMessage(), 'tmp file' => Storage::disk('tmp')->path($document->document)];
         }
         
         $unique = uniqid();
@@ -159,5 +163,12 @@ class DocumentController extends Controller
         $document->save();
         
         return ['status' => 'success', 'document' => $document->id];
+    }
+
+    public function file(Request $request) {
+        $document = Document::find($request->id);
+        return Storage::disk('sftp')->download($document->document, $document->name.'.pdf', [
+            'Content-Disposition' => 'inline'
+        ], 'inline');
     }
 }
