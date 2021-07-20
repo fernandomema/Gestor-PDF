@@ -55,7 +55,7 @@ class User extends Authenticatable
     // Método que enviará el link del reset de contraseña al correo del usuario que lo solicitó
     public function sendPasswordResetNotification($token)
     {
-        $url = 'https://localhost/Gestor_PDF_Frontend/frontend/pages/reset_password.html?token='.$token;
+        $url = 'https://insta-pdf.netlify.app/pages/reset_password.html?token='.$token;
 
         $this->notify(new ResetPasswordNotification($url));
     }

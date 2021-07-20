@@ -27,6 +27,12 @@ class userController extends Controller
         
         /* -------------------- Validaciones ---------------- */
 
+        // Si el nombre del workspace está vacío, retornamos error
+        if($request->input('username') == NULL)      $message .= 'You must enter an username.\n';
+        
+        // Si la longitud de caracteres del nombre de usuario supera los 191 caracteres, retornamos error
+        if(strlen($request->input('username')) >= 191)   $message .= 'The username is too long.\n';
+        
         // Si el usuario introducido tiene espacios en blanco, entonces retornamos mensaje de error
         if(strpos($request->input('username'), ' ') !== false)      $message .= 'The user field has blank spaces.\n';
 
@@ -124,11 +130,23 @@ class userController extends Controller
     {   
         $message = '';              // variable donde almacenaremos los errores de validación
         /* -------------------- Validaciones ---------------- */
-        
+    
+        // Si el campo correo está vacío, retornamos error
+        if($request->input('email') == NULL)      $message .= 'You must enter your email.\n';
+
         // Si no existe ningún correo en la base de datos que coincida con el introducido, retornamos error
         $user = User::where('email', $request->email)->first();
         if(!$user)          $message .= 'The email does not exist.\n';
 
+        // Si el campo contraseña está vacío, retornamos error
+        if($request->input('password') == NULL)      $message .= 'You must enter a new password.\n';
+
+        // Si el campo repetir contraseña está vacío, retornamos error
+        if($request->input('password_confirmation') == NULL)      $message .= 'You must enter again your new password.\n';
+
+        // Si la longitud de caracteres del campo contraseña o repetir contraseña supera los 191 caracteres, retornamos error
+        if(strlen($request->input('password')) >= 191 || strlen($request->input('password_confirmation')) >= 191)   $message .= 'The password(s) is/are too long.\n';
+        
         // Si las contraseñas no coinciden, entonces retornamos mensaje de error
         if(strcmp($request->input('password'), $request->input('password_confirmation')) !== 0)     $message .= 'The passwords did not match.\n';
     
@@ -148,12 +166,6 @@ class userController extends Controller
 
             if($status == Password::PASSWORD_RESET)     return ['status' => 'success', 'msg' => 'Password has been successfully changed.'];
             else                                        return ['status' => 'failed', 'msg' => 'An error has occurred. Please, try later'];
-
-            // $reset_password_status = Password::reset($request, function ($user, $password) {
-            //     $user->password = $password;
-            //     $user->save();
-            // });
-            
         }
     }
 
@@ -177,20 +189,34 @@ class userController extends Controller
 
         /* -------------------- Validaciones ---------------- */
         
-        // Si el usuario introducido tiene espacios en blanco, entonces retornamos mensaje de error
-        if(strpos($request->input('name'), ' ') !== false)      $message .= 'The user field has blank spaces.\n';
-
-        // Si el nombre de usuario ya existe, entonces retornamos mensaje de error
+        // Si ha habido algún cambio en el nombre, realizamos algunas validaciones
         if($request->input('name_changed') == 'true'){
+            // Si el usuario introducido tiene espacios en blanco, entonces retornamos mensaje de error
+            if(strpos($request->input('name'), ' ') !== false)      $message .= 'The user field has blank spaces.\n';
+
+            // Si el campo contraseña está vacío, retornamos error
+            if($request->input('name') == NULL)      $message .= 'You must enter a new username.\n';
+            
+            // Si la longitud de caracteres del nombre de usuario supera los 191 caracteres, retornamos error
+            if(strlen($request->input('name')) >= 191)   $message .= 'The username is too long.\n';
+            
+            // Si el nombre de usuario ya existe, entonces retornamos mensaje de error
             $user_exists = User::where('username', $request->input('name'))->first();
             if($user_exists != NULL)   $message .= 'The username already exists.\n';
         }
         
-        // Si el email introducido no es válido, entonces retornamos mensaje de error
-        if(!filter_var($request->input('email'), FILTER_VALIDATE_EMAIL))    $message .= 'The email format is not valid.\n';
-
-        // Si el correo ya existe, entonces retornamos mensaje de error
+        // Si ha habido algún cambio en el correo, realizamos algunas validaciones
         if($request->input('email_changed') == 'true'){
+            // Si el campo correo está vacío, retornamos error
+            if($request->input('email') == NULL)      $message .= 'You must enter an email.\n';
+            
+            // Si el email introducido no es válido, entonces retornamos mensaje de error
+            if(!filter_var($request->input('email'), FILTER_VALIDATE_EMAIL))    $message .= 'The email format is not valid.\n';
+            
+            // Si la longitud de caracteres del nombre de correo supera los 191 caracteres, retornamos error
+            if(strlen($request->input('email')) >= 191)   $message .= 'The email is too long.\n';
+            
+            // Si el correo ya existe, entonces retornamos mensaje de error
             $email_exists = User::where('email', $request->input('email'))->first();
             if($email_exists != NULL)   $message .= 'The email already exists.\n';
         }
@@ -216,6 +242,9 @@ class userController extends Controller
             if(!Hash::check($request->input('current_password'), Auth::user()->password)){
                 $message .= 'The password is not correct.\n';
             }
+
+            // Si la longitud de caracteres del campo contraseña supera los 191 caracteres, retornamos error
+            if(strlen($request->input('new_password')) >= 191)   $message .= 'The new password is too long.\n';
 
             // Si las contraseñas no coinciden, entonces retornamos mensaje de error
             if(strcmp($request->input('new_password'), $request->input('confirm_new_password')) !== 0) {
