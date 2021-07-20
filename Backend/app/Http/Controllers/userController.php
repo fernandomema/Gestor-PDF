@@ -6,7 +6,16 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Workspace;
 use Illuminate\Support\Str;
+use Auth;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Auth\Events\PasswordReset;
+use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Foundation\Support\Providers\RouteServiceProvider;
+use Illuminate\Validation\Rules\Password as RulesPassword;
 
 class userController extends Controller
 {
@@ -44,6 +53,21 @@ class userController extends Controller
             $usuario->password = Hash::make($request->input('password'));
             $usuario->remember_token = Str::random(60);
             $usuario->save();       // guardamos en la base de datos
+            /* -------- Creando un nuevo workspace al usuario por defecto --------- */
+            /* ---------------- Inserción de registro en tabla workspaces --------------- */
+            // Creamos un nuevo registro en el modelo Workspace...
+            $workspace = new Workspace();
+
+            // y asignamos en el campo 'name' el nombre
+            $workspace->name = 'Personal Workspace';
+
+            // Guardamos el nuevo registro Workspace
+            $workspace->save();
+
+            /* ---------------- Inserción de registro en tabla PIVOTE user_workspace --------------- */
+            // Insertamos un nuevo registro en la tabla pivote
+            $usuario->workspaces()->attach($workspace->id);
+
             return ['status' => 'success', 'msg' => 'New user registered successfully'];
         } 
     }
@@ -74,6 +98,7 @@ class userController extends Controller
             'status' => 'success', 
             'msg' => 'logged in successfully', 
             'token' => $accessToken,
+            'username' => $request->user()->username,
             'avatar' => "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $request->email ) ) )
         ];    
     }
@@ -137,7 +162,7 @@ class userController extends Controller
     {
         /* Guardando los datos en un array para mostrarlos en el Front */
         $user_info = array(
-            'username' => $request->user()->name,
+            'username' => $request->user()->username,
             'email' => $request->user()->email
         );
 
@@ -157,7 +182,7 @@ class userController extends Controller
 
         // Si el nombre de usuario ya existe, entonces retornamos mensaje de error
         if($request->input('name_changed') == 'true'){
-            $user_exists = User::where('name', $request->input('name'))->first();
+            $user_exists = User::where('username', $request->input('name'))->first();
             if($user_exists != NULL)   $message .= 'The username already exists.\n';
         }
         
@@ -203,7 +228,7 @@ class userController extends Controller
             return ['status' => 'failed', 'msg' => $message];
         } else {
             $user = Auth::user();    
-            $user->name = $request->input('name');
+            $user->username = $request->input('name');
             $user->email = $request->input('email');
             if($request->input('update_pass') == 'true'){
                 $user->password = Hash::make($request->input('new_password'));
@@ -219,5 +244,16 @@ class userController extends Controller
         $request->user()->token()->revoke();
 
         return ['status' => 'success', 'msg' => 'logged out successfully'];
-    } 
+    }
+    
+    // Método para eliminar una cuenta
+    public function delete(Request $request)
+    {
+        $user = Auth::user();
+
+        $request->user()->token()->revoke();
+
+        if($user->delete())     return ['status' => 'success', 'msg' => 'Your account has been deleted!'];
+        else                    return ['status' => 'failed', 'msg' => 'An error has occurred. Try again later'];
+    }
 }

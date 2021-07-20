@@ -25,16 +25,6 @@ class WorkspaceController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('workspaces.create');
-    }
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
@@ -42,9 +32,35 @@ class WorkspaceController extends Controller
      */
     public function store(Request $request)
     {
-        Workspace::create($request->all());
+        /* Validación del nombre de workspace */
+        $validatedData = $request->validate([
+            'name' => ['required', 'max:191']
+        ]);
 
-        return back()->with('message', 'item stored successfully');
+        if($validatedData->validated()){
+            /* ---------------- Inserción de registro en tabla workspaces --------------- */
+            // Creamos un nuevo registro en el modelo Workspace...
+            $workspace = new Workspace();
+
+            // y asignamos en el campo 'name' el nombre
+            $workspace->name = $request->name;
+
+            // Guardamos el nuevo registro Workspace
+            $workspace->save();
+
+            /* ---------------- Inserción de registro en tabla PIVOTE user_workspace --------------- */
+            // Obtenemos el usuario actual autenticado
+            $user = Auth::user();
+
+            // Insertamos un nuevo registro en la tabla pivote
+            $user->workspaces()->attach($workspace->id);
+
+            return ['status' => 'success', 'msg' => 'A new worskpace has been created.'];
+        }      
+        else {
+            $errors = $validator->errors();
+            return ['status' => 'failed', 'msg' => $errors];
+        }
     }
 
     /**
@@ -78,9 +94,20 @@ class WorkspaceController extends Controller
      */
     public function update(Request $request, Workspace $workspace)
     {
+        /* ------- Validación del nombre del Workspace ------- */
+        $validatedData = $request->validate([
+            'name' => ['required', 'max:191']
+        ]);
+        if($validatedData->validated()){
+            $workspace->name = $request->name;
+            return ['status' => 'success', 'msg' => 'The worskpace has been updated.'];
+        } else{
+            $errors = $validator->errors();
+            return ['status' => 'failed', 'msg' => $errors];
+        }
         $workspace->update($request->all());
 
-        return back()->with('message', 'item updated successfully');
+        // return back()->with('message', 'item updated successfully');
     }
 
     /**

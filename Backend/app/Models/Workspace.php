@@ -32,6 +32,8 @@ class Workspace extends Model
      */
     public function documents()
     {
+        /* Devuelve los documentos del usuario. Definimos la relación 1:N entre los modelos Workspace y Document. Un workspace
+        tiene muchos documentos */
         return $this->hasMany(Document::class);
     }
 
@@ -40,6 +42,8 @@ class Workspace extends Model
      */
     public function users()
     {
+        /* Definimos la relación N:M entre los modelos Workspace y User. Un workspace
+        tiene muchos usuarios */
         return $this->belongsToMany(User::class);
     }
 }
