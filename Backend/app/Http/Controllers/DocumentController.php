@@ -142,7 +142,7 @@ class DocumentController extends Controller
             // TODO necessary
         } catch (\Throwable $th) {
             if (Storage::disk('tmp')->exists($document->document)) {
-                Storage::disk('tmp')->delete($document->document)
+                Storage::disk('tmp')->delete($document->document);
             }
             return ['status' => 'failed', 'msg' => 'Error signing pdf', 'data' => $th];
         }
