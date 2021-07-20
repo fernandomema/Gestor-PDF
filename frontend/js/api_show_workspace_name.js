@@ -10,7 +10,8 @@ $(document).ready(function () {
 
     // ---------------- Variables ----------------------
      var msg_error = $("#error_message"),
-    workspace_name = $('#name-field');
+    workspace_name = $('#name-field'),
+              role = $('#role');
     
     // Obtenemos de session storage el token guardado
     var token = sessionStorage.getItem('token');
@@ -41,6 +42,7 @@ $(document).ready(function () {
                 case 'success':
                     /* Mostramos el nombre del workspace en su respectivo campo */
                     workspace_name.val(response.msg['workspace_name']);
+                    role.text('Manager of '+workspace_name.val());
                     /* Guardamos en Session Storage el nombre del workspace en cuestión, y hacer una comparación con los 
                     valores que teclea el usuario. De esta manera podremos saber si realmente ha habido un cambio de datos y 
                     hacérselo saber al Laravel. */
