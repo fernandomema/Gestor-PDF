@@ -21,7 +21,7 @@ $(document).ready(function () {
 
     $.ajax({
         type: "GET",
-        url: 'https://insta-pdf.herokuapp.com/api/documents/api/documents/' + findGetParameter('id') + '/file',
+        url: 'https://insta-pdf.herokuapp.com/api/documents/' + findGetParameter('id') + '/file',
         xhr: function() {
             return xhrOverride;
         },
