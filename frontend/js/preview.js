@@ -13,9 +13,6 @@ function findGetParameter(parameterName) {
 }
 
 $(document).ready(function () {
-
-    
-
     var xhrOverride = new XMLHttpRequest();
     xhrOverride.responseType = 'arraybuffer';
 
@@ -25,15 +22,10 @@ $(document).ready(function () {
         xhr: function() {
             return xhrOverride;
         },
-        beforeSend: function(xhr) {
-            xhr.setRequestHeader("Accept", "application/json"); 
-            xhr.setRequestHeader("Authorization", 'Bearer '+sessionStorage.getItem('token')); 
-        },
         headers: {
             'Accept': 'application/json',
             'Authorization':'Bearer '+sessionStorage.getItem('token')
         },
-        dataType: 'JSON',
         success: function(data) {
             var blob = new Blob([data], {
                 type: 'application/pdf'
