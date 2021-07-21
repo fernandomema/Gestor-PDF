@@ -18,3 +18,11 @@ details{
 details summary{
     outline: none;
 }
+
+/* Styles of the iframe */
+@media screen and (max-width: 600px) {
+    .video-youtube{
+        width: 100% !important;
+        height: 200px;
+    }
+}
