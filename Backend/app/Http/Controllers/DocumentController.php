@@ -94,6 +94,7 @@ class DocumentController extends Controller
         if ($document == null) {
             return ['status' => 'failed', 'msg' => 'document does not exist.'];
         } else {
+            Storage::disk('sftp')->delete($document->document);
             $document->delete();
             return ['status' => 'success', 'msg' => 'document deleted successfully.'];
         }
