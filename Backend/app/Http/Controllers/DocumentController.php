@@ -88,16 +88,22 @@ class DocumentController extends Controller
      * @param  \App\Models\Document $document
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Document $document)
+    public function destroy($id)
     {
-        $document->delete();
+        $document = Document::find($id);
+        if ($document == null) {
+            return ['status' => 'failed', 'msg' => 'document does not exist.'];
+        } else {
+            $document->delete();
+            return ['status' => 'success', 'msg' => 'document deleted successfully.'];
+        }
     }
 
     public function upload(Request $request) {
         $documents = [];
         foreach($request->file('pdf') as $file) {
             $filename = uniqid().File::extension($file->getClientOriginalName());
-            Storage::disk('sftp')->put('pdf/'.$filename.'.pdf', $request->file('id'));
+            Storage::disk('sftp')->put('pdf/'.$filename.'.pdf', $file->get());
             $document = new Document;
             $document->name = $file->getClientOriginalName();
             $document->type = "document";
