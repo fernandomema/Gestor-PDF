@@ -32,7 +32,7 @@ $("form").submit(function (e) {
         contentType: false,
         method: "post"
     }).done(function (response) {
-        console.log(response);
+        window.location.href="workspace.html?id="+document.querySelector('[name="workspace"]').value;
     });
 
 });
@@ -40,6 +40,8 @@ $("form").submit(function (e) {
 $('#upload-image').on('click', function () {
     $('.filepond--label-action').click();
 })
+
+// Código para enviar a la vista upload.html segun el id del workspace
 
 $(document).ready(function () {
     // AJAX para conectarnos con la API
