@@ -13,10 +13,13 @@ $(document).ready(function () {
                 workspace.elemID = workspace.name.replace(/\s+/g, '-');
             });
             $("#workgroups").loadTemplate($("#workgroup-template"), workspaces);
+            // Traemos los documentos que están almacenados en los workspaces
             workspaces.forEach(function (workspace) {
+                // Si hay más de 1 documento, lo cargamos
                 if (workspace.documents.length > 0) {
                     $("#"+workspace.name.replace(/\s+/g, '-')).loadTemplate($("#document-template"), workspace.documents);
                 } else {
+                    // Si no hay documentos, cargamos template vacía
                     $("#"+workspace.name.replace(/\s+/g, '-')).loadTemplate($("#empty-template"));
                 }
             });           
