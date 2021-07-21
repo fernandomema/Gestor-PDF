@@ -88,9 +88,15 @@ class DocumentController extends Controller
      * @param  \App\Models\Document $document
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Document $document)
+    public function destroy($id)
     {
-        $document->delete();
+        $document = Document::find($id);
+        if ($document == null) {
+            return ['status' => 'failed', 'msg' => 'document does not exist.'];
+        } else {
+            $document->delete();
+            return ['status' => 'success', 'msg' => 'document deleted successfully.'];
+        }
     }
 
     public function upload(Request $request) {
