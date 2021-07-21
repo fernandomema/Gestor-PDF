@@ -28,11 +28,11 @@ $(document).ready(function () {
                     });
                     $("#"+workspace.name.replace(/\s+/g, '-')).loadTemplate($("#document-template"), workspace.documents);
                 } else {
-                    $("#"+workspace.name.replace(/\s+/g, '-')).loadTemplate($("#empty-template"), workspace);
                     // Ocultamos botón de subir documento si no hay pdfs en el workspace
-                    $('#btn-upload').css({
+                    $(".btn-upload").css({
                         'display': 'none'
                     })
+                    $("#"+workspace.name.replace(/\s+/g, '-')).loadTemplate($("#empty-template"), workspace);
                 }
             });
             // Si el número de workspaces es impar, el último div tendrá la clase col-12.
