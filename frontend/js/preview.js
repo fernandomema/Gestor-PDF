@@ -20,6 +20,7 @@ $(document).ready(function () {
     xhrOverride.responseType = 'arraybuffer';
 
     $.ajax({
+        type: "GET",
         url: 'https://localhost/gpdf/Gestor-PDF/Backend/api/documents/' + findGetParameter('id') + '/file',
         xhr: function() {
             return xhrOverride;
@@ -38,6 +39,13 @@ $(document).ready(function () {
                 type: 'application/pdf'
             });
             document.querySelector('iframe').src = window.URL.createObjectURL(blob);
+        },
+        error: function(response){
+            console.log(response);
+            if (response.message == 'Unauthenticated' || response.status == 401) {
+                //window.location.href = "login.html";
+                console.log('unauthenticated');
+            }
         }
     });
 });
