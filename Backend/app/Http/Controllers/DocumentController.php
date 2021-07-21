@@ -97,7 +97,7 @@ class DocumentController extends Controller
         $documents = [];
         foreach($request->file('pdf') as $file) {
             $filename = uniqid().File::extension($file->getClientOriginalName());
-            Storage::disk('sftp')->put('pdf/'.$filename.'.pdf', $request->file('id'));
+            Storage::disk('sftp')->put('pdf/'.$filename.'.pdf', $file->get());
             $document = new Document;
             $document->name = $file->getClientOriginalName();
             $document->type = "document";
