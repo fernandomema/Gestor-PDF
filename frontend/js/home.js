@@ -18,6 +18,8 @@ $(document).ready(function () {
                     workspace.documents.forEach(function (doc) {
                         doc.preview = 'preview.html?id=' + doc.id;
                         doc.sign = 'sign.html?id=' + doc.id;
+                        doc.print = 'preview.html?id=' + doc.id + '&print=true';
+                        doc.css_edit = doc.type == 'document' ? 'display:none;' : 'display:block;';
                     });
                     $("#"+workspace.name.replace(/\s+/g, '-')).loadTemplate($("#document-template"), workspace.documents);
                 } else {

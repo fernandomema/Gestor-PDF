@@ -31,6 +31,11 @@ $(document).ready(function () {
                 type: 'application/pdf'
             });
             document.querySelector('iframe').src = window.URL.createObjectURL(blob);
+            if (findGetParameter('print') != null) {
+                setTimeout(function() {
+                    document.querySelector('iframe').contentWindow.print();
+                }, 750);
+            }
         },
         error: function(response){
             console.log(response);
