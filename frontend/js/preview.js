@@ -24,6 +24,11 @@ $(document).ready(function () {
         xhr: function() {
             return xhrOverride;
         },
+        headers: {
+            'Accept': 'application/json',
+            'Authorization':'Bearer '+sessionStorage.getItem('token')
+        },
+        dataType: 'JSON',
         success: function(data) {
             var blob = new Blob([data], {
                 type: 'application/pdf'
