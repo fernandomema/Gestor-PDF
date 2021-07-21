@@ -28,13 +28,13 @@ $(document).ready(function () {
                     });
                     $("#"+workspace.name.replace(/\s+/g, '-')).loadTemplate($("#document-template"), workspace.documents);
                 } else {
-                    // Ocultamos botón de subir documento si no hay pdfs en el workspace
-                    $(".btn-upload").css({
-                        'display': 'none'
-                    })
                     $("#"+workspace.name.replace(/\s+/g, '-')).loadTemplate($("#empty-template"), workspace);
                 }
             });
+
+            // Borramos el botón upload documents a aquellos workspaces donde no haya ningún documento
+            $('.empty').parent().parent().find('.btn-upload').remove();
+
             // Si el número de workspaces es impar, el último div tendrá la clase col-12.
             if (workspaces.length % 2 == 1) {
                 $("#workgroups > div").last().removeClass("col-lg-6");
