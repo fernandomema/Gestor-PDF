@@ -24,6 +24,10 @@ $(document).ready(function () {
         xhr: function() {
             return xhrOverride;
         },
+        beforeSend: function(xhr) {
+            xhr.setRequestHeader("Accept", "application/json"); 
+            xhr.setRequestHeader("Authorization", 'Bearer '+sessionStorage.getItem('token')); 
+        },
         headers: {
             'Accept': 'application/json',
             'Authorization':'Bearer '+sessionStorage.getItem('token')
