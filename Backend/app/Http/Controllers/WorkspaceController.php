@@ -79,9 +79,14 @@ class WorkspaceController extends Controller
      * @param  \App\Models\Workspace $workspace
      * @return \Illuminate\Http\Response
      */
-    public function show(Workspace $workspace)
+    public function show($id)
     {
-        return view('workspaces.show', compact('workspace'));
+        $workspace = Auth::user()->Workspaces()->find($id);
+        if ($workspace != null) {
+            return ['status' => 'success', 'workspace' => $workspace];
+        } else {
+            return ['status' => 'failed', 'msg' => "workspace not found"];
+        }
     }
 
     /**
