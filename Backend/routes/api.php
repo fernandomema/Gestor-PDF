@@ -29,7 +29,7 @@ Route::get('/documents/{document}', [DocumentController::class, 'show'])->middle
 Route::post('/documents/sign', [DocumentController::class, 'sign'])->middleware('auth:api');
 Route::get('/documents/{id}/file', [DocumentController::class, 'file'])->middleware('auth:api');
 Route::get('/documents/{id}/delete', [DocumentController::class, 'destroy'])->middleware('auth:api');
-Route::get('/documents/search', [DocumentController::class, 'search'])>middleware('auth:api');
+Route::get('/documents/search', [DocumentController::class, 'search'])->middleware('auth:api');
 
 // ----------------------- User -------------------------
 Route::post('login', [userController::class, 'login']);
