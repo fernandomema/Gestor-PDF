@@ -42,7 +42,7 @@ class WorkspaceController extends Controller
         if($request->name == NULL)      $message .= 'You must enter a workspace name.\n';
 
         // Si el nombre de workspace ya existe, entonces retornamos mensaje de error
-        $workspace_exists = Workspace::where('name', $request->input('name'))->first();
+        $workspace_exists = Auth::user()->workspaces()->where('name', $request->input('name'))->first();
         if($workspace_exists != NULL)   $message .= 'A workspace with this name already exists.\n';
 
         // Si la longitud de caracteres del nombre del workspace supera los 191 caracteres, retornamos error
