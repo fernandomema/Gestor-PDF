@@ -1,14 +1,16 @@
 $(document).ready(function () {
     /* API para buscar un documento en todos los worskpaces del usuario actual */
     
-    $('#search-bar').keyup(function (e) { 
-       
-        if(e.keyCode == 13){
+    $('#search-bar').keydown(function (e) { 
+        // Capturamos qué telca ha sido
+        var keyCode= e.which;
+        if(keyCode == 13){
+            e.preventDefault(); 
             // Obtenemos de session storage el token guardado
             var token = sessionStorage.getItem('token');
     
             // URL de la API a utilizar para conectarnos con el Backend
-            const URL_API = 'https://insta-pdf.herokuapp.com/api/documents/search';
+            const URL_API = 'https://insta-pdf.herokuapp.com/api/search-documents';
     
             // Creamos el headers
             var Headers = {
@@ -20,7 +22,7 @@ $(document).ready(function () {
             var datos = {
                 "name": $('#search-bar').val()
             };
-    
+            console.log(datos["name"]);
             // AJAX para conectarnos con la API
             $.ajax({
                 type: "GET",
