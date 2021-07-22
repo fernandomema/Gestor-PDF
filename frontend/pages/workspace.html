@@ -451,34 +451,33 @@
                     <input type="checkbox" class="form-check-input">
                 </div>
                 <div class="col-auto">
-                    <a href="#">
+                    <a href="#" data-template-bind='[{"attribute": "href", "value": "preview"}]'>
                         <span class="avatar" style="background-image: url(../img/pdf.png)"></span>
                     </a>
                 </div>
                 <div class="col text-truncate">
-                    <a href="#" class="text-body d-block" data-content="name"></a>
-                    <small class="d-block text-muted text-truncate mt-n1" 
-                    data-template-bind='[{"attribute": "content", "value": "date"}]'></small>
+                    <a href="#" data-template-bind='[{"attribute": "href", "value": "preview"}]' class="text-body d-block" data-content="name"></a>
+                    <small class="d-block text-muted text-truncate mt-n1" data-template-bind='[{"attribute": "content", "value": "date"}]'></small>
                 </div>
                 <div class="col-auto lh-1">
                     <div class="dropdown">
-                      <a href="#" class="link-secondary" data-bs-toggle="dropdown" aria-expanded="false"><!-- Download SVG icon from http://tabler-icons.io/i/dots -->
+                      <a href="#" data-template-bind='[{"attribute": "href", "value": "preview"}]' class="link-secondary" data-bs-toggle="dropdown" aria-expanded="false"><!-- Download SVG icon from http://tabler-icons.io/i/dots -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg>
                       </a>
                       <div class="dropdown-menu dropdown-menu-end">
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item" href="#" data-template-bind='[{"attribute": "href", "value": "preview"}]'>
                           View
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item btn-edit" href="#" data-template-bind='[{"attribute": "type", "value": "type"}]'>
                           Edit
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item btn-sign" href="#" data-template-bind='[{"attribute": "href", "value": "sign"}]'>
                           Sign
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item btn-print" href="#" data-template-bind='[{"attribute": "type", "value": "type"}, {"attribute": "href", "value": "print"}]'>
                           Print
                         </a>
-                        <a class="dropdown-item" href="#">
+                        <a class="dropdown-item delete-doc-btn" data-template-bind='[{"attribute": "doc-id", "value": "id"}]' href="#">
                           Delete
                         </a>
                       </div>
