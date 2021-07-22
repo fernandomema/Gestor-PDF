@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Workspace</title>
     <!-- Favicon -->
     <link rel="icon" href="../img/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://unpkg.com/@tabler/core@latest/dist/css/tabler.min.css">
@@ -434,7 +434,10 @@
      
     <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+    <!-- Jquery CDN -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Jquery Time ago CDN plugin -->
+    <script src="https://cdn.jsdelivr.net/gh/rmm5t/jquery-timeago@1.6.7/jquery.timeago.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.loadtemplate/1.2.2/jquery.loadTemplate.min.js"></script>
     <script type="text/javascript" src="../js/workspace.js"></script>
     <script src="../js/global.js"></script>
@@ -454,7 +457,8 @@
                 </div>
                 <div class="col text-truncate">
                     <a href="#" class="text-body d-block" data-content="name"></a>
-                    <small class="d-block text-muted text-truncate mt-n1">Uploaded 1 hour ago</small>
+                    <small class="d-block text-muted text-truncate mt-n1" 
+                    data-template-bind='[{"attribute": "content", "value": "date"}]'></small>
                 </div>
                 <div class="col-auto lh-1">
                     <div class="dropdown">

@@ -6,6 +6,13 @@ $(document).ready(function () {
         var keyCode= e.which;
         if(keyCode == 13){
             e.preventDefault(); 
+            
+            // Colocaremos el spinner de loading en la barra de search
+            $('#spinner').html('<div class="spinner-border text-purple" role="status"></div>');
+            $('.lupa').css({
+                'display': 'none'
+            })
+
             // Obtenemos de session storage el token guardado
             var token = sessionStorage.getItem('token');
     
@@ -45,6 +52,7 @@ $(document).ready(function () {
                     workspaces.forEach(function (workspace) {
                         if (workspace.documents.length > 0) {
                             workspace.documents.forEach(function (doc) {
+                                doc.date = jQuery.timeago(doc.created_at);
                                 doc.preview = 'preview.html?id=' + doc.id;
                                 doc.sign = 'sign.html?id=' + doc.id;
                             });
@@ -56,7 +64,17 @@ $(document).ready(function () {
         
                     // Borramos el botón upload documents a aquellos workspaces donde no haya ningún documento
                     $('.empty').parent().parent().parent().remove();
-        
+                    
+                    // Si el spinner está girando, lo ocultamos y lo sustituimos por la lupa
+                    if($('.lupa').css('display') == 'none'){
+                        // Removemos el spinner giratorio
+                        $('#spinner').html('');
+                        // Volvemos a mostrar el icono de la lupa
+                        $('.lupa').css({
+                            'display': 'block'
+                        })
+                    }
+
                     // Si el número de workspaces es impar, el último div tendrá la clase col-12.
                     if (workspaces.length % 2 == 1) {
                         $("#workgroups > div").last().removeClass("col-lg-6");

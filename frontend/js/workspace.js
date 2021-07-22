@@ -12,6 +12,9 @@ $(document).ready(function () {
             data.workspace.elemID = data.workspace.name.replace(/\s+/g, '-');
             $("#workgroups").loadTemplate($("#workgroup-template"), data.workspace);
             if (data.workspace.documents.length > 0) {
+                workspace.documents.forEach(function (doc){
+                    doc.date = jQuery.timeago(doc.created_at);
+                });
                 $("#"+data.workspace.name.replace(/\s+/g, '-')).loadTemplate($("#document-template"), data.workspace.documents);
             } else {
                 $("#"+data.workspace.name.replace(/\s+/g, '-')).loadTemplate($("#empty-template"));
