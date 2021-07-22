@@ -187,7 +187,7 @@ class DocumentController extends Controller
         $workspaces = Auth::user()->workspaces()->get();
 
         foreach($workspaces as $workspace){
-            $workspace->documents = $this->where('name', 'like', '%'.$request->name.'%')->get();
+            $workspace->documents = Document::where('name', 'like', '%'.$request->name.'%')->get();
         }
 
         return $workspaces;
