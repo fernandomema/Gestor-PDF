@@ -24,3 +24,6 @@
     font-weight: bold;
     border-radius: 1em;     /* 16px */
 }
+.btn-edit[type=document], .btn-fill[type=document], .btn-fill-and-sign[type=document], .btn-print[type=template] {
+    display: none;
+}
