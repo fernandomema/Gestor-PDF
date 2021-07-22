@@ -118,7 +118,7 @@ class DocumentController extends Controller
         return ['status' => 'ok', 'documents' => $documents];
     }
 
-    public function sign($id, Request $request) {
+    public function sign(Request $request, $id) {
         $certificate;
         $pdf;
         $resource;
