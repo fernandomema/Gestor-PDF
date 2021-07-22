@@ -7,6 +7,7 @@ use App\Models\Workspace;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use File;
+use Auth;
 
 use LSNepomuceno\LaravelA1PdfSign\{ManageCert, SignaturePdf};
 
@@ -177,5 +178,22 @@ class DocumentController extends Controller
         return Storage::disk('sftp')->download($document->document, $document->name.'.pdf', [
             'Content-Disposition' => 'inline'
         ], 'inline');
+    }
+
+    // Método para buscar un documento PDF en particular dentro de TODOS los workspaces que ha creado el usuario
+    public function search(Request $request)
+    {
+        // Obtenemos primero todos los workspaces que ha creado el usuario
+        $workspaces = Auth::user()->workspaces()->get();
+
+        foreach($workspaces as $workspace){
+            // $document = Document::where('name', 'like', '%'.$request->name.'%')->first();
+            $document_exists = $workspace->documents()->where('name', 'like', '%'.$request->name.'%')->get();
+            if($document_exists){
+                $workspace->documents = $workspace->documents()->where('name', 'like', '%'.$request->name.'%')->get();
+            }
+        }
+
+        return $workspaces;
     }
 }
