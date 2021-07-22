@@ -81,7 +81,7 @@ class WorkspaceController extends Controller
      */
     public function show($id)
     {
-        $workspace = Auth::user()->Workspaces()->find($id);
+        $workspace = Auth::user()->Workspaces()->where('id', $id)->get();
         if ($workspace != null) {
             return ['status' => 'success', 'workspace' => $workspace];
         } else {
