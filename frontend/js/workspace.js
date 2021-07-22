@@ -9,7 +9,6 @@ $(document).ready(function () {
         },
         dataType: 'JSON',
         success: function (data) {
-            console.log(data);
             data.workspace.elemID = data.workspace.name.replace(/\s+/g, '-');
             $("#workgroups").loadTemplate($("#workgroup-template"), data.workspace);
             if (data.workspace.documents.length > 0) {
@@ -25,7 +24,6 @@ $(document).ready(function () {
             }          
         },
         error: function(response){
-            console.log(response);
             if (response.message == 'Unauthenticated' || response.status == 401) {
                 window.location.href = "login.html";
             }

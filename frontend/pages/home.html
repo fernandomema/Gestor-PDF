@@ -112,7 +112,7 @@
                                             <line x1="21" y1="21" x2="15" y2="15" /></svg>
                                     </span>
                                     <input type="text" class="form-control" placeholder="Search…"
-                                        aria-label="Search in website">
+                                        aria-label="Search in website" id="search-bar">
                                 </div>
                             </form>
                         </div>
@@ -441,6 +441,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.loadtemplate/1.2.2/jquery.loadTemplate.min.js" integrity="sha512-4TNloTjrSDYjXOIkusiCx1L1n7KrBLENxj/zsM5a1XeA9KT3Chb+7mPHFzopYxf7IeEpP8ReekhSUHWO99vuYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script type="text/javascript" src="../js/home.js"></script>
     <script type="text/javascript" src="../js/global.js"></script>
+    <script src="../js/api_search_document_in_workspaces.js"></script>
     <!-- new Masonry( document.querySelector('.row-cards')); -->
 
     <script type="text/html" id="document-template">
@@ -486,10 +487,11 @@
         </div>
     </script>
     <script type="text/html" id="workgroup-template">
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-6 workgroup-default">
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title" data-content="name">Personal Documents</h3>
+                    <a href="#" class="btn btn-purple ms-auto btn-upload" data-template-bind='[{"attribute": "href", "value": "upload_url"}]'>Upload</a>
                 </div>
                 <div class="list-group list-group-flush" data-template-bind='[{"attribute": "id", "value": "elemID"}]'>
         
@@ -675,7 +677,7 @@
                 Why you don't try to create a new one?
             </p>
             <div class="empty-action">
-                <a href="#" class="btn btn-purple">
+                <a href="#" class="btn btn-purple btn-add-document" data-template-bind='[{"attribute": "href", "value": "upload_url"}]'>
                     <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

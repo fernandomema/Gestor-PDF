@@ -9,6 +9,22 @@ var pond = FilePond.create(document.querySelector('.filepond'), {
 });
 
 
+// Obtenemos el id del link para mostrar el nombre correspondiente del Workspace en el select option
+function findGetParameter(parameterName) {
+    var result = null,
+        tmp = [];
+    location.search
+        .substr(1)
+        .split("&")
+        .forEach(function (item) {
+          tmp = item.split("=");
+          if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+    return result;
+}
+
+var workspace_id = findGetParameter('workspace_id');
+
 $("form").submit(function (e) {
     e.preventDefault();
     var formdata = new FormData(this);
@@ -32,7 +48,7 @@ $("form").submit(function (e) {
         contentType: false,
         method: "post"
     }).done(function (response) {
-        console.log(response);
+        window.location.href="workspace.html?id="+document.querySelector('[name="workspace"]').value;
     });
 
 });
@@ -40,6 +56,8 @@ $("form").submit(function (e) {
 $('#upload-image').on('click', function () {
     $('.filepond--label-action').click();
 })
+
+// Código para enviar a la vista upload.html segun el id del workspace
 
 $(document).ready(function () {
     // AJAX para conectarnos con la API
@@ -53,7 +71,12 @@ $(document).ready(function () {
         dataType: 'JSON',
         success: function (workspaces) {
             workspaces.forEach(function (workspace) {
-                $("[name=workspace]").append(new Option(workspace.name, workspace.id));
+                // Mostraremos como selected aquel id que el usuario envíe
+                if(workspace.id == workspace_id){
+                    $("[name=workspace]").append(new Option(workspace.name, workspace.id, false, true));
+                } else {
+                    $("[name=workspace]").append(new Option(workspace.name, workspace.id));
+                }
             });
             //$("[name=workspace]").first().select();
         },
