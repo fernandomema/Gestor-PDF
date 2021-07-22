@@ -83,7 +83,7 @@ class WorkspaceController extends Controller
     {
         $workspace = Auth::user()->Workspaces()->where('id', $id)->get();
         if ($workspace != null) {
-            $workspace->documents = $this->documents($workspace->id);
+            $workspace->documents = $workspace->documents()->get();
             return ['status' => 'success', 'workspace' => $workspace];
         } else {
             return ['status' => 'failed', 'msg' => "workspace not found"];
