@@ -127,8 +127,10 @@ class DocumentController extends Controller
         $filename = $document->name;
         $timestamp = time();
 
-        if ($request->input('workspace') == null) {
-            return ['status' => 'failed', 'msg' => 'Invalid workspace_id.'];
+        $workspace = $request->input('workspace');
+        if ($workspace == null) {
+            $workspace = $document->workspace_id;
+            //return ['status' => 'failed', 'msg' => 'Invalid workspace_id.'];
         }
 
 
@@ -167,7 +169,7 @@ class DocumentController extends Controller
         $document->type = "document";
         $document->document = 'pdf/'.$unique.'.pdf'; 
         $document->data = "{}";
-        $document->workspace_id = $request->input('workspace');
+        $document->workspace_id = $workspace;
         $document->save();
         
         return ['status' => 'success', 'document' => $document->id];
