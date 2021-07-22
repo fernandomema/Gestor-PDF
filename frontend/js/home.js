@@ -1,4 +1,5 @@
-$(document).ready(function () {
+function loadWorkspaces(){
+
     // AJAX para conectarnos con la API
     $.ajax({
         type: "GET",
@@ -14,15 +15,15 @@ $(document).ready(function () {
                 workspace.elemID = workspace.name.replace(/\s+/g, '-');
                 workspace.upload_url = 'upload.html?workspace_id='+workspace.id;
             });
-
+                        
             // Cargamos la plantilla workgroup template
             $("#workgroups").loadTemplate($("#workgroup-template"), workspaces);
 
-            
             // Dentro de cada workspace, subimos cada archivo en ese workspace
             workspaces.forEach(function (workspace) {
                 if (workspace.documents.length > 0) {
                     workspace.documents.forEach(function (doc) {
+                        doc.date = jQuery.timeago(doc.created_at);
                         doc.preview = 'preview.html?id=' + doc.id;
                         doc.sign = 'sign.html?id=' + doc.id;
                         doc.print = 'preview.html?id=' + doc.id + '&print=true';
@@ -37,6 +38,16 @@ $(document).ready(function () {
             // Borramos el botón upload documents a aquellos workspaces donde no haya ningún documento
             $('.empty').parent().parent().find('.btn-upload').remove();
 
+            // Si el spinner está girando, lo ocultamos y lo sustituimos por la lupa
+            if($('.lupa').css('display') == 'none'){
+                // Removemos el spinner giratorio
+                $('#spinner').html('');
+                // Volvemos a mostrar el icono de la lupa
+                $('.lupa').css({
+                    'display': 'block'
+                })
+            }
+
             // Si el número de workspaces es impar, el último div tendrá la clase col-12.
             if (workspaces.length % 2 == 1) {
                 $("#workgroups > div").last().removeClass("col-lg-6");
@@ -50,6 +61,25 @@ $(document).ready(function () {
             }
         }
     });
+}
+
+// Cargaremos los workspaces con sus documentos cuando apenas se inicie la página
+$(document).ready(function () {
+    loadWorkspaces();
+});
+
+// Evento para capturar cuando el input de búsqueda está vacío
+$('#search-bar').keyup(function() {
+    // Si el usuario borra el campo de búsqueda, volvemos a cargar los workspaces con sus documentos
+    if (!this.value) {
+        // Colocaremos el spinner de loading en la barra de search
+        $('#spinner').html('<div class="spinner-border text-purple" role="status"></div>');
+        $('.lupa').css({
+            'display': 'none'
+        })
+        // Cargamos los workspaces y sus documentos
+        loadWorkspaces();
+    }
 });
 
 function registerDeleteButtons() {

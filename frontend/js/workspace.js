@@ -17,6 +17,9 @@ $(document).ready(function () {
             workspaces.forEach(function (workspace) {
                 // Si hay más de 1 documento, lo cargamos
                 if (workspace.documents.length > 0) {
+                    workspace.documents.forEach(function (doc){
+                        doc.date = jQuery.timeago(doc.created_at);
+                    });
                     $("#"+workspace.name.replace(/\s+/g, '-')).loadTemplate($("#document-template"), workspace.documents);
                 } else {
                     // Si no hay documentos, cargamos template vacía
