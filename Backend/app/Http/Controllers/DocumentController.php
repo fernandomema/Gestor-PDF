@@ -186,9 +186,9 @@ class DocumentController extends Controller
         // Obtenemos primero todos los workspaces que ha creado el usuario
         $workspaces = Auth::user()->workspaces()->get();
 
-        // foreach($workspaces as $workspace){
-        //     $workspace->documents = $this->where('name', 'like', '%'.$request->name.'%')->get();
-        // }
+        foreach($workspaces as $workspace){
+            $workspace->documents = $this->where('name', 'like', '%'.$request->name.'%')->get();
+        }
 
         return $workspaces;
     }
