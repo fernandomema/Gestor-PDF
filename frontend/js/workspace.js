@@ -17,6 +17,7 @@ $(document).ready(function () {
                     doc.sign = 'sign.html?id=' + doc.id;
                     doc.print = 'preview.html?id=' + doc.id + '&print=true';
                     doc.css_edit = doc.type == 'document' ? 'display:none;' : 'display:block;';
+                    doc.date = jQuery.timeago(doc.created_at);
                 });
                 $("#"+data.workspace.name.replace(/\s+/g, '-')).loadTemplate($("#document-template"), data.workspace.documents);
             } else {
