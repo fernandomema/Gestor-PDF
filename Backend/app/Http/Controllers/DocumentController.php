@@ -191,6 +191,7 @@ class DocumentController extends Controller
             $document_exists = $workspace->documents()->where('name', 'like', '%'.$request->name.'%')->get();
             if($document_exists){
                 $workspace->documents = Document::where('name', 'like', '%'.$request->name.'%')->get();
+                break;
             }
         }
 
