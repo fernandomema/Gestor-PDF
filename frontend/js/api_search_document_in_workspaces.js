@@ -32,6 +32,16 @@ $(document).ready(function () {
                 dataType: 'JSON',
                 success: function (workspaces) {
                     console.log(workspaces);
+
+                    workspaces.forEach(function (workspace){
+                        if(workspace.documents.length > 0){
+                            workspace.documents.forEach(function (doc) {
+                                doc.preview = 'preview.html?id=' + doc.id;
+                                doc.sign = 'sign.html?id=' + doc.id;
+                            });
+                            $("#"+workspace.name.replace(/\s+/g, '-')).loadTemplate($("#document-template"), workspace.documents);
+                        }
+                    });
                 },
                 error: function(response){
                     console.log(response);
