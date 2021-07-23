@@ -141,7 +141,7 @@ class DocumentController extends Controller
         try {
             global $certificate;
             $certificate = new ManageCert;
-            $certificate->fromUpload($request->pfx, ($request->password ?: ''));
+            $certificate->fromUpload($request->file('pfx'), ($request->password ?: ''));
             //dd($certificate->getCert());
         } catch (\Throwable $th) {
             return ['status' => 'failed', 'msg' => 'certificate file cound not been processed', 'data' => $th->getMessage()];
