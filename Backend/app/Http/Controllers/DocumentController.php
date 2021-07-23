@@ -118,12 +118,15 @@ class DocumentController extends Controller
         return ['status' => 'ok', 'documents' => $documents];
     }
 
-    public function sign($id) {
+    public function sign(Request $request, $id) {
         $certificate;
         $pdf;
         $resource;
 
         $document = Document::find($id);
+        if ($document == null) {
+            return ['status' => 'failed', 'msg' => 'Document not found with id '.$id];
+        }
         $filename = $document->name;
         $timestamp = time();
 
