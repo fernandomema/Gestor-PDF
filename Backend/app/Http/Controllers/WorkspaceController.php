@@ -67,7 +67,7 @@ class WorkspaceController extends Controller
             $user = Auth::user();
     
             // Insertamos un nuevo registro en la tabla pivote
-            $user->workspaces()->attach($workspace->id);
+            $user->workspaces()->attach($workspace->id, array('isManager' => true));
     
             return ['status' => 'success', 'msg' => 'A new worskpace has been created.'];
         }

@@ -72,7 +72,7 @@ class userController extends Controller
 
             /* ---------------- Inserción de registro en tabla PIVOTE user_workspace --------------- */
             // Insertamos un nuevo registro en la tabla pivote
-            $usuario->workspaces()->attach($workspace->id);
+            $usuario->workspaces()->attach($workspace->id, array('isManager' => true));
 
             return ['status' => 'success', 'msg' => 'New user registered successfully'];
         } 
