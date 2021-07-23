@@ -17,7 +17,7 @@ class WorkspaceController extends Controller
     public function index()
     {
 
-        $workspaces = Auth::user()->workspaces()->get();
+        $workspaces = Auth::user()->workspaces()->withPivot('canCreate', 'canUpload', 'canUpload', 'canRename', 'canPrint', 'canFill', 'canSign', 'canDelete', 'isManager')->get();
         foreach ($workspaces as $workspace) {
             $workspace->documents = $this->documents($workspace->id);
         }
