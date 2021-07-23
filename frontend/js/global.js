@@ -6,6 +6,11 @@ $( document ).ready(function() {
         $('body').addClass('theme-dark');
     }
     
+    // Si el usuario no está logeado y quiere intentar acceder al panel, se redirigirá al login.html
+    if(sessionStorage.getItem('token') == undefined){
+        window.location.href = 'login.html';
+    }
+
     // Load avatar
     $('.avatar.avatar-sm').css('background-image', 'url(' + sessionStorage.getItem('avatar') + ')');
 
