@@ -119,6 +119,7 @@ class DocumentController extends Controller
     }
 
     public function sign(Request $request, $id) {
+        return $request->allFiles();
         $certificate;
         $pdf;
         $resource;
