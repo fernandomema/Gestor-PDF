@@ -81,7 +81,7 @@ class WorkspaceController extends Controller
      */
     public function show($id)
     {
-        $workspace = Auth::user()->Workspaces()->with('documents')->withPivot('canCreate', 'canUpload', 'canUpload', 'canRename', 'canPrint', 'canFill', 'canSign', 'canDelete', 'isManager')->where('id', $id)->first();
+        $workspace = Auth::user()->Workspaces()->with('documents')->with('users')->withPivot('canCreate', 'canUpload', 'canUpload', 'canRename', 'canPrint', 'canFill', 'canSign', 'canDelete', 'isManager')->where('id', $id)->first();
         if ($workspace != null) {
             return ['status' => 'success', 'workspace' => $workspace];
         } else {
