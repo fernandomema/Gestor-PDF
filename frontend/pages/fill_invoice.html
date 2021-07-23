@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill</title>
+    <!-- Favicon -->
+    <link rel="icon" href="../img/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="https://unpkg.com/@tabler/core@latest/dist/css/tabler.min.css">
+    <link rel="stylesheet" href="../css/document.css">
+    <link rel="stylesheet" href="../css/styles_fill_document.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <!-- Estilos del template -->
+    <style>
+        ul, ul li, p, div, ol {
+            margin:0;
+            padding:0;
+            list-style:none;
+        }
+    
+        #invoice {
+            margin: 0 12pt;
+            width:660px;
+            padding: 10px 20px;
+            margin: 1em auto;
+            clear:both;
+            position:relative;
+            overflow:hidden;
+            background:#fff 
+        }
+    
+        /*=========================== TYPOGRAPHY =========================*/
+        #invoice{
+            font-family: Helvetica, Arial, Verdana, sans-serif !important 
+        }
+    
+        #invoice h2 {
+            margin: 10px 0;
+            font-size: 14pt;
+        }
+    
+        #invoice-amount td, th {
+            font-size: 9pt;
+        }
+    
+        #invoice-header #company-address {
+            text-align: right;
+            font-size: 11pt;
+            line-height: 14pt;
+        }
+    
+        #invoice #client-details, #invoice-info  p, #invoice #invoice-other, #invoice #payment-details {
+            font-size: 9pt;
+            line-height: 12pt;
+        }
+    
+        #invoice-info h2, #invoice-info h3 {
+            margin: 0;
+            font-weight: normal;
+        }
+    
+        #invoice-info h2{
+            text-transform:uppercase
+        }
+    
+        #invoice-info h3 {
+            font-size:12pt;
+        }
+    
+        #comments {
+            font-weight:bold;
+            margin-top:15px;
+            font-size:10pt
+        }
+    
+        /*=========================== LAYOUT =========================*/
+        #invoice{
+            padding:0 1cm 1cm 1cm;
+            }
+    
+        #invoice-header .logo {
+            float:left;
+        }
+    
+        #invoice-header{
+            margin-top:0.3cm;
+            border-bottom:4px solid #000;
+            padding-bottom:10px;
+            overflow:hidden
+        }
+    
+        #invoice-info{
+            margin: 0.7cm 0 20px 0;
+            width:250px;
+            float:right;
+            text-align:right
+        }
+    
+        #client-details {
+            margin:0.7cm 0 20px 2.5cm;
+            float:left;
+            width:250px
+        }
+    
+            /* Positioned to appear in a standard envelope window when printed */
+            #invoice-other {
+            text-align: right;
+            float: right;
+            width:250px;
+            }
+    
+        #invoice #payment-details{
+            float:left;
+            width:250px;
+        }
+    
+        #invoice-amount {
+            margin: 1em 0;
+            clear: both;
+            }
+    
+        #comments{
+            clear:both;
+            padding-top:0.5cm
+        }
+    
+        /*=========================== TABLES =========================*/
+        #invoice table#invoice-amount {
+            border-collapse:collapse;
+            width:100%;
+            clear:both;
+        }
+    
+        #invoice-amount th {
+            text-align: left;
+            white-space: nowrap;
+            padding: 1px 2px 0 5px;
+            font-weight: bold;
+            background: #FFF;
+            border-bottom: solid 1px #444;
+            }
+    
+        #invoice-amount td.item_r{
+            text-align: right;
+        }
+    
+        #invoice-amount td.total{
+            text-align: right;
+            font-weight: bold
+        }
+    
+        #invoice-amount .index_th{
+            width:5%
+        }
+    
+        #invoice-amount .details_th{
+            width:54%
+        }
+    
+        #invoice-amount .details_notax_th{
+            width:62%
+        }
+    
+        #invoice-amount .quantity_th{
+            width:13%
+        }
+    
+        #invoice-amount .subtotal_th{
+            width:15%;
+            text-align:right
+        }
+    
+        #invoice-amount .unitprice_th{
+            width:10%;
+            text-align:right
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="navbar navbar-expand-md navbar-light d-print-none">
+            <div class="container-xl">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+                    <a href=".">
+                        <img src="../img/logo_admin_modify.png" width="110" height="32" alt="AppName" class="navbar-brand-image">
+                    </a>
+                </h1>
+                <div class="navbar-nav flex-row order-md-last">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
+                            aria-label="Open user menu">
+                            <span class="avatar avatar-sm"
+                                style="background-image: url(./static/avatars/000m.jpg)"></span>
+                            <div class="d-none d-xl-block ps-2">
+                                <!-- Traemos el nombre de Usuario desde jQuery -->
+                                <div class="username-menu"></div>
+                                <div class="mt-1 small text-muted">User</div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            <a href="settings_user_panel.html" class="dropdown-item">Profile & account</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" id="logout-btn" class="dropdown-item">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="navbar-expand-md">
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <div class="navbar navbar-light">
+                    <div class="container-xl">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./home.html">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                                            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                                            <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        Home
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./workspaces.html">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-briefcase" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <rect x="3" y="7" width="18" height="13" rx="2"></rect>
+                                            <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path>
+                                            <line x1="12" y1="12" x2="12" y2="12.01"></line>
+                                            <path d="M3 13a20 20 0 0 0 18 0"></path>
+                                         </svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        Workspaces
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./faq_section.html">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-question-mark" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M8 8a3.5 3 0 0 1 3.5 -3h1a3.5 3 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4"></path>
+                                            <line x1="12" y1="19" x2="12" y2="19.01"></line>
+                                        </svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        FAQ
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="container-xl">
+                <!-- Page title -->
+                <div class="page-header d-print-none">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <!-- Page pre-title -->
+                            <h2 class="page-title">
+                                Fill Document
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-body">
+                <div class="container-xl">
+                    <div class="row">
+                        <!-- En esta sección habrá un formulario de relleno de documentos -->
+                        <div class="col-3">
+                            <div class="card p-3">
+                                <form action="" id="Form1"></form>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <div class="doc w-100 page-background py-4">
+                                <page size="A4">
+                                    <div class="pc pc1 w0 h0 opened position-relative">
+                                        <img class="position-absolute px-5 mt-5" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8UAAAWJCAIAAADYGiIWAAAACXBIWXMAABYlAAAWJQFJUiTwAAAXVElEQVR42u3asRHAMAwDMSr778zMYFU+HzACqy+YAAAAW5OkrSEAAOA4pmc+KwAAwJqeBgAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwAAAADwumlrBQAA2PH3AAAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAADoaQAAAAAAbjJJ2hoCAACOY3rG3wMAAPb0NAAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAAAAAAL/kB30gUBZ5YEQAAAAAASUVORK5CYII=">
+                                        <div class="position-relative pt-5 text-center">
+                                            <div>Invoice<span class="_ _0"></span></div>
+                                        </div>
+                                        <div class="position-relative pt-5 mx-5 ">
+                                            <div id="invoice">
+                                                <div id="invoice-header">
+                                                    <img src="" class="logo screen" alt="CompanyLogo"/>
+                                                            
+                                                    <div class="vcard" id="company-address">
+                                                    <div class="fn org"><strong>{{Company_name}}</strong></div>
+                                                    <div class="adr">
+                                                        <div class="street-address">{{Company_address}}
+                                                        </div>
+                                                        <!-- street-address -->
+                                                        <div class="locality">{{Company_city}}</div>
+                                                        <div id="company-postcode"><span class="region">{{Company_country}}</span> <span class="postal-code">{{postal_code}}</span></div>
+                                                    </div>          
+                                                    <div class="email">{{Company_email}}</div>
+                                                    </div>        
+                                                </div>
+                                                
+                                                <!-- #invoice-header -->
+                                                <div id="invoice-info">
+                                                    <h2>Invoice <strong>INV {{InvoiceNum}}</strong></h2>
+                                                    <h3>{{InvoiceDate}}</h3>
+                                                    <p id="payment-terms">Payment Terms: 30 days</p>        
+                                                </div>
+                                                
+                                                <!-- #invoice-info -->
+                                                <div class="vcard" id="client-details">
+                                                    <div class="fn">{{ClientName}}</div>
+                                                    <div class="org">{{ClientCompany}}</div>
+                                                    <div class="adr">
+                                                    <div class="street-address">{{ClientAddress}}</div>
+                                                    <!-- street-address -->
+                                                    <div class="locality">{{ClientCity}}</div>
+                                                    <div id="client-postcode"><span class="region">{{ClientRegion}}</span> <span class="postal-code">{{ClientZip}}</span></div>
+                                                    </div>     
+                                                </div>
+                                                
+                                                <!-- #client-details vcard -->
+                                                <table id="invoice-amount">
+                                                    <thead>
+                                                    <tr id="header_row">
+                                                        <th class="index_th">#</th>
+                                                        <th class="left details_th">Title</th>
+                                                        <th class="quantity_th">Quantity</th>
+                                                        <th class="unitprice_th">Unit Price ($)</th>
+                                                        <th class="subtotal_th">Subtotal ($)</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tfoot>
+                                                    <tr id="total_tr">
+                                                    <td colspan="2">&nbsp;</td>
+                                                    <td colspan="2" class="total" id="total_currency"><span class="currency">$ </span> Total</td>
+                                                    <td class="total">${{Total}}</td>
+                                                    </tr>
+                                                    </tfoot>
+                                                    <tbody>
+                                                    <tr class="item">
+                                                        <td class="item_l">{{#index}}</td>
+                                                        <td class="item_l">{{Title}} </td>
+                                                        <td class="item_r">{{Quantity}}</td>
+                                                        <td class="item_r">{{UnitPrice}}</td>
+                                                        <td class="item_r">{{SubTotal}}</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                                
+                                                <!-- invoice-amount -->
+                                                <div id="invoice-other">
+                                                    <h2>Other Information</h2>
+                                                    <img src="" alt="signature"/>
+                                                </div>
+                                                
+                                                <!-- invoice-other -->
+                                                <div id="payment-details">
+                                                    <h2>Payment Details</h2>
+                                                    <div id="bank_name">{{Bank_name}}</div>
+                                                    <div id="account-number"><strong>Account Number:</strong>{{Bank_account}}</div>
+                                                    <div id="iban"><strong>IBAN:</strong>{{Client_IBAN}}</div>
+                                                    <div id="payment-reference"><strong>Payment Reference:</strong> INV {{InvoiceNum}}</div>
+                                                </div>
+                                                
+                                                <!-- payment-details -->
+                                                <div id="comments">{{Company_payment_comment}}</div>
+                                                <!-- comments -->
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                </page>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <footer class="footer footer-transparent d-print-none">
+                <div class="container">
+                    <div class="row text-center align-items-center flex-row-reverse">
+                        <div class="col-lg-auto ms-lg-auto">
+                            <ul class="list-inline list-inline-dots mb-0">
+                                <li class="list-inline-item">
+                                    <a href="home.html" class="link-secondary">Inicio</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                            <ul class="list-inline list-inline-dots mb-0">
+                                <li class="list-inline-item">
+                                    Copyright &copy; 2021
+                                    <a href="." class="link-secondary">InstaPDF</a>.
+                                    All rights reserved.
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="./changelog.html" class="link-secondary" rel="noopener">v1.0.0-beta3</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <div class="modal modal-blur fade" id="modal-report" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+           <div class="modal-content">
+              <div class="modal-header">
+                 <h5 class="modal-title">New document</h5>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                 <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" name="example-text-input" placeholder="Your document name">
+                 </div>
+                 <label class="form-label">Report type</label>
+                 <div class="form-selectgroup-boxes row mb-3">
+                    <div class="col-lg-6">
+                       <label class="form-selectgroup-item">
+                       <input type="radio" name="report-type" value="1" class="form-selectgroup-input" checked>
+                       <span class="form-selectgroup-label d-flex align-items-center p-3">
+                       <span class="me-3">
+                       <span class="form-selectgroup-check"></span>
+                       </span>
+                       <span class="form-selectgroup-label-content">
+                       <span class="form-selectgroup-title strong mb-1">Scratch</span>
+                       <span class="d-block text-muted">Create document from scratch.</span>
+                       </span>
+                       </span>
+                       </label>
+                    </div>
+                    <div class="col-lg-6">
+                       <label class="form-selectgroup-item">
+                       <input type="radio" name="report-type" value="1" class="form-selectgroup-input">
+                       <span class="form-selectgroup-label d-flex align-items-center p-3">
+                       <span class="me-3">
+                       <span class="form-selectgroup-check"></span>
+                       </span>
+                       <span class="form-selectgroup-label-content">
+                       <span class="form-selectgroup-title strong mb-1">Template</span>
+                       <span class="d-block text-muted">Create document from template.</span>
+                       </span>
+                       </span>
+                       </label>
+                    </div>
+                 </div>
+                 <div class="row">
+                    <div class="col-lg-8">
+                       <div class="mb-3">
+                          <label class="form-label">Workspace</label>
+                          <select class="form-select">
+                             <option value="1">Personal</option>
+                             <option value="2">Business name 1</option>
+                             <option value="3">Business name 2</option>
+                          </select>
+                       </div>
+                    </div>
+                    <div class="col-lg-4">
+                       <div class="mb-3">
+                          <label class="form-label">Visibility</label>
+                          <select class="form-select">
+                             <option value="1" selected>Private</option>
+                             <option value="2">Public</option>
+                             <option value="3">Hidden</option>
+                          </select>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+              <div class="modal-footer">
+                 <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+                 Cancel
+                 </a>
+                 <a href="#" class="btn btn-primary ms-auto" data-bs-dismiss="modal">
+                    <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                       <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                       <line x1="12" y1="5" x2="12" y2="19" />
+                       <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                    Create new document
+                 </a>
+              </div>
+           </div>
+        </div>
+     </div>
+     
+    <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
+    <!-- Bootstrap json-form CDN -->
+    <script src="https://cdn.jsdelivr.net/gh/ambersnow/bs-jsonform@1.4.0/bs-jsonform.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../js/form-generator.js"></script>
+    <script src="../js/global.js"></script>
+    <script>
+        $(window).on('resize', function(){
+            $('.doc').css("zoom", 1)
+            while( $('page').width() > ($('page').parent().width() - 15)) {
+                $('.doc').css("zoom", $('.doc').css("zoom") - 0.01)
+            }
+        });
+    </script>
+</body>
+
+</html>
