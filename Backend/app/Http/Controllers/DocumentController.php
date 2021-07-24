@@ -60,6 +60,25 @@ class DocumentController extends Controller
         return $document;
     }
 
+    // Método para obtener el documento 
+    public function getDocumentName($id)
+    {
+        // Obtenemos primero todos los workspaces que ha creado el usuario
+        $workspaces = Auth::user()->workspaces()->get();
+
+        // Recorremos por cada workspace del usuario actual para ver si tiene algún document con ese id
+        foreach($workspaces as $workspace){
+            $document_exists = $workspace->documents()->where('id', $id)->first();
+            if($document_exists){
+                $document = $workspace->documents()->where('id', $id)->first();
+                break;
+            }
+        }
+
+        if(!$document_exists)   return ['status' => 'failed', 'msg' => 'The document does not exist.'];
+        else                    return ['status' => 'success', 'msg' => $document];
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
