@@ -26,6 +26,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/documents', [DocumentController::class, 'index'])->middleware('auth:api');
 Route::post('/documents/upload', [DocumentController::class, 'upload'])->middleware('auth:api');
 Route::get('/documents/{document}', [DocumentController::class, 'show'])->middleware('auth:api');
+Route::get('/documents/{id}', [DocumentController::class, 'getDocumentName'])->middleware('auth:api');
 Route::post('/documents/{id}/sign', [DocumentController::class, 'sign'])->middleware('auth:api');
 Route::get('/documents/{id}/file', [DocumentController::class, 'file'])->middleware('auth:api');
 Route::get('/documents/{id}/delete', [DocumentController::class, 'destroy'])->middleware('auth:api');
