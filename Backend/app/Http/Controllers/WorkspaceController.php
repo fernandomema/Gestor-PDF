@@ -149,7 +149,7 @@ class WorkspaceController extends Controller
 
         // Si el nombre de workspace ya existe, entonces retornamos mensaje de error
         if($request->input('name_changed') == 'true'){
-            $workspace_exists = Workspace::where('name', $request->input('name'))->first();
+            $workspace_exists = Auth::user()->workspaces()->where('name', $request->input('name'))->first();
             if($workspace_exists != NULL)   $message .= 'A workspace with this name already exists.\n';
         }
 
