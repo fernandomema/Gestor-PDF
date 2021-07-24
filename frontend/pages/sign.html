@@ -33,8 +33,9 @@
                             <span class="avatar avatar-sm"
                             style="background-image: url(./static/avatars/000m.jpg)"></span>
                             <div class="d-none d-xl-block ps-2">
-                                <div>Username</div>
-                                <div class="mt-1 small text-muted">Role</div>
+                                <!-- Traemos el nombre de Usuario desde jQuery -->
+                                <div class="username-menu"></div>
+                                <div class="mt-1 small text-muted">User</div>
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
@@ -85,24 +86,22 @@
                                     </span>
                                 </a>
                             </li>
-                        </ul>
-                        <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
-                            <form action="." method="get">
-                                <div class="input-icon">
-                                    <span class="input-icon-addon">
-                                        <!-- Download SVG icon from http://tabler-icons.io/i/search -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                        stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <circle cx="10" cy="10" r="7" />
-                                        <line x1="21" y1="21" x2="15" y2="15" /></svg>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./faq_section.html">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-question-mark" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M8 8a3.5 3 0 0 1 3.5 -3h1a3.5 3 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4"></path>
+                                            <line x1="12" y1="19" x2="12" y2="19.01"></line>
+                                        </svg>
                                     </span>
-                                    <input type="text" class="form-control" placeholder="Search…"
-                                    aria-label="Search in website">
-                                </div>
-                            </form>
-                        </div>
+                                    <span class="nav-link-title">
+                                        FAQ
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -232,6 +231,7 @@
     <script src="https://cdn.jsdelivr.net/npm/izimodal-1.6.0@1.6.1/js/iziModal.min.js"></script>
     <script src="../js/global.js"></script>
     <script src="../js/sign.js"></script>
+    <script src="../js/api_logout.js"></script>
 </body>
 
 </html>
