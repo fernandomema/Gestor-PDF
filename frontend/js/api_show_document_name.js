@@ -20,23 +20,18 @@ $(document).ready(function () {
             'Accept': 'application/json',
             'Authorization':'Bearer '+sessionStorage.getItem('token')
         },
+        dataType: 'JSON',
         success: function(response) {
-            switch(response.status){
-                case 'success':
-                    console.log(response.msg)
-                    break;
-                case 'failed':
-                    console.log(response.msg)
-                    break;
-                default:
-                    break;
-            }
+            $('#document-name').text(response.name);
         },
         error: function(response){
             console.log(response);
             if (response.message == 'Unauthenticated' || response.status == 401) {
                 //window.location.href = "login.html";
                 console.log('unauthenticated');
+            }
+            if(response.status == 404){
+                window.location.href = "err404.html";
             }
         }
     });
