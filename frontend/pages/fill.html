@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Templates</title>
+    <title>Fill</title>
     <!-- Favicon -->
     <link rel="icon" href="../img/favicon.png" type="image/png" />
     <link rel="stylesheet" href="https://unpkg.com/@tabler/core@latest/dist/css/tabler.min.css">
+    <link rel="stylesheet" href="../css/document.css">
     <link rel="stylesheet" href="../css/global.css">
 </head>
 
@@ -100,6 +101,23 @@
                                 </a>
                             </li>
                         </ul>
+                        <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
+                            <form action="." method="get">
+                                <div class="input-icon">
+                                    <span class="input-icon-addon">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/search -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <circle cx="10" cy="10" r="7" />
+                                            <line x1="21" y1="21" x2="15" y2="15" /></svg>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="Search…"
+                                        aria-label="Search in website">
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -111,11 +129,8 @@
                     <div class="row align-items-center">
                         <div class="col">
                             <!-- Page pre-title -->
-                            <div class="page-pretitle">
-                                Home
-                            </div>
                             <h2 class="page-title">
-                                Documents
+                                Sign Document
                             </h2>
                         </div>
                     </div>
@@ -123,96 +138,62 @@
             </div>
             <div class="page-body">
                 <div class="container-xl">
-
                     <div class="row">
-
-                        <div class="col-lg-6 mb-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row g-2 align-items-center">
-                                        <div class="col-auto">
-                                            <span class="avatar avatar-lg" style="background-image: url('../img/miniatura_invoice.png')"></span>
-                                        </div>
-                                        <div class="col">
-                                            <h4 class="card-title m-0">
-                                                <a href="#">Invoice company template</a>
-                                            </h4>
-                                            <div class="text-muted">
-                                                Customize this invoice template and make it yours
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a href="invoice_company_template.html" class="btn btn-purple">
-                                                Preview
-                                            </a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="dropdown">
-                                                <a href="#" class="card-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <!-- Download SVG icon from http://tabler-icons.io/i/dots-vertical -->
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                                        stroke-linecap="round" stroke-linejoin="round">
-                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                        <circle cx="12" cy="12" r="1"></circle>
-                                                        <circle cx="12" cy="19" r="1"></circle>
-                                                        <circle cx="12" cy="5" r="1"></circle>
-                                                    </svg>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-end" style="">
-                                                    <a href="#" class="dropdown-item">Fill</a>
-                                                    <a href="#" class="dropdown-item">Fill & sign</a>
-                                                    <a href="#" class="dropdown-item">Edit template</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        <!-- En esta sección habrá un formulario de relleno de documentos -->
+                        <div class="col-3">
+                            <div class="card p-3">
+                                <form action="" id="Form1"></form>
                             </div>
                         </div>
-                        <div class="col-lg-6 mb-3">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="row g-2 align-items-center">
-                                        <div class="col-auto">
-                                            <span class="avatar avatar-lg" style="background-image: url('../img/miniatura_contract.png')"></span>
+                        <div class="col-9">
+                            <div class="doc w-100 page-background py-4">
+                                <page size="A4">
+                                    <div class="pc pc1 w0 h0 opened position-relative">
+                                        <img class="position-absolute px-5 mt-5" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8UAAAWJCAIAAADYGiIWAAAACXBIWXMAABYlAAAWJQFJUiTwAAAXVElEQVR42u3asRHAMAwDMSr778zMYFU+HzACqy+YAAAAW5OkrSEAAOA4pmc+KwAAwJqeBgAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwAAAADwumlrBQAA2PH3AAAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAADoaQAAAAAAbjJJ2hoCAACOY3rG3wMAAPb0NAAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwAAehoAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAA9DQAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAAD0NAAB6GgAA9DQAAOhpAABATwMAgJ4GAAA9DQAAehoAAPQ0AACgpwEAQE8DAICeBgAAPQ0AAOhpAADQ0wAAoKcBAEBPAwCAngYAAPQ0AADoaQAA0NMAAKCnAQAAPQ0AAHoaAAD0NAAA6GkAANDTAACAngYAAD0NAAB6GgAA9DQAAKCnAQBATwMAgJ4GAAA9DQAAehoAANDTAACgpwEAQE8DAICeBgAA9DQAAOhpAADQ0wAAoKcBAAA9DQAAehoAAPQ0AADoaQAA0NMAAICeBgAAPQ0AAHoaAAD0NAAAoKcBAEBPAwCAngYAAD0NAAB6GgAA0NMAAKCnAQBATwMAgJ4GAAD0NAAA6GkAANDTAACgpwEAQE8DAAB6GgAA9DQAAOhpAADQ0wAAgJ4GAAA9DQAAehoAAPQ0AADoaQAAQE8DAICeBgAAPQ0AAHoaAADQ0wAAoKcBAEBPAwCAngYAAD0NAADoaQAA0NMAAKCnAQBATwMAAHoaAAD0NAAAAAAAL/kB30gUBZ5YEQAAAAAASUVORK5CYII=">
+                                        <div class="position-relative pt-5 text-center">
+                                            <div>RECIBO DE D<span class="_ _0"></span>INERO </div>
                                         </div>
-                                        <div class="col">
-                                            <h4 class="card-title m-0">
-                                                <a href="#">Application for employment template</a>
-                                            </h4>
-                                            <div class="text-muted">
-                                                Here it is an application for employment template that you can use 
-                                                and customize it.
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <a href="contract_template.html" class="btn btn-purple">
-                                                Preview
-                                            </a>
-                                        </div>
-                                        <div class="col-auto">
-                                            <div class="dropdown">
-                                                <a href="#" class="card-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <!-- Download SVG icon from http://tabler-icons.io/i/dots-vertical -->
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
-                                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
-                                                        stroke-linecap="round" stroke-linejoin="round">
-                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                                                        <circle cx="12" cy="12" r="1"></circle>
-                                                        <circle cx="12" cy="19" r="1"></circle>
-                                                        <circle cx="12" cy="5" r="1"></circle>
-                                                    </svg>
-                                                </a>
-                                                <div class="dropdown-menu dropdown-menu-end" style="">
-                                                    <a href="#" class="dropdown-item">Fill</a>
-                                                    <a href="#" class="dropdown-item">Fill & sign</a>
-                                                    <a href="#" class="dropdown-item">Edit template</a>
+                                        <div class="position-relative pt-5 mx-5 px-3">
+                                            <p>
+                                                D. …...................................................................., con DNI/NIF …........................... certifica haber recibido el siguiente pago:
+                                            </p>
+                                            <br>
+                                            <p>
+                                                RECIBÍ DE: D. …...................................................................., con DNI/NIF …........................... 
+                                            </p>
+                                            <br>
+                                            <p>
+                                                LA SUMA DE: …........................... € (…..........................................................) 
+                                            </p>
+                                            <br>
+                                            <p>
+                                                EN CONCEPTO DE: 
+                                            </p>
+                                            <div class="position-absolute w-100" style="top:500px">
+                                                <p>
+                                                    Forma de pago: …................................................
+                                                </p>
+                                                <p>
+                                                    Fecha de pago: …... / …................ / …................
+                                                </p>
+                                                <br>
+                                                <p>
+                                                    Hecho en …..........................., el …..............................................
+                                                </p>
+                                                <div class="row text-center">
+                                                    <div class="col-6" style="height:150px">
+                                                        Firma:
+                                                    </div>
+                                                    <div class="col-6" style="height:150px">
+                                                        Firma:
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </page>
+                                <page size="A4"></page>
+                                <page size="A4"></page>
                             </div>
                         </div>
                     </div>
@@ -332,11 +313,19 @@
      </div>
      
     <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+    <!-- Bootstrap json-form CDN -->
+    <script src="https://cdn.jsdelivr.net/gh/ambersnow/bs-jsonform@1.4.0/bs-jsonform.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="../js/form-generator.js"></script>
     <script src="../js/global.js"></script>
-    <script src="../js/api_logout.js"></script>
-    <!-- new Masonry( document.querySelector('.row-cards')); -->
+    <script>
+        $(window).on('resize', function(){
+            $('.doc').css("zoom", 1)
+            while( $('page').width() > ($('page').parent().width() - 15)) {
+                $('.doc').css("zoom", $('.doc').css("zoom") - 0.01)
+            }
+        });
+    </script>
 </body>
 
 </html>
