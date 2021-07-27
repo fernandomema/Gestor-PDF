@@ -49,3 +49,4 @@ Route::post('create-workspace', [WorkspaceController::class, 'store'])->middlewa
 Route::get('edit-workspace', [WorkspaceController::class, 'edit'])->middleware('auth:api');
 Route::post('update-workspace', [WorkspaceController::class, 'update'])->middleware('auth:api');
 Route::post('delete-workspace', [WorkspaceController::class, 'destroy'])->middleware('auth:api');
+Route::get('/workspaces/{workspaceId}/join/{user}', [WorkspaceController::class, 'joinUser'])->middleware('auth:api');

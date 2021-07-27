@@ -17,7 +17,7 @@ class WorkspaceController extends Controller
     public function index()
     {
 
-        $workspaces = Auth::user()->workspaces()->withPivot('canCreate', 'canUpload', 'canUpload', 'canRename', 'canPrint', 'canFill', 'canSign', 'canDelete', 'isManager')->get();
+        $workspaces = Auth::user()->workspaces()->withPivot('canCreate', 'canUpload', 'canRename', 'canPrint', 'canFill', 'canSign', 'canDelete', 'isManager')->get();
         foreach ($workspaces as $workspace) {
             $workspace->documents = $this->documents($workspace->id);
         }
@@ -81,7 +81,7 @@ class WorkspaceController extends Controller
      */
     public function show($id)
     {
-        $workspace = Auth::user()->Workspaces()->with('documents')->with('users')->withPivot('canCreate', 'canUpload', 'canUpload', 'canRename', 'canPrint', 'canFill', 'canSign', 'canDelete', 'isManager')->where('id', $id)->first();
+        $workspace = Auth::user()->Workspaces()->with('documents')->with('users')->withPivot('canCreate', 'canUpload', 'canRename', 'canPrint', 'canFill', 'canSign', 'canDelete', 'isManager')->where('id', $id)->first();
         if ($workspace != null) {
             return ['status' => 'success', 'workspace' => $workspace];
         } else {
@@ -203,5 +203,17 @@ class WorkspaceController extends Controller
 
     public function documents($id) {
         return Document::where('workspace_id', $id)->get();
+    }
+
+    public function joinUser($workspaceId, $user) {
+        $user = User::where('email', $user)->orWhere('username', $user)->first();
+        if ($user == null) {
+            return ['status' => 'failed', 'msg' => 'User not found'];
+        }
+        $workspace = Workspace::find($workspaceId);
+        if ($workspace == null) {
+            return ['status' => 'failed', 'msg' => 'Workspace not found'];
+        }
+        $user->workspaces()->attach($workspace->id);
     }
 }
