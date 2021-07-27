@@ -12,7 +12,11 @@ $(document).ready(function () {
             // Método para traer los workspaces al modal
             workspaces.forEach(function (workspace) {
                 // Mostraremos como selected aquel id que el usuario envíe
-                $("[name=workspace]").append(new Option(workspace.name, workspace.id));
+                if (findGetParameter('id') == workspace.name) {
+                    $("[name=workspace]").append(new Option(workspace.name, workspace.id, false, true));
+                } else {
+                    $("[name=workspace]").append(new Option(workspace.name, workspace.id));
+                }
             });
         },
         error: function(response){

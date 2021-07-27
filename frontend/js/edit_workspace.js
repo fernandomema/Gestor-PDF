@@ -30,7 +30,7 @@ $(document).ready(function () {
     $('#adduser-button').on('click', function() {
         $.ajax({
             type: "GET",
-            url: "https://insta-pdf.herokuapp.com/api/workspaces/" + findGetParameter('id') + '/join/' + $('input[name=user]').val,
+            url: "https://insta-pdf.herokuapp.com/api/workspaces/" + findGetParameter('id') + '/join/' + $('input[name=user]').val(),
             headers: {
                 'Accept': 'application/json',
                 'Authorization':'Bearer '+sessionStorage.getItem('token')
