@@ -73,6 +73,6 @@ $(document).ready(function () {
         pauseOnHover: true,
         timeoutProgressbar: true,
         attached: 'bottom' 
-      });
+    });
 });
 
