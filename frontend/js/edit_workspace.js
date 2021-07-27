@@ -12,7 +12,9 @@ $(document).ready(function () {
             data.workspace.users.forEach(function (user) {
                 users.push({
                     username: user.username,
-                    avatar: jsGravatar({ email: user.email, defaultImage: 'blank' })
+                    avatar: jsGravatar({ email: user.email, defaultImage: 'blank' }),
+                    elemId: 'user-' + user.id,
+                    elemIdTarget: '#user-' + user.id
                 });
             });
                         
@@ -38,6 +40,7 @@ $(document).ready(function () {
             dataType: 'JSON',
             success: function (data) {
                 console.log(data);
+                location.reload();
 
             },
             error: function(response){

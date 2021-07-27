@@ -327,12 +327,12 @@
                         <div class="accordion-item w-100 border-0 bg-transparent">
                             <h2 class="accordion-header w-100 border-0 bg-transparent">
                                 <button class="accordion-button collapsed w-100 bg-transparent" type="button" 
-                                    data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                    data-bs-toggle="collapse" data-template-bind='[{"attribute": "data-bs-target", "value": "elemIdTarget"}]' aria-expanded="false"
                                     aria-controls="flush-collapseOne" data-content="username">
                                 </button>
                             </h2>
         
-                            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
+                            <div data-template-bind='[{"attribute": "id", "value": "elemId"}]' class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
                                 data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
                                     <div class="mb-3">
