@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workspaces</title>
+    <!-- Favicon -->
+    <link rel="icon" href="../img/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="https://unpkg.com/@tabler/core@latest/dist/css/tabler.min.css">
+    <link rel="stylesheet" href="../css/global.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="navbar navbar-expand-md navbar-light d-print-none">
+            <div class="container-xl">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+                    <a href=".">
+                        <img src="../img/logo_admin_modify.png" width="110" height="32" alt="AppName" class="navbar-brand-image">
+                    </a>
+                </h1>
+                <div class="navbar-nav flex-row order-md-last">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
+                            aria-label="Open user menu">
+                            <span class="avatar avatar-sm"
+                                style="background-image: url(./static/avatars/000m.jpg)"></span>
+                            <div class="d-none d-xl-block ps-2">
+                                <!-- Traemos el nombre de Usuario desde jQuery -->
+                                <div class="username-menu"></div>
+                                <div class="mt-1 small text-muted">User</div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            <a href="settings_user_panel.html" class="dropdown-item">Profile & account</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" id="logout-btn" class="dropdown-item">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="navbar-expand-md">
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <div class="navbar navbar-light">
+                    <div class="container-xl">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./home.html">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                                            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                                            <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        Home
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./workspaces.html">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-briefcase" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <rect x="3" y="7" width="18" height="13" rx="2"></rect>
+                                            <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path>
+                                            <line x1="12" y1="12" x2="12" y2="12.01"></line>
+                                            <path d="M3 13a20 20 0 0 0 18 0"></path>
+                                         </svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        Workspaces
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./faq_section.html">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-question-mark" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M8 8a3.5 3 0 0 1 3.5 -3h1a3.5 3 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4"></path>
+                                            <line x1="12" y1="19" x2="12" y2="19.01"></line>
+                                        </svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        FAQ
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
+                            <form >
+                                <div class="input-icon">
+                                    <span class="input-icon-addon">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/search -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <circle cx="10" cy="10" r="7" />
+                                            <line x1="21" y1="21" x2="15" y2="15" /></svg>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="Search…"
+                                        aria-label="Search in website" id="search-bar">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="container-xl">
+                <!-- Page title -->
+                <div class="page-header">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <div class="page-pretitle">
+                                Workspaces
+                            </div>
+                            <h2 class="page-title">
+                                Your workspaces
+                            </h2>
+                        </div>
+                        <div class="col-auto ms-auto">
+                            <div class="btn-list">
+                                <a href="create_workspace.html" class="btn btn-purple d-none d-sm-inline-block">
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                                    <!-- SVG icon code -->
+                                    Create new workspace
+                                </a>
+                                <a href="create_workspace.html" class="btn btn-purple d-sm-none btn-icon" aria-label="Create new workspace">
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                                    <!-- SVG icon code -->
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-body">
+                <div class="container-xl">
+                    <div class="card">
+                        <div class="list-group list-group-flush overflow-auto" id="workspace" style="max-height: 35rem">
+                            <div class="list-group-header sticky-top">
+                                <div class="skeleton-line" style="width: 10px;"></div>
+                            </div>
+                            <div class="list-group-item">
+                                <div class="row">
+                                    <div class="col-auto">
+                                        <a href="#">
+                                            <span class="avatar">
+                                                
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div class="col text-truncate">
+                                        <a href="#" class="text-body d-block">
+                                            <div class="skeleton-line"></div>
+                                        </a>
+                                        <div class="text-muted text-truncate mt-n1">
+                                            <div class="skeleton-line"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="footer footer-transparent d-print-none">
+                <div class="container">
+                    <div class="row text-center align-items-center flex-row-reverse">
+                        <div class="col-lg-auto ms-lg-auto">
+                            <ul class="list-inline list-inline-dots mb-0">
+                                <li class="list-inline-item">
+                                    <a href="home.html" class="link-secondary">Inicio</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                            <ul class="list-inline list-inline-dots mb-0">
+                                <li class="list-inline-item">
+                                    Copyright &copy; 2021
+                                    <a href="." class="link-secondary">InstaPDF</a>.
+                                    All rights reserved.
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="./changelog.html" class="link-secondary" rel="noopener">v1.0.0-beta3</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <script type="text/html" id="workspace-template">
+        <div class="list-group-item workspace-item">
+            <div class="row">
+                <div class="col-auto">
+                    <a data-template-bind='[ {"attribute": "href", "value": "url"}]'>
+                        <span class="avatar">
+                            <img data-src="avatar" alt="">
+                        </span>
+                    </a>
+                </div>
+                <div class="col text-truncate">
+                    <a data-template-bind='[ {"attribute": "href", "value": "url"}]' class="text-body d-block" style="line-height: 40px;" data-content="name"></a>
+                    <div class="text-muted text-truncate mt-n1">
+                        <div class="skeleton-line d-none"></div>
+                    </div>
+                </div>
+                <div class="col-auto lh-1 m-auto">
+                    <div class="menu-item">
+                        <a data-template-bind='[ {"attribute": "href", "value": "editUrl"}]' class="link-secondary" aria-expanded="false" title="Edit">
+                            <!-- Download SVG icon from http://tabler-icons.io/i/dots -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-edit text-yellow" style="height: 30px; width: 30px;" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M9 7h-3a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-3"></path>
+                                <path d="M9 15h3l8.5 -8.5a1.5 1.5 0 0 0 -3 -3l-8.5 8.5v3"></path>
+                                <line x1="16" y1="5" x2="19" y2="8"></line>
+                            </svg>
+                        </a>
+                        <a data-template-bind='[ {"attribute": "href", "value": "url"}]' class="link-secondary" aria-expanded="false" title="View documents">
+                            <!-- Download SVG icon from http://tabler-icons.io/i/dots -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-login text-blue" style="height: 30px; width: 30px;" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2"></path>
+                                <path d="M20 12h-13l3 -3m0 6l-3 -3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    
+    <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/api_logout.js"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.loadtemplate/1.2.2/jquery.loadTemplate.min.js" integrity="sha512-4TNloTjrSDYjXOIkusiCx1L1n7KrBLENxj/zsM5a1XeA9KT3Chb+7mPHFzopYxf7IeEpP8ReekhSUHWO99vuYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="../js/global.js"></script>
+    <script src="../js/workspaces.js"></script>
+    <script src="../js/search_workspaces.js"></script>
+</body>
+
+</html>

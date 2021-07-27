@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="icon" href="../img/favicon.png" type="image/png" />
+    <link rel="stylesheet" href="https://unpkg.com/@tabler/core@latest/dist/css/tabler.min.css">
+    <link rel="stylesheet" href="../css/global.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="navbar navbar-expand-md navbar-light d-print-none">
+            <div class="container-xl">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+                    <a href=".">
+                        <img src="../img/logo_admin_modify.png" width="110" height="32" alt="AppName" class="navbar-brand-image">
+                    </a>
+                </h1>
+                <div class="navbar-nav flex-row order-md-last">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
+                            aria-label="Open user menu">
+                            <span class="avatar avatar-sm"
+                                style=></span>
+                            <div class="d-none d-xl-block ps-2">
+                                <!-- Traemos el nombre de Usuario desde jQuery -->
+                                <div class="username-menu"></div>
+                                <div class="mt-1 small text-muted">User</div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            <a href="settings_user_panel.html" class="dropdown-item">Profile & account</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" id="logout-btn" class="dropdown-item">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="navbar-expand-md">
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <div class="navbar navbar-light">
+                    <div class="container-xl">
+                        <ul class="navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="./home.html">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                                            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                                            <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        Home
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./workspaces.html">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-briefcase" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <rect x="3" y="7" width="18" height="13" rx="2"></rect>
+                                            <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path>
+                                            <line x1="12" y1="12" x2="12" y2="12.01"></line>
+                                            <path d="M3 13a20 20 0 0 0 18 0"></path>
+                                         </svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        Workspaces
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./faq_section.html">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-question-mark" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M8 8a3.5 3 0 0 1 3.5 -3h1a3.5 3 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4"></path>
+                                            <line x1="12" y1="19" x2="12" y2="19.01"></line>
+                                        </svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        FAQ
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
+                            <form action="." method="get">
+                                <div class="input-icon">
+                                    <span class="input-icon-addon">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/search -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon lupa" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <circle cx="10" cy="10" r="7" />
+                                            <line x1="21" y1="21" x2="15" y2="15" /></svg>
+                                        <div id="spinner"></div>
+                                    </span>
+                                    <input type="text" class="form-control" placeholder="Search…"
+                                        aria-label="Search in website" id="search-bar">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="container-xl">
+                <!-- Page title -->
+                <div class="page-header d-print-none">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <!-- Page pre-title -->
+                            <div class="page-pretitle">
+                                Home
+                            </div>
+                            <h2 class="page-title">
+                                Documents
+                            </h2>
+                        </div>
+                        <!-- Page title actions -->
+                        <div class="col-auto ms-auto d-print-none">
+                            <div class="btn-list">
+                                <span class="d-none d-sm-inline">
+                                    <a href="upload.html" class="btn btn-white">
+                                        Upload
+                                    </a>
+                                </span>
+                                <a href="#" class="btn btn-purple d-none d-sm-inline-block" data-bs-toggle="modal"
+                                    data-bs-target="#modal-report">
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg>
+                                    Create new document
+                                </a>
+                                <a href="#" class="btn btn-purple d-sm-none btn-icon" data-bs-toggle="modal"
+                                    data-bs-target="#modal-report" aria-label="Create new report">
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                        viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-body">
+                <div class="container-xl">
+                    <div class="row row-cards position-relative"  id="workgroups"> <!-- data-masonry='{"percentPosition": true }' -->
+
+                        <div class="col-12 col-lg-6">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="skeleton-heading w-100"></div>
+                                </div>
+                                <div class="list-group list-group-flush" id="document-container">
+                                    
+                                    <div class="list-group-item">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <input type="checkbox" class="form-check-input">
+                                            </div>
+                                            <div class="col-auto">
+                                                <a href="#">
+                                                    <span class="avatar" style="background-image: url(../img/pdf.png)"></span>
+                                                </a>
+                                            </div>
+                                            <div class="col text-truncate">
+                                                <a href="#" class="text-body d-block"><div class="skeleton-line"></div></a>
+                                                <small class="d-block text-muted text-truncate mt-n1"><div class="skeleton-line w-25"></div></small>
+                                            </div>
+                                            <div class="col-auto lh-1">
+                                                <div class="dropdown">
+                                                  <a href="#" class="link-secondary" data-bs-toggle="dropdown" aria-expanded="false"><!-- Download SVG icon from http://tabler-icons.io/i/dots -->
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg>
+                                                  </a>
+                                                  <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">
+                                                      View
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                      Edit
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                      Sign
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                      Print
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                      Delete
+                                                    </a>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-group-item">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <input type="checkbox" class="form-check-input">
+                                            </div>
+                                            <div class="col-auto">
+                                                <a href="#">
+                                                    <span class="avatar" style="background-image: url(../img/pdf.png)"></span>
+                                                </a>
+                                            </div>
+                                            <div class="col text-truncate">
+                                                <a href="#" class="text-body d-block"><div class="skeleton-line"></div></a>
+                                                <small class="d-block text-muted text-truncate mt-n1"><div class="skeleton-line w-25"></div></small>
+                                            </div>
+                                            <div class="col-auto lh-1">
+                                                <div class="dropdown">
+                                                  <a href="#" class="link-secondary" data-bs-toggle="dropdown" aria-expanded="false"><!-- Download SVG icon from http://tabler-icons.io/i/dots -->
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg>
+                                                  </a>
+                                                  <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">
+                                                      View
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                      Edit
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                      Sign
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                      Print
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                      Delete
+                                                    </a>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="list-group-item">
+                                        <div class="row align-items-center">
+                                            <div class="col-auto">
+                                                <input type="checkbox" class="form-check-input">
+                                            </div>
+                                            <div class="col-auto">
+                                                <a href="#">
+                                                    <span class="avatar" style="background-image: url(../img/pdf.png)"></span>
+                                                </a>
+                                            </div>
+                                            <div class="col text-truncate">
+                                                <a href="#" class="text-body d-block"><div class="skeleton-line"></div></a>
+                                                <small class="d-block text-muted text-truncate mt-n1"><div class="skeleton-line w-25"></div></small>
+                                            </div>
+                                            <div class="col-auto lh-1">
+                                                <div class="dropdown">
+                                                  <a href="#" class="link-secondary" data-bs-toggle="dropdown" aria-expanded="false"><!-- Download SVG icon from http://tabler-icons.io/i/dots -->
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg>
+                                                  </a>
+                                                  <div class="dropdown-menu dropdown-menu-end">
+                                                    <a class="dropdown-item" href="#">
+                                                      View
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                      Edit
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                      Sign
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                      Print
+                                                    </a>
+                                                    <a class="dropdown-item" href="#">
+                                                      Delete
+                                                    </a>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="mb-3 col-sm-2">
+                                    <div class="btn-group w-100">
+                                      <button type="button" class="btn">Delete</button>
+                                      <button type="button" class="btn">Print</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <footer class="footer footer-transparent d-print-none">
+                <div class="container">
+                    <div class="row text-center align-items-center flex-row-reverse">
+                        <div class="col-lg-auto ms-lg-auto">
+                            <ul class="list-inline list-inline-dots mb-0">
+                                <li class="list-inline-item">
+                                    <a href="home.html" class="link-secondary">Inicio</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                            <ul class="list-inline list-inline-dots mb-0">
+                                <li class="list-inline-item">
+                                    Copyright &copy; 2021
+                                    <a href="." class="link-secondary">InstaPDF</a>.
+                                    All rights reserved.
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="./changelog.html" class="link-secondary" rel="noopener">v1.0.0-beta3</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <div class="modal modal-blur fade" id="modal-report" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">New document</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" name="example-text-input" placeholder="Your document name">
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="mb-3">
+                                <label class="form-label">Workspace</label>
+                                <!-- Traemos los workspaces de manera dinámica -->
+                                <select class="form-select" name="workspace"></select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+                    Cancel
+                    </a>
+                    <a href="templates.html" class="btn btn-purple ms-auto" data-bs-dismisse="modal">
+                        <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                        </svg>
+                        Create new document
+                    </a>
+                </div>
+           </div>
+        </div>
+    </div>
+     
+    <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+
+    <!-- Jquery CDN link -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Jquery Time ago CDN plugin -->
+    <script src="https://cdn.jsdelivr.net/gh/rmm5t/jquery-timeago@1.6.7/jquery.timeago.js"></script>
+    <!-- Jquery Logout api -->
+    <script src="../js/api_logout.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.loadtemplate/1.2.2/jquery.loadTemplate.min.js" integrity="sha512-4TNloTjrSDYjXOIkusiCx1L1n7KrBLENxj/zsM5a1XeA9KT3Chb+7mPHFzopYxf7IeEpP8ReekhSUHWO99vuYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="../js/home.js"></script>
+    <script type="text/javascript" src="../js/global.js"></script>
+    <script src="../js/api_search_document_in_workspaces.js"></script>
+    <script src="../js/bring_workspaces_in_modal.js"></script>
+    <!-- new Masonry( document.querySelector('.row-cards')); -->
+
+    <script type="text/html" id="document-template">
+        <div class="list-group-item">
+            <div class="row align-items-center">
+                <div class="col-auto">
+                    <input type="checkbox" class="form-check-input">
+                </div>
+                <div class="col-auto">
+                    <a href="#">
+                        <span class="avatar" style="background-image: url(../img/pdf.png)"></span>
+                    </a>
+                </div>
+                <div class="col text-truncate">
+                    <a href="#" data-template-bind='[{"attribute": "href", "value": "preview"}]' class="text-body d-block" data-content="name"></a>
+                    <small class="d-block text-muted text-truncate mt-n1" 
+                    data-template-bind='[{"attribute": "content", "value": "date"}]'></small>
+                </div>
+                <div class="col-auto lh-1">
+                    <div class="dropdown">
+                      <a href="#" data-template-bind='[{"attribute": "href", "value": "preview"}]' class="link-secondary" data-bs-toggle="dropdown" aria-expanded="false"><!-- Download SVG icon from http://tabler-icons.io/i/dots -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><circle cx="5" cy="12" r="1"></circle><circle cx="12" cy="12" r="1"></circle><circle cx="19" cy="12" r="1"></circle></svg>
+                      </a>
+                      <div class="dropdown-menu dropdown-menu-end">
+                        <a class="dropdown-item" href="#" data-template-bind='[{"attribute": "href", "value": "preview"}]'>
+                          View
+                        </a>
+                        <a class="dropdown-item btn-edit" href="#" data-template-bind='[{"attribute": "type", "value": "type"}]'>
+                          Edit
+                        </a>
+                        <a class="dropdown-item btn-sign" href="#" data-template-bind='[{"attribute": "href", "value": "sign"}]'>
+                          Sign
+                        </a>
+                        <a class="dropdown-item btn-print" href="#" data-template-bind='[{"attribute": "type", "value": "type"}, {"attribute": "href", "value": "print"}]'>
+                          Print
+                        </a>
+                        <a class="dropdown-item delete-doc-btn" data-template-bind='[{"attribute": "doc-id", "value": "id"}]' href="#">
+                          Delete
+                        </a>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/html" id="workgroup-template">
+        <div class="col-12 col-lg-6 workgroup-default">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title" data-content="name">Personal Documents</h3>
+                    <a href="#" class="btn btn-purple ms-auto btn-upload" data-template-bind='[{"attribute": "href", "value": "upload_url"}]'>Upload</a>
+                </div>
+                <div class="list-group list-group-flush" data-template-bind='[{"attribute": "id", "value": "elemID"}]'>
+        
+                    <div class="list-group-item">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <input type="checkbox" class="form-check-input">
+                            </div>
+                            <div class="col-auto">
+                                <a href="#">
+                                    <span class="avatar" style="background-image: url(../img/pdf.png)"></span>
+                                </a>
+                            </div>
+                            <div class="col text-truncate">
+                                <a href="#" class="text-body d-block">
+                                    <div class="skeleton-line"></div>
+                                </a>
+                                <small class="d-block text-muted text-truncate mt-n1">
+                                    <div class="skeleton-line w-25"></div>
+                                </small>
+                            </div>
+                            <div class="col-auto lh-1">
+                                <div class="dropdown">
+                                    <a href="#" class="link-secondary" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/dots -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <circle cx="5" cy="12" r="1"></circle>
+                                            <circle cx="12" cy="12" r="1"></circle>
+                                            <circle cx="19" cy="12" r="1"></circle>
+                                        </svg>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <a class="dropdown-item" href="#">
+                                            View
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            Edit
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            Sign
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            Print
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            Delete
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="list-group-item">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <input type="checkbox" class="form-check-input">
+                            </div>
+                            <div class="col-auto">
+                                <a href="#">
+                                    <span class="avatar" style="background-image: url(../img/pdf.png)"></span>
+                                </a>
+                            </div>
+                            <div class="col text-truncate">
+                                <a href="#" class="text-body d-block">
+                                    <div class="skeleton-line"></div>
+                                </a>
+                                <small class="d-block text-muted text-truncate mt-n1">
+                                    <div class="skeleton-line w-25"></div>
+                                </small>
+                            </div>
+                            <div class="col-auto lh-1">
+                                <div class="dropdown">
+                                    <a href="#" class="link-secondary" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/dots -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <circle cx="5" cy="12" r="1"></circle>
+                                            <circle cx="12" cy="12" r="1"></circle>
+                                            <circle cx="19" cy="12" r="1"></circle>
+                                        </svg>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <a class="dropdown-item" href="#">
+                                            View
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            Edit
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            Sign
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            Print
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            Delete
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="list-group-item">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <input type="checkbox" class="form-check-input">
+                            </div>
+                            <div class="col-auto">
+                                <a href="#">
+                                    <span class="avatar" style="background-image: url(../img/pdf.png)"></span>
+                                </a>
+                            </div>
+                            <div class="col text-truncate">
+                                <a href="#" class="text-body d-block">
+                                    <div class="skeleton-line"></div>
+                                </a>
+                                <small class="d-block text-muted text-truncate mt-n1">
+                                    <div class="skeleton-line w-25"></div>
+                                </small>
+                            </div>
+                            <div class="col-auto lh-1">
+                                <div class="dropdown">
+                                    <a href="#" class="link-secondary" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/dots -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <circle cx="5" cy="12" r="1"></circle>
+                                            <circle cx="12" cy="12" r="1"></circle>
+                                            <circle cx="19" cy="12" r="1"></circle>
+                                        </svg>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <a class="dropdown-item" href="#">
+                                            View
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            Edit
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            Sign
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            Print
+                                        </a>
+                                        <a class="dropdown-item" href="#">
+                                            Delete
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="mb-3 col-sm-2">
+                    <div class="btn-group w-100">
+                        <button type="button" class="btn">Delete</button>
+                        <button type="button" class="btn">Print</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script type="text/html" id="empty-template">
+        <div class="empty">
+            <div class="empty-img">
+                <img src="../img/undraw_add_document_0hek.svg" height="128" alt="">
+            </div>
+            <p class="empty-title">You don't have any document yet.</p>
+            <p class="empty-subtitle text-muted">
+                Why you don't try to create a new one?
+            </p>
+            <div class="empty-action">
+                <a href="#" class="btn btn-purple btn-add-document" data-template-bind='[{"attribute": "href", "value": "upload_url"}]'>
+                    <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                    New document
+                </a>
+            </div>
+        </div>
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Favicon -->
+    <link rel="icon" href="../img/favicon.png" type="image/png" />
+    <!-- CSS Fontawesome file -->
+    <link rel="stylesheet" href="../css/all.min.css">
+    <!-- Google fonts: NotoSans -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap" rel="stylesheet">
+    <!-- Google fonts: Inter -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <!-- CSS Bootstrap Tabler -->
+    <link rel="stylesheet" href="https://unpkg.com/@tabler/core@latest/dist/css/tabler.min.css">
+    <!-- CSS custom file -->
+    <link rel="stylesheet" href="../css/styles_settings_user_panel.css">
+    <title>settings</title>
+</head>
+<body>
+
+    <!-- Cabecera -->
+    <div class="wrapper">
+        <header class="navbar navbar-expand-md navbar-light d-print-none">
+            <div class="container-xl">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
+                    <a href=".">
+                        <img src="../img/logo_admin_modify.png" width="110" height="32" alt="AppName" class="navbar-brand-image">
+                    </a>
+                </h1>
+                <div class="navbar-nav flex-row order-md-last">
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown"
+                            aria-label="Open user menu">
+                            <span class="avatar avatar-sm"
+                                style=></span>
+                            <div class="d-none d-xl-block ps-2">
+                                <!-- Traemos el nombre de Usuario desde jQuery -->
+                                <div class="username-menu"></div>
+                                <div class="mt-1 small text-muted">User</div>
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                            <a href="#" class="dropdown-item">Profile & account</a>
+                            <div class="dropdown-divider"></div>
+                            <a href="#" id="logout-btn" class="dropdown-item">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="navbar-expand-md">
+            <div class="collapse navbar-collapse" id="navbar-menu">
+                <div class="navbar navbar-light">
+                    <div class="container-xl">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./home.html">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24"
+                                            viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                            stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                            <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                                            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                                            <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" /></svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        Home
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./workspaces.html">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-briefcase" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <rect x="3" y="7" width="18" height="13" rx="2"></rect>
+                                            <path d="M8 7v-2a2 2 0 0 1 2 -2h4a2 2 0 0 1 2 2v2"></path>
+                                            <line x1="12" y1="12" x2="12" y2="12.01"></line>
+                                            <path d="M3 13a20 20 0 0 0 18 0"></path>
+                                         </svg>
+                                      
+                                    </span>
+                                    <span class="nav-link-title">
+                                        Workspaces
+                                    </span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./faq_section.html">
+                                    <span class="nav-link-icon d-md-none d-lg-inline-block">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-question-mark" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                            <path d="M8 8a3.5 3 0 0 1 3.5 -3h1a3.5 3 0 0 1 3.5 3a3 3 0 0 1 -2 3a3 4 0 0 0 -2 4"></path>
+                                            <line x1="12" y1="19" x2="12" y2="19.01"></line>
+                                        </svg>
+                                    </span>
+                                    <span class="nav-link-title">
+                                        FAQ
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-wrapper">
+            <div class="container-xl">
+                <!-- Page title -->
+                <div class="page-header d-print-none">
+                    <div class="row align-items-center">
+                        <div class="col">
+                            <h2 class="page-title">
+                                Settings
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-body">
+                <div class="container-xl">
+                    <section class="settings">   
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <h3 class="card-title">Profile & Account</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col"></div>
+                                    <div class="col-10 col-sm-6 col-lg-3 text-center">
+                                        <img class="rounded-circle" id="avatar-circulo" alt="">
+                                        <!-- Traemos el nombre de Usuario desde jQuery -->
+                                        <h1 class="mt-3 username"></h1>
+                                    </div>
+                                    <div class="col"></div>
+                                </div>
+
+                                <div class="divider my-3"></div>
+
+                                <div class="row text-center mb-4">
+                                    <div class="col-12">
+                                        <h4 class="title">Change those fields you desire</h4>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 col-sm-6 order-1">
+                                        <div class="input-icon mb-3">
+                                            <span class="input-icon-addon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <circle cx="12" cy="7" r="4"></circle>
+                                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2"></path>
+                                                </svg>
+                                            </span>
+                                            <input type="text" class="form-control" id="username-field" name="username">
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-sm-6 order-2">
+                                        <div class="input-icon mb-3">
+                                            <span class="input-icon-addon">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-mail" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                                    <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+                                                    <polyline points="3 7 12 13 21 7"></polyline>
+                                                </svg>
+                                            </span>
+                                            <input type="email" class="form-control" id="email-field" name="email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-container text-center mt-4">
+                                    <button type="button" class="btn" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Change Password</button>
+                                </div>
+                                    
+                                <div class="collapse mt-4" id="collapseExample">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6 order-3">
+                                            <div class="form-floating mb-3">
+                                                <input type="password" class="form-control" id="password-current-field" name="pass">
+                                                <label for="password-current-field">Current password</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-sm-6 order-4">
+                                            <div class="form-floating mb-3">
+                                                <input type="password" class="form-control" id="password-new-field" name="pass-repeat">
+                                                <label for="password-new-field">New password</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 offset-md-3 order-5">
+                                            <div class="form-floating mb-3">
+                                                <input type="password" class="form-control" id="password-repeat-field" name="pass-new-repeat">
+                                                <label for="password-repeat-field">Repeat new password</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="btn-container text-center mt-4">
+                                <button type="submit" id="submit" class="btn btn-purple">Save changes</button>
+                                <button type="button" id="delete-account-btn" class="btn delete-btn" data-bs-toggle="modal" data-bs-target="#modal-report">Delete account</button>
+                            </div>
+      
+                            <!-- Aquí mostraremos el spinner de cargando -->
+                            <div class="mt-3" id="spinner-circulando"></div>    
+            
+                            <!-- Aquí mostraremos los mensajes de error o de éxito. Usando AJAX -->
+                            <div id="success_message" class="ajax_response text-center"></div> 
+                            <div id="error_message" class="ajax_response text-center"></div> 
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <footer class="footer footer-transparent d-print-none">
+                <div class="container">
+                    <div class="row text-center align-items-center flex-row-reverse">
+                        <div class="col-lg-auto ms-lg-auto">
+                            <ul class="list-inline list-inline-dots mb-0">
+                                <li class="list-inline-item">
+                                    <a href="home.html" class="link-secondary">Inicio</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-auto mt-3 mt-lg-0">
+                            <ul class="list-inline list-inline-dots mb-0">
+                                <li class="list-inline-item">
+                                    Copyright &copy; 2021
+                                    <a href="." class="link-secondary">InstaPDF</a>.
+                                    All rights reserved.
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="./changelog.html" class="link-secondary" rel="noopener">v1.0.0-beta3</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <!-- Modal de tabler -->
+    <div class="modal modal-blur fade" id="modal-report" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-status bg-danger"></div>
+                <div class="modal-body text-center py-4">
+                <!-- Download SVG icon from http://tabler-icons.io/i/alert-triangle -->
+                <!-- SVG icon code with class="mb-2 text-danger icon-lg" -->
+                <h3>Are you sure?</h3>
+                <div class="text-muted">Do you really want to delete your account? What you've done cannot be undone.</div>
+            </div>
+                <div class="modal-footer">
+                    <div class="w-100">
+                        <div class="row">
+                            <div class="col"><a href="#" class="btn btn-white w-100" data-bs-dismiss="modal">
+                                Cancel
+                            </a></div>
+                            <div class="col"><a href="#" class="btn btn-danger w-100" data-bs-dismiss="modal" id="btn-delete-account">
+                                Delete Account
+                            </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Bootstrap 5 Tabler -->
+    <script src="https://unpkg.com/@tabler/core@latest/dist/js/tabler.min.js"></script>
+    <!-- Jquery CDN link -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- Jquery custom file -->
+    <script src="../js/api_show_user_info.js"></script>
+    <script src="../js/api_edit_user_info.js"></script>
+    <script src="../js/api_logout.js"></script>
+    <script src="../js/api_delete_account.js"></script>
+    <script src="../js/load_avatar_name_user.js"></script>
+    <script src="../js/global.js"></script>
+</body>
+</html>
